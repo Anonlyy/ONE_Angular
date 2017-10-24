@@ -12,7 +12,7 @@
     
     <title>
         
-            归档: 2017 | 
+            PostCSS入门 | 
         
         Xposean&#39;s Blog
     </title>
@@ -67,15 +67,18 @@
     <!-- The Open Graph protocol -->
     <meta property="og:url" content="http://xposean.xin">
     <meta property="og:type" content="blog">
-    <meta property="og:title" content="归档: 2017 | Xposean&#39;s Blog">
+    <meta property="og:title" content="PostCSS入门 | Xposean&#39;s Blog">
     <meta property="og:image" content="/img/favicon.png" />
     <meta property="og:description" content="做一个刚刚好的前端仔">
     
 
     
+        <meta property="article:published_time" content="10月 24, 2017" />
+        <meta property="article:modified_time" content="10月 24, 2017" />
+    
 
     <!-- The Twitter Card protocol -->
-    <meta name="twitter:title" content="归档: 2017 | Xposean&#39;s Blog">
+    <meta name="twitter:title" content="PostCSS入门 | Xposean&#39;s Blog">
     <meta name="twitter:description" content="做一个刚刚好的前端仔">
     <meta name="twitter:image" content="/img/favicon.png">
     <meta name="twitter:card" content="summary_large_image" />
@@ -83,13 +86,43 @@
 
     <!-- Add canonical link for SEO -->
     
-        <link rel="canonical" href="http://xposean.xin/archives/2017/index.html" />
+        <link rel="canonical" href="http://xposean.xin/2017/10/24/PostCSS入门/index.html" />
     
 
     <!-- Structured-data for SEO -->
     
         
 
+
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "publisher": {
+        "@type": "Organization",
+        "name": "Xposean&#39;s Blog",
+        "logo": "/img/favicon.png"
+    },
+    "author": {
+        "@type": "Person",
+        "name": "Xposean",
+        "image": {
+            "@type": "ImageObject",
+            "url": "/img/favicon.png"
+        },
+        "description": "做一个刚刚好的前端仔,——关于我"
+    },
+    "headline": "PostCSS入门",
+    "url": "http://xposean.xin/2017/10/24/PostCSS入门/index.html",
+    "datePublished": "10月 24, 2017",
+    "dateModified": "10月 24, 2017",
+    "description": "做一个刚刚好的前端仔",
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "http://xposean.xin"
+    }
+}
+</script>
 
 
     
@@ -308,215 +341,279 @@
                         </button>
                     
 
-                    <!-- Index Module -->
-<div class="material-index mdl-grid">
-    
-    <div class="locate-thumbnail-symbol"></div>
+                    <!-- Post TOC -->
 
-    <!-- Pin on top -->
     
+    <!-- Back Button -->
+    <!--
+    <div class="material-back" id="backhome-div" tabindex="0">
+        <a class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon"
+           href="#" onclick="window.history.back();return false;"
+           target="_self"
+           role="button"
+           data-upgraded=",MaterialButton,MaterialRipple">
+            <i class="material-icons" role="presentation">arrow_back</i>
+            <span class="mdl-button__ripple-container">
+                <span class="mdl-ripple"></span>
+            </span>
+        </a>
+    </div>
+    -->
 
-    <!-- Normal Post -->
+    <!-- Left aligned menu below button -->
+    <button id="post-toc-trigger-btn"
+        class="mdl-button mdl-js-button mdl-button--icon">
+        <i class="material-icons">format_list_numbered</i>
+    </button>
+
     
+    <ul class="post-toc-wrap mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect" for="post-toc-trigger-btn" style="max-height:80vh; overflow-y:scroll;">
         
-            
-                <!-- Paradox Thumbnail -->
-                <div class="post_entry-module mdl-card mdl-shadow--2dp mdl-cell mdl-cell--12-col fade out">
-    <!-- Post Thumbnail -->
+        <!--
+        <li class="mdl-menu__item">
+            Some Action
+        </li>
+        -->
+    </ul>
+    
+
+
+
+
+
+<!-- Layouts -->
+
+    <!-- Post Module -->
+    <div class="material-post_container">
+
+        <div class="material-post mdl-grid">
+            <div class="mdl-card mdl-shadow--4dp mdl-cell mdl-cell--12-col">
+
+                <!-- Post Header(Thumbnail & Title) -->
+                
+    <!-- Paradox Post Header -->
     
         
             <!-- Random Thumbnail -->
             <div class="post_thumbnail-random mdl-card__media mdl-color-text--grey-50">
-        
-    
+            <script type="text/ls-javascript" id="post-thumbnail-script">
+    var randomNum = Math.floor(Math.random() * 19 + 1);
 
-        <!-- Post Title -->
-        <p class="article-headline-p"><a href="/2017/10/24/PostCSS入门/">PostCSS入门</a></p>
-    </div>
-
-    <!-- Post Excerpt -->
-    <div class="mdl-color-text--grey-600 mdl-card__supporting-text post_entry-content">
-        
-            ##概述##我想你应该已经听说过
-        
-        &nbsp;&nbsp;&nbsp;
-        <span>
-            <a href="/2017/10/24/PostCSS入门/" target="_self">阅读全文</a>
-        </span>
-    </div>
-    <!-- Post_entry Info-->
-    <div id="post_entry-info">
-        <div id="post_entry-left-info" class="mdl-card__supporting-text meta mdl-color-text--grey-600 ">
-            <!-- Author Avatar -->
-            <div id="author-avatar">
-                <img src="/img/avatar.png" width="44px" height="44px" alt="Xposean's avatar">
-            </div>
-            <div>
-                <strong>Xposean</strong>
-                <span>10月 24, 2017</span>
-            </div>
-        </div>
-        <div id="post_entry-right-info">
-            <!-- Category -->
-            <span class="post_entry-category">
-                
-            </span>
-
-            
-
-            
-
-            <!-- Post Views -->
-            <span class="post_entry-views">
-            </span>
-        </div>
-    </div>
-</div>
-
-            
-            
-        
-    
-        
-            
-                <!-- Paradox Thumbnail -->
-                <div class="post_entry-module mdl-card mdl-shadow--2dp mdl-cell mdl-cell--12-col fade out">
-    <!-- Post Thumbnail -->
-    
-        
-            <!-- Random Thumbnail -->
-            <div class="post_thumbnail-random mdl-card__media mdl-color-text--grey-50">
-        
-    
-
-        <!-- Post Title -->
-        <p class="article-headline-p"><a href="/2017/08/31/hello-hexo/">hello,hexo</a></p>
-    </div>
-
-    <!-- Post Excerpt -->
-    <div class="mdl-color-text--grey-600 mdl-card__supporting-text post_entry-content">
-        
-            
-
-        
-        &nbsp;&nbsp;&nbsp;
-        <span>
-            <a href="/2017/08/31/hello-hexo/" target="_self">阅读全文</a>
-        </span>
-    </div>
-    <!-- Post_entry Info-->
-    <div id="post_entry-info">
-        <div id="post_entry-left-info" class="mdl-card__supporting-text meta mdl-color-text--grey-600 ">
-            <!-- Author Avatar -->
-            <div id="author-avatar">
-                <img src="/img/avatar.png" width="44px" height="44px" alt="Xposean's avatar">
-            </div>
-            <div>
-                <strong>Xposean</strong>
-                <span>8月 31, 2017</span>
-            </div>
-        </div>
-        <div id="post_entry-right-info">
-            <!-- Category -->
-            <span class="post_entry-category">
-                
-            </span>
-
-            
-
-            
-
-            <!-- Post Views -->
-            <span class="post_entry-views">
-            </span>
-        </div>
-    </div>
-</div>
-
-            
-            
-        
-    
-        
-            
-                <!-- Paradox Thumbnail -->
-                <div class="post_entry-module mdl-card mdl-shadow--2dp mdl-cell mdl-cell--12-col fade out">
-    <!-- Post Thumbnail -->
-    
-        
-            <!-- Random Thumbnail -->
-            <div class="post_thumbnail-random mdl-card__media mdl-color-text--grey-50">
-        
-    
-
-        <!-- Post Title -->
-        <p class="article-headline-p"><a href="/2017/08/28/你好,hexo/">Hello World</a></p>
-    </div>
-
-    <!-- Post Excerpt -->
-    <div class="mdl-color-text--grey-600 mdl-card__supporting-text post_entry-content">
-        
-            Welcome to Hexo
-        
-        &nbsp;&nbsp;&nbsp;
-        <span>
-            <a href="/2017/08/28/你好,hexo/" target="_self">阅读全文</a>
-        </span>
-    </div>
-    <!-- Post_entry Info-->
-    <div id="post_entry-info">
-        <div id="post_entry-left-info" class="mdl-card__supporting-text meta mdl-color-text--grey-600 ">
-            <!-- Author Avatar -->
-            <div id="author-avatar">
-                <img src="/img/avatar.png" width="44px" height="44px" alt="Xposean's avatar">
-            </div>
-            <div>
-                <strong>Xposean</strong>
-                <span>8月 28, 2017</span>
-            </div>
-        </div>
-        <div id="post_entry-right-info">
-            <!-- Category -->
-            <span class="post_entry-category">
-                
-            </span>
-
-            
-
-            
-
-            <!-- Post Views -->
-            <span class="post_entry-views">
-            </span>
-        </div>
-    </div>
-</div>
-
-            
-            
-        
-    
-
-    
-
-    
-        <script type="text/ls-javascript" id="thumbnail-script">
-    var randomNum;
-
-    var locatePost = $('.locate-thumbnail-symbol').next();
-    for(var i = 0; i < 10; i++) {
-        randomNum = Math.floor(Math.random() * 19 + 1);
-
-        locatePost.children('.post_thumbnail-random').attr('id', 'random_thumbnail-'+randomNum);
-        locatePost.children('.post_thumbnail-random').attr('data-original', '/img/random/material-' + randomNum + '.png');
+    $('.post_thumbnail-random').attr('data-original', '/img/random/material-' + randomNum + '.png');
     $('.post_thumbnail-random').addClass('lazy');
-
-        locatePost = locatePost.next();
-    }
 </script>
 
+        
+    
+            <p class="article-headline-p">
+                PostCSS入门
+            </p>
+        </div>
+
+
+
+
+
+                
+                    <!-- Paradox Post Info -->
+                    <div class="mdl-color-text--grey-700 mdl-card__supporting-text meta">
+
+    <!-- Author Avatar -->
+    <div id="author-avatar">
+        <img src="/img/avatar.png" width="44px" height="44px" alt="Author Avatar"/>
+    </div>
+    <!-- Author Name & Date -->
+    <div>
+        <strong>Xposean</strong>
+        <span>10月 24, 2017</span>
+    </div>
+
+    <div class="section-spacer"></div>
+
+    <!-- Favorite -->
+    <!--
+        <button id="article-functions-like-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon btn-like">
+            <i class="material-icons" role="presentation">favorite</i>
+            <span class="visuallyhidden">favorites</span>
+        </button>
+    -->
+
+    <!-- Qrcode -->
+    
+        <button id="article-functions-qrcode-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+    <i class="material-icons" role="presentation">devices other</i>
+    <span class="visuallyhidden">devices other</span>
+</button>
+<ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-functions-qrcode-button">
+    <li class="mdl-menu__item">在其它设备中阅读本文章</li>
+    
+        <img src="https://pan.baidu.com/share/qrcode?w=246&h=246&url=http://xposean.xin/2017/10/24/PostCSS入门/">
+    
+</ul>
+    
+
+    <!-- Tags (bookmark) -->
+    
+    <button id="article-functions-viewtags-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+        <i class="material-icons" role="presentation">bookmark</i>
+        <span class="visuallyhidden">bookmark</span>
+    </button>
+    <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-functions-viewtags-button">
+        <li class="mdl-menu__item">
+        
+    </ul>
+    
+
+    <!-- Share -->
+    <button id="article-fuctions-share-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+    <i class="material-icons" role="presentation">share</i>
+    <span class="visuallyhidden">share</span>
+</button>
+<ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-fuctions-share-button">
+    
+
+    
+
+    <!-- Share Weibo -->
+    
+        <a class="post_share-link" href="http://service.weibo.com/share/share.php?appkey=&title=PostCSS入门&url=http://xposean.xin/2017/10/24/PostCSS入门/index.html&pic=&searchPic=false&style=simple" target="_blank">
+            <li class="mdl-menu__item">
+                分享到微博
+            </li>
+        </a>
+    
+
+    <!-- Share Twitter -->
+    
+
+    <!-- Share Facebook -->
+    
+
+    <!-- Share Google+ -->
+    
+
+    <!-- Share LinkedIn -->
+    
+
+    <!-- Share QQ -->
+    
+        <a class="post_share-link" href="http://connect.qq.com/widget/shareqq/index.html?site=Xposean&#39;s Blog&title=PostCSS入门&summary=做一个刚刚好的前端仔&pics=http://xposean.xin/img/favicon.png&url=http://xposean.xin/2017/10/24/PostCSS入门/index.html" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 QQ
+            </li>
+        </a>
+    
+
+    <!-- Share Telegram -->
+    
+</ul>
+
+</div>
+
+                
+
+                <!-- Post Content -->
+                <div id="post-content" class="mdl-color-text--grey-700 mdl-card__supporting-text fade out">
+    
+        <p>##概述##<br>我想你应该已经听说过<a href="http://postcss.com/" target="_blank" rel="external">PostCSS</a>,它比<a href="https://github.com/postcss/benchmark#preprocessors" target="_blank" rel="external">libsass</a>快了几乎两倍(并且比Ruby Sass快了28倍)； 或者听说过它支持<a href="http://cssnext.io/" target="_blank" rel="external">cssnext</a>和自动添加私有前缀而且可扩展功能,难道你一点都不好奇吗？</p>
+<p>PostCSS最强大之处在于它是模块化并且基于插件的架构，不过这也是个缺点。如果你之前在项目中使用Sass(比如大多数的设计师和前端开发者)，你从不需要配置任何东西——Sass内置了全部实用功能，开箱即用。 然而，PostCSS需要你做一些配置。你不得不从一眼看不到底的<a href="https://github.com/postcss/postcss/blob/master/docs/plugins.md" target="_blank" rel="external">插件列表</a>选择插件并且自己把全部插件一起配置。但这同时意味着它的自定义程度高,足够实现你想要的。</p>
+<p>##现状##<br>PostCSS在以惊人的速度发展，而且越来越受人欢迎。越来越多的人开始在了解它，使用它。因为他们意识到，在项目中使用PostCSS让他们意识到了眼前一亮。</p>
+<p><img src="http://www.w3cplus.com/sites/default/files/blogs/2015/1510/postcssdownloads.png" alt=""></p>
+<p>2014年总共不到140万的下载量，但从2015年1月份到6月份已经超过380万个下载。</p>
+<p><strong><a href="https://github.com/postcss/autoprefixer" target="_blank" rel="external">Autoprefixer</a></strong>是PostCSS中最流行的插件，其中Google、Shopify、Twitter、Bootstrap和Codepen都在使用这个插件。Wordpress也使用Autoprefixer插件，而且还使用RTLCSS插件。Alibaba使用了几个PostCSS插件，以及也参加PostCSS的开发。</p>
+<p>##运行PostCSS##<br>运行PostCSS的方法有很多种。你可以很容易地将它添加到Gulp、webpack的构建过程中；<br>或者是通过最简单的方式,即postcss-cli来构建都是OK的,但因为我是习惯使用gulp,所以接下来介绍的是通过gulp配置,如果想使用其他方式构建，请自行度娘或google。</p>
+<p>在已经安装了gulp的配置环境下,我们直接开始进行postCSS的配置.</p>
+<p>###开始配置###<br>首先在你的项目中创建两个文件夹，一个命名为src，另一个命名为dest。src文件夹用来放置未处理的CSS文件，而dest用来放置PostCSS插件处理后的文件。</p>
+<p>接下来需要做的就是在你的项目中安装gulp-postcss插件，安装好之后就可以使用PostCSS处理器。</p>
+<p>打开你的命令终端(CMD)，并且进入到你的项目根目录下，然后在命令终端输入下面的命令：</p>
+<pre><code>npm install --save-dev gulp-postcss
+</code></pre><p>安装完成后你的项目结构看起来就应该像这样：<br><img src="http://www.w3cplus.com/sites/default/files/blogs/2015/1510/gulpproject.png" alt=""></p>
+<p>现在通过编辑器打开gulpfile.js文件，并且创建gulp和gulp-postcss变量，如下面代码所示：</p>
+<pre><code>var gulp = require(&apos;gulp&apos;); 
+var postcss = require(&apos;gulp-postcss&apos;);
+</code></pre><p>那我们现在可以设置一个任务，让PostCSS读取CSS原文件并且处理它。</p>
+<p>添加的代码如下：</p>
+<pre><code>gulp.task(&apos;css&apos;, function () {
+  var processors = [ ];
+  return gulp.src(&apos;./src/*.css&apos;).pipe(postcss(processors)).pipe(gulp.dest(&apos;./dest&apos;)); 
+});
+</code></pre><p>我们一起来看一下上面的代码。在第一行，设置了一个任务名叫css。这个任务将会执行一个函数，同时在这个函数中创建了一个名为processors的数组。现在这个数组为空，这里将插入我们想使用的PostCSS插件。<br>在processors数组后面，我们指定了需要处理的目标文件，即src目录中的任何CSS文件。</p>
+<p>这里面使用了两个.pipe()函数，设置postcss()执行PostCSS，并且给postcss()传递processors参数，后面会告诉PostCSS要使用哪个插件。</p>
+<p>接下来的第二个.pipe()函数，指定结过PostCSS处理后的CSS放置在dest文件夹中。</p>
+<p>###添加PostCSS插件###<br>假设,现在我们添加需要的PostCSS插件：<strong>Autoprefixer</strong>(处理浏览器私有前缀)著作权归作者所有。<br>运行下面的命令，将插件安装到你的项目:</p>
+<pre><code>npm install autoprefixer --save-dev
+</code></pre><p>接下来，在我们的项目中定义变量，将这些插件加载到我们的项目中。和前面的方式一样，在<strong>gulpfile.js</strong>文件中添加下面的代码：</p>
+<pre><code>var autoprefixer = require(&apos;autoprefixer&apos;);
+</code></pre><p>然后将这个插件添加到processors数组中，更新后的数组如下：</p>
+<pre><code>var processors = [ autoprefixer];
+</code></pre><p>插件已经添加到了<code>processors</code>数组中了，这个时候<code>PostCSS</code>会知道将这些插件功能应用到我们的CSS源文件中。</p>
+<p>###测试编译###</p>
+<p>在src目录中创建一个测试文件style.css，并在这个文件中添加一些CSS的测试代码：</p>
+<pre><code> /* Testing autoprefixer */ 
+.autoprefixer { display: flex; }
+</code></pre><p>在命令终端执行<code>gulp css</code>命令。在dest目录生成的文件会有下面的代码：</p>
+<pre><code>/* Testing autoprefixer */ 
+.autoprefixer { 
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex; 
+}
+</code></pre><p>如上面编译出来的代码你应该看到了Autoprefixer给需要的属性添加了浏览器的私有前缀，编译符合需求的代码。</p>
+<p>####设置插件选项####</p>
+<p>注：每一个插件都有对应的配置参数选项，如果你想为一个插件配置选项参数，你可以在gulpfile.js文件中,在插件后面添加一对括号，并在里面传递选项的参数。例如，Autoprefixer需要指定对应的浏览器列表参数，你可以像这样设置：</p>
+<pre><code>var processors = [ 
+    autoprefixer({browsers: [&apos;last 1 version&apos;]})
+];
+</code></pre><p>##总结##</p>
+<ol>
+<li>通过<code>npm</code>(或<code>cnpm</code>)创建项目，并且将<code>gulp</code>安装到<code>gulpfile</code>文件</li>
+<li>安装<code>gulp-postcss</code>插件</li>
+<li>设置你的<code>gulpfile.js</code>文件，将<code>gulp</code>和<code>gulp-postcss</code>加载到项目中</li>
+<li>创建一个任务，来编译你的<code>CSS</code></li>
+<li>在任务中，设置一个<code>processors</code>数组</li>
+<li>在<code>.pipe()</code>设置<code>一个postcss()</code>函数，并且将<code>processors</code>传递给它</li>
+</ol>
+<p>你可以根据上面的教程介绍，遵循相同的步骤，你可以将<code>PostCSS</code>任何插件安装到项目中。</p>
+<p>通过<code>npm install &lt;plugin_name&gt; –save-dev</code> 命令将插件安装到你的项目中<br>类似<code>var autoprefixer = require(&quot;autoprefixer&quot;)</code>代码在你的<code>gulpfile.js</code>文件中定义要加载的插件变量名<br>将变量名添加到你的<code>preprocessors</code>数组中</p>
+
+    
+
     
 </div>
+
+
+                
+
+                <!-- Post Comments -->
+                
+                    
+                
+            </div>
+
+            <!-- Post Prev & Next Nav -->
+            <nav class="material-nav mdl-color-text--grey-50 mdl-cell mdl-cell--12-col">
+    <!-- Prev Nav -->
+    
+
+    <!-- Section Spacer -->
+    <div class="section-spacer"></div>
+
+    <!-- Next Nav -->
+    
+        <a href="/2017/08/31/hello-hexo/" id="post_nav-older" class="next-content">
+            旧篇
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
+                <i class="material-icons">arrow_forward</i>
+            </button>
+        </a>
+    
+</nav>
+
+        </div>
+    </div>
+
 
 
                     

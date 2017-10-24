@@ -2661,3 +2661,8 @@ a {
         transform: rotate(360deg);
     }
 }
+
+
+.post_thumbnail-random :hover{
+    background-color: red;
+}
