@@ -12,7 +12,7 @@
     
     <title>
         
-            归档 | 
+            Virtual DOM原理概述 | 
         
         Xposean&#39;s Blog
     </title>
@@ -67,15 +67,18 @@
     <!-- The Open Graph protocol -->
     <meta property="og:url" content="http://xposean.xin">
     <meta property="og:type" content="blog">
-    <meta property="og:title" content="归档 | Xposean&#39;s Blog">
+    <meta property="og:title" content="Virtual DOM原理概述 | Xposean&#39;s Blog">
     <meta property="og:image" content="/img/favicon.png" />
     <meta property="og:description" content="做一个刚刚好的前端仔">
     
 
     
+        <meta property="article:published_time" content="10月 24, 2017" />
+        <meta property="article:modified_time" content="10月 24, 2017" />
+    
 
     <!-- The Twitter Card protocol -->
-    <meta name="twitter:title" content="归档 | Xposean&#39;s Blog">
+    <meta name="twitter:title" content="Virtual DOM原理概述 | Xposean&#39;s Blog">
     <meta name="twitter:description" content="做一个刚刚好的前端仔">
     <meta name="twitter:image" content="/img/favicon.png">
     <meta name="twitter:card" content="summary_large_image" />
@@ -83,13 +86,43 @@
 
     <!-- Add canonical link for SEO -->
     
-        <link rel="canonical" href="http://xposean.xin/archives/index.html" />
+        <link rel="canonical" href="http://xposean.xin/2017/10/24/VirtualDOM原理概述/index.html" />
     
 
     <!-- Structured-data for SEO -->
     
         
 
+
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "publisher": {
+        "@type": "Organization",
+        "name": "Xposean&#39;s Blog",
+        "logo": "/img/favicon.png"
+    },
+    "author": {
+        "@type": "Person",
+        "name": "Xposean",
+        "image": {
+            "@type": "ImageObject",
+            "url": "/img/favicon.png"
+        },
+        "description": "做一个刚刚好的前端仔,——关于我"
+    },
+    "headline": "Virtual DOM原理概述",
+    "url": "http://xposean.xin/2017/10/24/VirtualDOM原理概述/index.html",
+    "datePublished": "10月 24, 2017",
+    "dateModified": "10月 24, 2017",
+    "description": "做一个刚刚好的前端仔",
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "http://xposean.xin"
+    }
+}
+</script>
 
 
     
@@ -392,25 +425,29 @@
 
                     
 
-                    <!-- Index Module -->
-<div class="material-index mdl-grid">
-    
-    <div class="locate-thumbnail-symbol"></div>
+                    <!-- Post TOC -->
 
-    <!-- Pin on top -->
     
 
-    <!-- Normal Post -->
-    
-        
-            
-            
-                <!-- Isolation Thumbnail -->
-                <div class="post_entry-module mdl-card mdl-shadow--2dp mdl-cell mdl-cell--12-col fade out">
-    <!-- Post_entry Header -->
+
+
+<!-- Layouts -->
+
+    <!-- Post Module -->
+    <div class="material-post_container">
+
+        <div class="material-post mdl-grid">
+            <div class="mdl-card mdl-shadow--4dp mdl-cell mdl-cell--12-col">
+
+                <!-- Post Header(Thumbnail & Title) -->
+                
+
+
+    <!-- Isolation Post Header -->
+    <!-- Post thumbnail -->
     
         <!-- Post Header Info -->
-        <div class="post_entry-header_info without-thumbnail">
+        <div class="post-header_info without-thumbnail">
             <!-- Author Avatar & Name -->
             <img src="/img/avatar.png" class="avatar-img" width="44px" height="44px" alt="Xposean's avatar">
             <span class="name-span">Xposean</span>
@@ -421,467 +458,81 @@
     
         </div>
 
-    <!-- Post_entry Content -->
-    <div class="post_entry-content mdl-color-text--grey-600 mdl-card__supporting-text">
-        <!-- Post Title -->
-        <p class="post_entry-title">
-            <a href="/2017/10/24/VirtualDOM原理概述/">Virtual DOM原理概述</a>
-        </p>
 
-        <!-- Post Excerpt -->
-        <p class="post_entry-excerpt">
-            
-                
-            
-            &nbsp;&nbsp;&nbsp;
-            <span>
-                <a href="/2017/10/24/VirtualDOM原理概述/" target="_self">阅读全文</a>
-            </span>
-        </p>
 
-        <!-- Post Tags -->
-        
-    </div>
+                
 
-    <!-- Post_entry Footer -->
-    <div class="post_entry-footer">
-        <div class="post_entry-footer-border"></div>
-        <div class="post_entry-footer-info">
-            <div class="post_entry-footer-date">
-                10月 24, 2017
-            </div>
-            <div class="post_entry-footer-comment">
-                
-                
-            </div>
+                <!-- Post Content -->
+                <div id="post-content" class="mdl-color-text--grey-700 mdl-card__supporting-text fade out">
+    
+
+    
+        <div class="post-content_wrapper">
+            <p class="post-title">
+                Virtual DOM原理概述
+            </p>
+            <p><img src="http://it.dyg.cn/wp-content/uploads/2017/10/timg-2.jpg" alt="Virtual DOM"></p>
+<h2 id="Virtual-DOM概念的诞生"><a href="#Virtual-DOM概念的诞生" class="headerlink" title="Virtual DOM概念的诞生"></a>Virtual DOM概念的诞生</h2><p>先来说说<code>Virtual DOM</code>的起源,<code>Virtual DOM</code>的概念最早是在<code>React中</code>被提出来的,<a href="http://www.xposean.xin/2017/10/24/%E5%BD%B1%E5%93%8D%E5%89%8D%E7%AB%AF%E6%80%A7%E8%83%BD%E7%9A%84%E5%85%83%E5%87%B6-DOM%E6%93%8D%E4%BD%9C/" target="_blank" rel="external">上一节</a>我们也说了,<code>DOM</code>操作是十分耗费性能,因为动不动操作就会引发回流，即渲染整个DOM树,对于移动端浏览器或者是复杂的页面来讲,这简直就是噩梦。</p>
+<p>于是,聪明的工程师们就发明了一种<code>MVVM</code>模式,即视图和状态进行绑定，状态变更了视图自动变更，就不用手动更新页面了。只要在模版中声明视图组件是和什么状态进行绑定的，通过改变状态，双向绑定引擎就会在状态更新的时候自动更新视图。</p>
+<p>MVVM模式让我们大大减少代码中的DOM操作次数，其次可以提高<code>DOM</code>的渲染性能,因为他是通过模板引擎和JS构建修改DOM的,很大程度的减少了回流产生的次数。<br><img src="http://it.dyg.cn/wp-content/uploads/2017/10/%E5%BE%AE%E4%BF%A1%E6%88%AA%E5%9B%BE_20171022220758.png" alt=""></p>
+<p>相对于 <code>DOM</code> 对象，原生的 <code>JavaScript</code> 对象处理起来更快，而且更简单。<code>DOM</code> 树上的结构、属性信息我们都可以很容易地用 <code>JavaScript</code> 对象表示出来。</p>
+<p>但是它同时也存在什么问题呢?</p>
+<p>那就是一旦我们所绑定的某一个状态发生了变化，就用模版引擎重新渲染整个视图，然后用新的视图更换掉旧  的视图。</p>
+<p>这样的做法会导致很多的问题。最大的问题就是这样做还是会很慢，因为即使一个小小的状态变更都要重新构造整棵 <code>DOM</code>，性价比太低；最后的结论会是：对于局部的小视图的更新，没有问题；但是对于大型视图，如全局应用状态变更的时候，需要更新页面较多局部视图的时候，这样的做法不可取。</p>
+<p><code>AngularJS</code>就是使用这个方式。</p>
+<p>那么工程师经过改进呢,就发明了<code>Virtual DOM</code>啦!</p>
+<h2 id="Virtual-DOM凭什么更加优秀"><a href="#Virtual-DOM凭什么更加优秀" class="headerlink" title="Virtual DOM凭什么更加优秀?"></a>Virtual DOM凭什么更加优秀?</h2><p>其实 <code>Virtual DOM</code> 跟MVVM模式是基本类似的，只是加了一些特别的步骤(diff)来避免了整棵 <code>DOM</code> 树变更。<br><img src="http://it.dyg.cn/wp-content/uploads/2017/10/%E5%BE%AE%E4%BF%A1%E6%88%AA%E5%9B%BE_20171022220758-1.png" alt=""></p>
+<p><img src="https://camo.githubusercontent.com/a32766a14f6b7fbe631475ed1a186fbd9de7f2c3/687474703a2f2f6c69766f7261732e6769746875622e696f2f626c6f672f7669727475616c2d646f6d2f636f6d706172652d696e2d6c6576656c2e706e67" alt=""></p>
+<h3 id="性能方面"><a href="#性能方面" class="headerlink" title="性能方面:"></a>性能方面:</h3><ol>
+<li><p>用JS构建虚拟DOM树,再通过虚拟DOM构建真正的DOM,这种方式性能快的多。</p>
+</li>
+<li><p>如果我们直接调用像.getElementById的方法,在复杂DOM的页面上,是十分耗费性能的,而在这只需要操作对应的JS对象即可。</p>
+</li>
+<li>比较两棵虚拟DOM树的不同,在真正的DOM元素上进行最小化修改(模板引擎).</li>
+</ol>
+<h3 id="代码方面"><a href="#代码方面" class="headerlink" title="代码方面:"></a>代码方面:</h3><ol>
+<li>MVVM模式下,也使我们无需关注DOM元素,直接操作DOM元素对应的状态就行,对于代码编辑更好。</li>
+</ol>
+
         </div>
-    </div>
+    
 </div>
 
-            
-        
-    
-        
-            
-            
-                <!-- Isolation Thumbnail -->
-                <div class="post_entry-module mdl-card mdl-shadow--2dp mdl-cell mdl-cell--12-col fade out">
-    <!-- Post_entry Header -->
-    
-        <!-- Post Header Info -->
-        <div class="post_entry-header_info without-thumbnail">
-            <!-- Author Avatar & Name -->
-            <img src="/img/avatar.png" class="avatar-img" width="44px" height="44px" alt="Xposean's avatar">
-            <span class="name-span">Xposean</span>
-        </div>
 
-        <!-- Null Thumbnail -->
-        <div class="post_thumbnail-null">
-    
-        </div>
-
-    <!-- Post_entry Content -->
-    <div class="post_entry-content mdl-color-text--grey-600 mdl-card__supporting-text">
-        <!-- Post Title -->
-        <p class="post_entry-title">
-            <a href="/2017/10/24/影响前端性能的元凶-DOM操作/">影响前端性能的元凶:DOM操作</a>
-        </p>
-
-        <!-- Post Excerpt -->
-        <p class="post_entry-excerpt">
-            
-                今天我们来谈谈影响前端性能的主要元凶:DOM操作.
-
-            
-            &nbsp;&nbsp;&nbsp;
-            <span>
-                <a href="/2017/10/24/影响前端性能的元凶-DOM操作/" target="_self">阅读全文</a>
-            </span>
-        </p>
-
-        <!-- Post Tags -->
-        
-    </div>
-
-    <!-- Post_entry Footer -->
-    <div class="post_entry-footer">
-        <div class="post_entry-footer-border"></div>
-        <div class="post_entry-footer-info">
-            <div class="post_entry-footer-date">
-                10月 24, 2017
-            </div>
-            <div class="post_entry-footer-comment">
                 
+                    <!-- Paradox Post Info -->
+                    
+                
+
+                <!-- Post Comments -->
+                
+                    
                 
             </div>
+
+            <!-- Post Prev & Next Nav -->
+            <nav class="material-nav mdl-color-text--grey-50 mdl-cell mdl-cell--12-col">
+    <!-- Prev Nav -->
+    
+
+    <!-- Section Spacer -->
+    <div class="section-spacer"></div>
+
+    <!-- Next Nav -->
+    
+        <a href="/2017/10/24/影响前端性能的元凶-DOM操作/" id="post_nav-older" class="next-content">
+            旧篇
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
+                <i class="material-icons">arrow_forward</i>
+            </button>
+        </a>
+    
+</nav>
+
         </div>
     </div>
-</div>
 
-            
-        
-    
-        
-            
-            
-                <!-- Isolation Thumbnail -->
-                <div class="post_entry-module mdl-card mdl-shadow--2dp mdl-cell mdl-cell--12-col fade out">
-    <!-- Post_entry Header -->
-    
-        <!-- Post Header Info -->
-        <div class="post_entry-header_info without-thumbnail">
-            <!-- Author Avatar & Name -->
-            <img src="/img/avatar.png" class="avatar-img" width="44px" height="44px" alt="Xposean's avatar">
-            <span class="name-span">Xposean</span>
-        </div>
-
-        <!-- Null Thumbnail -->
-        <div class="post_thumbnail-null">
-    
-        </div>
-
-    <!-- Post_entry Content -->
-    <div class="post_entry-content mdl-color-text--grey-600 mdl-card__supporting-text">
-        <!-- Post Title -->
-        <p class="post_entry-title">
-            <a href="/2017/10/24/jQuery的插件机制/">jQuery的插件机制</a>
-        </p>
-
-        <!-- Post Excerpt -->
-        <p class="post_entry-excerpt">
-            
-                
-            
-            &nbsp;&nbsp;&nbsp;
-            <span>
-                <a href="/2017/10/24/jQuery的插件机制/" target="_self">阅读全文</a>
-            </span>
-        </p>
-
-        <!-- Post Tags -->
-        
-    </div>
-
-    <!-- Post_entry Footer -->
-    <div class="post_entry-footer">
-        <div class="post_entry-footer-border"></div>
-        <div class="post_entry-footer-info">
-            <div class="post_entry-footer-date">
-                10月 24, 2017
-            </div>
-            <div class="post_entry-footer-comment">
-                
-                
-            </div>
-        </div>
-    </div>
-</div>
-
-            
-        
-    
-        
-            
-            
-                <!-- Isolation Thumbnail -->
-                <div class="post_entry-module mdl-card mdl-shadow--2dp mdl-cell mdl-cell--12-col fade out">
-    <!-- Post_entry Header -->
-    
-        <!-- Post Header Info -->
-        <div class="post_entry-header_info without-thumbnail">
-            <!-- Author Avatar & Name -->
-            <img src="/img/avatar.png" class="avatar-img" width="44px" height="44px" alt="Xposean's avatar">
-            <span class="name-span">Xposean</span>
-        </div>
-
-        <!-- Null Thumbnail -->
-        <div class="post_thumbnail-null">
-    
-        </div>
-
-    <!-- Post_entry Content -->
-    <div class="post_entry-content mdl-color-text--grey-600 mdl-card__supporting-text">
-        <!-- Post Title -->
-        <p class="post_entry-title">
-            <a href="/2017/10/24/移动web适配方案简述/">移动web适配方案简述</a>
-        </p>
-
-        <!-- Post Excerpt -->
-        <p class="post_entry-excerpt">
-            
-                众所周知,目前移动设备的访问量早已超越PC端设备,这就意味着用户使用移动设备访问页面的行为越发频繁,这就给web前端开发人员带来了一系列的苦恼,如何...
-            
-            &nbsp;&nbsp;&nbsp;
-            <span>
-                <a href="/2017/10/24/移动web适配方案简述/" target="_self">阅读全文</a>
-            </span>
-        </p>
-
-        <!-- Post Tags -->
-        
-    </div>
-
-    <!-- Post_entry Footer -->
-    <div class="post_entry-footer">
-        <div class="post_entry-footer-border"></div>
-        <div class="post_entry-footer-info">
-            <div class="post_entry-footer-date">
-                10月 24, 2017
-            </div>
-            <div class="post_entry-footer-comment">
-                
-                
-            </div>
-        </div>
-    </div>
-</div>
-
-            
-        
-    
-        
-            
-            
-                <!-- Isolation Thumbnail -->
-                <div class="post_entry-module mdl-card mdl-shadow--2dp mdl-cell mdl-cell--12-col fade out">
-    <!-- Post_entry Header -->
-    
-        <!-- Post Header Info -->
-        <div class="post_entry-header_info without-thumbnail">
-            <!-- Author Avatar & Name -->
-            <img src="/img/avatar.png" class="avatar-img" width="44px" height="44px" alt="Xposean's avatar">
-            <span class="name-span">Xposean</span>
-        </div>
-
-        <!-- Null Thumbnail -->
-        <div class="post_thumbnail-null">
-    
-        </div>
-
-    <!-- Post_entry Content -->
-    <div class="post_entry-content mdl-color-text--grey-600 mdl-card__supporting-text">
-        <!-- Post Title -->
-        <p class="post_entry-title">
-            <a href="/2017/10/24/来聊聊localStorage、sessionStorage和cookie/">来聊聊localStorage、sessionStorage和cookie</a>
-        </p>
-
-        <!-- Post Excerpt -->
-        <p class="post_entry-excerpt">
-            
-                首先当然还得是来介绍一下基本概念.
-
-            
-            &nbsp;&nbsp;&nbsp;
-            <span>
-                <a href="/2017/10/24/来聊聊localStorage、sessionStorage和cookie/" target="_self">阅读全文</a>
-            </span>
-        </p>
-
-        <!-- Post Tags -->
-        
-    </div>
-
-    <!-- Post_entry Footer -->
-    <div class="post_entry-footer">
-        <div class="post_entry-footer-border"></div>
-        <div class="post_entry-footer-info">
-            <div class="post_entry-footer-date">
-                10月 24, 2017
-            </div>
-            <div class="post_entry-footer-comment">
-                
-                
-            </div>
-        </div>
-    </div>
-</div>
-
-            
-        
-    
-        
-            
-            
-                <!-- Isolation Thumbnail -->
-                <div class="post_entry-module mdl-card mdl-shadow--2dp mdl-cell mdl-cell--12-col fade out">
-    <!-- Post_entry Header -->
-    
-        <!-- Post Header Info -->
-        <div class="post_entry-header_info without-thumbnail">
-            <!-- Author Avatar & Name -->
-            <img src="/img/avatar.png" class="avatar-img" width="44px" height="44px" alt="Xposean's avatar">
-            <span class="name-span">Xposean</span>
-        </div>
-
-        <!-- Null Thumbnail -->
-        <div class="post_thumbnail-null">
-    
-        </div>
-
-    <!-- Post_entry Content -->
-    <div class="post_entry-content mdl-color-text--grey-600 mdl-card__supporting-text">
-        <!-- Post Title -->
-        <p class="post_entry-title">
-            <a href="/2017/10/24/Gulp入门/">Gulp入门</a>
-        </p>
-
-        <!-- Post Excerpt -->
-        <p class="post_entry-excerpt">
-            
-                
-            
-            &nbsp;&nbsp;&nbsp;
-            <span>
-                <a href="/2017/10/24/Gulp入门/" target="_self">阅读全文</a>
-            </span>
-        </p>
-
-        <!-- Post Tags -->
-        
-    </div>
-
-    <!-- Post_entry Footer -->
-    <div class="post_entry-footer">
-        <div class="post_entry-footer-border"></div>
-        <div class="post_entry-footer-info">
-            <div class="post_entry-footer-date">
-                10月 24, 2017
-            </div>
-            <div class="post_entry-footer-comment">
-                
-                
-            </div>
-        </div>
-    </div>
-</div>
-
-            
-        
-    
-        
-            
-            
-                <!-- Isolation Thumbnail -->
-                <div class="post_entry-module mdl-card mdl-shadow--2dp mdl-cell mdl-cell--12-col fade out">
-    <!-- Post_entry Header -->
-    
-        <!-- Post Header Info -->
-        <div class="post_entry-header_info without-thumbnail">
-            <!-- Author Avatar & Name -->
-            <img src="/img/avatar.png" class="avatar-img" width="44px" height="44px" alt="Xposean's avatar">
-            <span class="name-span">Xposean</span>
-        </div>
-
-        <!-- Null Thumbnail -->
-        <div class="post_thumbnail-null">
-    
-        </div>
-
-    <!-- Post_entry Content -->
-    <div class="post_entry-content mdl-color-text--grey-600 mdl-card__supporting-text">
-        <!-- Post Title -->
-        <p class="post_entry-title">
-            <a href="/2017/10/24/Flex布局/">Flex布局</a>
-        </p>
-
-        <!-- Post Excerpt -->
-        <p class="post_entry-excerpt">
-            
-                开篇我们先来看看传统的CSS布局格式,布局的传统解决方案：
-基于盒状模型，依赖 display 属性 + 
-            
-            &nbsp;&nbsp;&nbsp;
-            <span>
-                <a href="/2017/10/24/Flex布局/" target="_self">阅读全文</a>
-            </span>
-        </p>
-
-        <!-- Post Tags -->
-        
-    </div>
-
-    <!-- Post_entry Footer -->
-    <div class="post_entry-footer">
-        <div class="post_entry-footer-border"></div>
-        <div class="post_entry-footer-info">
-            <div class="post_entry-footer-date">
-                10月 24, 2017
-            </div>
-            <div class="post_entry-footer-comment">
-                
-                
-            </div>
-        </div>
-    </div>
-</div>
-
-            
-        
-    
-        
-            
-            
-                <!-- Isolation Thumbnail -->
-                <div class="post_entry-module mdl-card mdl-shadow--2dp mdl-cell mdl-cell--12-col fade out">
-    <!-- Post_entry Header -->
-    
-        <!-- Post Header Info -->
-        <div class="post_entry-header_info without-thumbnail">
-            <!-- Author Avatar & Name -->
-            <img src="/img/avatar.png" class="avatar-img" width="44px" height="44px" alt="Xposean's avatar">
-            <span class="name-span">Xposean</span>
-        </div>
-
-        <!-- Null Thumbnail -->
-        <div class="post_thumbnail-null">
-    
-        </div>
-
-    <!-- Post_entry Content -->
-    <div class="post_entry-content mdl-color-text--grey-600 mdl-card__supporting-text">
-        <!-- Post Title -->
-        <p class="post_entry-title">
-            <a href="/2017/10/24/PostCSS入门/">PostCSS入门</a>
-        </p>
-
-        <!-- Post Excerpt -->
-        <p class="post_entry-excerpt">
-            
-                概述我想你应该已经...
-            
-            &nbsp;&nbsp;&nbsp;
-            <span>
-                <a href="/2017/10/24/PostCSS入门/" target="_self">阅读全文</a>
-            </span>
-        </p>
-
-        <!-- Post Tags -->
-        
-    </div>
-
-    <!-- Post_entry Footer -->
-    <div class="post_entry-footer">
-        <div class="post_entry-footer-border"></div>
-        <div class="post_entry-footer-info">
-            <div class="post_entry-footer-date">
-                10月 24, 2017
-            </div>
-            <div class="post_entry-footer-comment">
-                
-                
-            </div>
-        </div>
-    </div>
-</div>
-
-            
-        
-    
-
-    
-
-    
-</div>
 
 
                     

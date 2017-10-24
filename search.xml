@@ -3,6 +3,36 @@
   
     
     <entry>
+      <title><![CDATA[Virtual DOM原理概述]]></title>
+      <url>/2017/10/24/VirtualDOM%E5%8E%9F%E7%90%86%E6%A6%82%E8%BF%B0/</url>
+      <content type="html"><![CDATA[<p><img src="http://it.dyg.cn/wp-content/uploads/2017/10/timg-2.jpg" alt="Virtual DOM"></p>
+<h2 id="Virtual-DOM概念的诞生"><a href="#Virtual-DOM概念的诞生" class="headerlink" title="Virtual DOM概念的诞生"></a>Virtual DOM概念的诞生</h2><p>先来说说<code>Virtual DOM</code>的起源,<code>Virtual DOM</code>的概念最早是在<code>React中</code>被提出来的,<a href="http://www.xposean.xin/2017/10/24/%E5%BD%B1%E5%93%8D%E5%89%8D%E7%AB%AF%E6%80%A7%E8%83%BD%E7%9A%84%E5%85%83%E5%87%B6-DOM%E6%93%8D%E4%BD%9C/" target="_blank" rel="external">上一节</a>我们也说了,<code>DOM</code>操作是十分耗费性能,因为动不动操作就会引发回流，即渲染整个DOM树,对于移动端浏览器或者是复杂的页面来讲,这简直就是噩梦。</p>
+<p>于是,聪明的工程师们就发明了一种<code>MVVM</code>模式,即视图和状态进行绑定，状态变更了视图自动变更，就不用手动更新页面了。只要在模版中声明视图组件是和什么状态进行绑定的，通过改变状态，双向绑定引擎就会在状态更新的时候自动更新视图。</p>
+<p>MVVM模式让我们大大减少代码中的DOM操作次数，其次可以提高<code>DOM</code>的渲染性能,因为他是通过模板引擎和JS构建修改DOM的,很大程度的减少了回流产生的次数。<br><img src="http://it.dyg.cn/wp-content/uploads/2017/10/%E5%BE%AE%E4%BF%A1%E6%88%AA%E5%9B%BE_20171022220758.png" alt=""></p>
+<p>相对于 <code>DOM</code> 对象，原生的 <code>JavaScript</code> 对象处理起来更快，而且更简单。<code>DOM</code> 树上的结构、属性信息我们都可以很容易地用 <code>JavaScript</code> 对象表示出来。</p>
+<p>但是它同时也存在什么问题呢?</p>
+<p>那就是一旦我们所绑定的某一个状态发生了变化，就用模版引擎重新渲染整个视图，然后用新的视图更换掉旧  的视图。</p>
+<p>这样的做法会导致很多的问题。最大的问题就是这样做还是会很慢，因为即使一个小小的状态变更都要重新构造整棵 <code>DOM</code>，性价比太低；最后的结论会是：对于局部的小视图的更新，没有问题；但是对于大型视图，如全局应用状态变更的时候，需要更新页面较多局部视图的时候，这样的做法不可取。</p>
+<p><code>AngularJS</code>就是使用这个方式。</p>
+<p>那么工程师经过改进呢,就发明了<code>Virtual DOM</code>啦!</p>
+<h2 id="Virtual-DOM凭什么更加优秀"><a href="#Virtual-DOM凭什么更加优秀" class="headerlink" title="Virtual DOM凭什么更加优秀?"></a>Virtual DOM凭什么更加优秀?</h2><p>其实 <code>Virtual DOM</code> 跟MVVM模式是基本类似的，只是加了一些特别的步骤(diff)来避免了整棵 <code>DOM</code> 树变更。<br><img src="http://it.dyg.cn/wp-content/uploads/2017/10/%E5%BE%AE%E4%BF%A1%E6%88%AA%E5%9B%BE_20171022220758-1.png" alt=""></p>
+<p><img src="https://camo.githubusercontent.com/a32766a14f6b7fbe631475ed1a186fbd9de7f2c3/687474703a2f2f6c69766f7261732e6769746875622e696f2f626c6f672f7669727475616c2d646f6d2f636f6d706172652d696e2d6c6576656c2e706e67" alt=""></p>
+<h3 id="性能方面"><a href="#性能方面" class="headerlink" title="性能方面:"></a>性能方面:</h3><ol>
+<li><p>用JS构建虚拟DOM树,再通过虚拟DOM构建真正的DOM,这种方式性能快的多。</p>
+</li>
+<li><p>如果我们直接调用像.getElementById的方法,在复杂DOM的页面上,是十分耗费性能的,而在这只需要操作对应的JS对象即可。</p>
+</li>
+<li>比较两棵虚拟DOM树的不同,在真正的DOM元素上进行最小化修改(模板引擎).</li>
+</ol>
+<h3 id="代码方面"><a href="#代码方面" class="headerlink" title="代码方面:"></a>代码方面:</h3><ol>
+<li>MVVM模式下,也使我们无需关注DOM元素,直接操作DOM元素对应的状态就行,对于代码编辑更好。</li>
+</ol>
+]]></content>
+      
+        
+    </entry>
+    
+    <entry>
       <title><![CDATA[影响前端性能的元凶:DOM操作]]></title>
       <url>/2017/10/24/%E5%BD%B1%E5%93%8D%E5%89%8D%E7%AB%AF%E6%80%A7%E8%83%BD%E7%9A%84%E5%85%83%E5%87%B6-DOM%E6%93%8D%E4%BD%9C/</url>
       <content type="html"><![CDATA[<p>今天我们来谈谈影响前端性能的主要元凶:<strong>DOM操作.</strong></p>
@@ -35,7 +65,7 @@ myElement.style.display = &apos;block&apos;;
 </code></pre><h3 id="3-克隆DOM元素到内存中"><a href="#3-克隆DOM元素到内存中" class="headerlink" title="3.克隆DOM元素到内存中"></a>3.克隆DOM元素到内存中</h3><p>这种方式是把页面上的DOM元素克隆一份到内存中，然后再在内存中操作克隆的元素，操作完成后使用此克隆元素替换页面中原来的DOM元素。这样一来，<strong>影响性能的操作就只是最后替换元素的这一步操作了，在内存中操作克隆元素不会引起页面上的性能损耗</strong>。</p>
 <pre><code>var old = document.getElementById(&apos;content&apos;);
 var newElement= old.cloneNode(true); //复制DOM元素到内存中
-// 一些基于clone的大量DOM操作
+// 一些基于clone的大量DOM 操作
 ...
 //替换原来DOM元素
 old.parentNode.replaceChild(newElement, old);

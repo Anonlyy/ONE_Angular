@@ -501,7 +501,7 @@ myElement.style.display = &apos;block&apos;;
 </code></pre><h3 id="3-克隆DOM元素到内存中"><a href="#3-克隆DOM元素到内存中" class="headerlink" title="3.克隆DOM元素到内存中"></a>3.克隆DOM元素到内存中</h3><p>这种方式是把页面上的DOM元素克隆一份到内存中，然后再在内存中操作克隆的元素，操作完成后使用此克隆元素替换页面中原来的DOM元素。这样一来，<strong>影响性能的操作就只是最后替换元素的这一步操作了，在内存中操作克隆元素不会引起页面上的性能损耗</strong>。</p>
 <pre><code>var old = document.getElementById(&apos;content&apos;);
 var newElement= old.cloneNode(true); //复制DOM元素到内存中
-// 一些基于clone的大量DOM操作
+// 一些基于clone的大量DOM 操作
 ...
 //替换原来DOM元素
 old.parentNode.replaceChild(newElement, old);
@@ -527,6 +527,14 @@ old.parentNode.replaceChild(newElement, old);
             <!-- Post Prev & Next Nav -->
             <nav class="material-nav mdl-color-text--grey-50 mdl-cell mdl-cell--12-col">
     <!-- Prev Nav -->
+    
+        <a href="/2017/10/24/VirtualDOM原理概述/" id="post_nav-newer" class="prev-content">
+            <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
+                <i class="material-icons">arrow_back</i>
+            </button>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            新篇
+        </a>
     
 
     <!-- Section Spacer -->
