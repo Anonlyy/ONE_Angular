@@ -12,7 +12,7 @@
     
     <title>
         
-            jQuery的插件机制 | 
+            影响前端性能的元凶:DOM操作 | 
         
         Xposean&#39;s Blog
     </title>
@@ -67,7 +67,7 @@
     <!-- The Open Graph protocol -->
     <meta property="og:url" content="http://xposean.xin">
     <meta property="og:type" content="blog">
-    <meta property="og:title" content="jQuery的插件机制 | Xposean&#39;s Blog">
+    <meta property="og:title" content="影响前端性能的元凶:DOM操作 | Xposean&#39;s Blog">
     <meta property="og:image" content="/img/favicon.png" />
     <meta property="og:description" content="做一个刚刚好的前端仔">
     
@@ -78,7 +78,7 @@
     
 
     <!-- The Twitter Card protocol -->
-    <meta name="twitter:title" content="jQuery的插件机制 | Xposean&#39;s Blog">
+    <meta name="twitter:title" content="影响前端性能的元凶:DOM操作 | Xposean&#39;s Blog">
     <meta name="twitter:description" content="做一个刚刚好的前端仔">
     <meta name="twitter:image" content="/img/favicon.png">
     <meta name="twitter:card" content="summary_large_image" />
@@ -86,7 +86,7 @@
 
     <!-- Add canonical link for SEO -->
     
-        <link rel="canonical" href="http://xposean.xin/2017/10/24/jQuery的插件机制/index.html" />
+        <link rel="canonical" href="http://xposean.xin/2017/10/24/影响前端性能的元凶-DOM操作/index.html" />
     
 
     <!-- Structured-data for SEO -->
@@ -112,8 +112,8 @@
         },
         "description": "做一个刚刚好的前端仔,——关于我"
     },
-    "headline": "jQuery的插件机制",
-    "url": "http://xposean.xin/2017/10/24/jQuery的插件机制/index.html",
+    "headline": "影响前端性能的元凶:DOM操作",
+    "url": "http://xposean.xin/2017/10/24/影响前端性能的元凶-DOM操作/index.html",
     "datePublished": "10月 24, 2017",
     "dateModified": "10月 24, 2017",
     "description": "做一个刚刚好的前端仔",
@@ -469,136 +469,44 @@
     
         <div class="post-content_wrapper">
             <p class="post-title">
-                jQuery的插件机制
+                影响前端性能的元凶:DOM操作
             </p>
-            <h2 id="jQuery框架现况分析和概述"><a href="#jQuery框架现况分析和概述" class="headerlink" title="jQuery框架现况分析和概述"></a>jQuery框架现况分析和概述</h2><p><img src="http://it.dyg.cn/wp-content/uploads/2017/09/151009222057-15-1-300x207.png" alt=""><br>虽然jQuery的市场占有率正逐年下滑,但不可避免的,jQuery仍是目前前端领域里使用率最高的前端框架,仍旧需要深入学习它,利用它更方便的写出优秀的前端代码。</p>
-<p>先来回顾一下,jQuery的优秀之处:</p>
-<ol>
-<li>强大的DOM选择器</li>
-<li>可靠的事件处理器</li>
-<li>完善的Ajax函数</li>
-<li>链式操作</li>
-<li>出色的浏览器兼容性</li>
-<li>强大的插件支持</li>
-</ol>
-<p>而本篇文章主要讲解的就是<code>jQuery</code>框架强大的<strong>插件系统</strong>支持,且听我慢慢道来.</p>
-<h2 id="jQuery的插件系统概述"><a href="#jQuery的插件系统概述" class="headerlink" title="jQuery的插件系统概述"></a>jQuery的插件系统概述</h2><p>首先编写插件的目的很明确,就是为了能够让代码的<strong>复用性更强</strong>,<strong>提高可维护性和开发效率</strong>。</p>
-<p>那首先,<code>jquery</code>的插件主要分为三种类型:</p>
-<h3 id="封装对象方法的插件"><a href="#封装对象方法的插件" class="headerlink" title="封装对象方法的插件"></a>封装对象方法的插件</h3><p>这种是将对象方法封装起来,用于对通过选择器获得JQuery对象进行操作,也是最常用的插件类型。</p>
-<p>简单的举例就是我们在<code>jQuery</code>用的<code>addClass()</code>、<code>parent()</code>此类的方法都是属于这种类型的插件。</p>
-<h3 id="封装全局函数的插件"><a href="#封装全局函数的插件" class="headerlink" title="封装全局函数的插件"></a>封装全局函数的插件</h3><p>可以将独立的函数(方法)加到JQuey命名空间下.例如<code>jQuery</code>中的<code>$.Ajax()</code>和<code>$.trim()</code>这种就属于<code>jquery</code>编写的作为全局函数使用的插件。</p>
-<h3 id="选择器插件"><a href="#选择器插件" class="headerlink" title="选择器插件"></a>选择器插件</h3><p>这个就很好理解了,虽然我们的Jquery的选择器非常的强大且丰富,但仍不是尽善尽美的,仍然有时候需要扩展一些我们自定义的选择器。</p>
-<p><strong>注意事项:</strong><br>为了防止我们内部编写的变量影响到全局空间,我们在编写插件的时候必须通过一段代码来包裹我们的编写的代码体。</p>
-<pre><code>;(function($){
-    /* 放置我们的插件代码,并且可以通过$来作为JQuery的缩写别名*/
-})(jQuery);
-</code></pre><p>这样的话,我们写的插件里的变量不会污染到全局空间,而且我们在代码中还能继续使用过$来作为<code>jQuery</code>的缩写别名.</p>
-<h2 id="JQuery的插件机制"><a href="#JQuery的插件机制" class="headerlink" title="JQuery的插件机制"></a>JQuery的插件机制</h2><p>简单介绍了<code>jQuery</code>插件以及其类型,我们再来讲讲<code>jQuery</code>的插件机制,<code>jQuery</code>是用什么来创建我们的插件的呢？</p>
-<p><code>jQuery</code>提供了两个用于扩展<code>JQuery</code>功能的方法,即<code>jQuery.fn.extend(</code>)和<code>jQuery.extend()</code>方法。</p>
-<p><code>jQuery.fn.extend()</code>用来扩展我们前面提到的第一种类型的插件,</p>
-<p><code>jQuery.extend()</code>用来扩展第二和第三类型的插件。</p>
-<p>这两个方法都接受一个<code>Object</code>类型的参数。</p>
-<h2 id="编写jQuery插件"><a href="#编写jQuery插件" class="headerlink" title="编写jQuery插件"></a>编写jQuery插件</h2><h3 id="封装JQuery对象方法的插件"><a href="#封装JQuery对象方法的插件" class="headerlink" title="封装JQuery对象方法的插件"></a>封装JQuery对象方法的插件</h3><p>在这里我们要编写一个能够设置对象颜色的插件。</p>
-<pre><code>&lt;!DOCTYPE html&gt;
-&lt;html&gt;
-  &lt;head&gt;
-    &lt;meta http-equiv=&quot;Content-Type&quot; content=&quot;text/html; charset=UTF-8&quot;&gt;
-    &lt;script class=&quot;jquer&quot; src=&quot;/js/sandbox/jquery/jquery-1.8.2.min.js&quot; type=&quot;text/javascript&quot;&gt;&lt;/script&gt;
-    &lt;title&gt;演示代码&lt;/title&gt;
-  &lt;/head&gt;
-&lt;body&gt;
-    &lt;div class=&apos;content&apos;&gt;hello&lt;/div&gt;
-  &lt;/body&gt;
-&lt;/html&gt;
-&lt;script&gt;
-;(function($){
-  jQuery.fn.extend({
-    &quot;color&quot;:function(value){
-      return this.css(&apos;color&apos;,value);
-    }
-  })
-})(jQuery);
-
-$(function(){
-  $(&apos;.content&apos;).color(&apos;red&apos;);
-});
-&lt;/script&gt;
-</code></pre><p>在这段代码中,我们通过<code>$.fn.extend()</code>就能够封装一个JQ对象的插件函数了。</p>
-<p>通过<code>$(&#39;xxx&#39;).color(&#39;color&#39;)</code>,我们就能直接给DOM元素设置颜色了,极其方便好用。</p>
-<h3 id="封装全局函数的插件-1"><a href="#封装全局函数的插件-1" class="headerlink" title="封装全局函数的插件"></a>封装全局函数的插件</h3><p>同样的我们可以编写一个能够清除去除左侧空格的插件函数。</p>
-<pre><code>&lt;!DOCTYPE html&gt;
-&lt;html&gt;
-&lt;head&gt;
-  &lt;meta charset=&quot;utf-8&quot;&gt;
-  &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width&quot;&gt;
-  &lt;title&gt;JS Bin&lt;/title&gt;
-&lt;/head&gt;
-&lt;body&gt;
-&lt;script src=&quot;https://code.jquery.com/jquery-2.2.4.js&quot;&gt;&lt;/script&gt;
-  &lt;div class=&quot;content1&quot;&gt;
-
-  &lt;/div&gt;
-&lt;/body&gt;
-&lt;/html&gt;
-&lt;script&gt;
-;(function($){
-    $.extend({
-        ltrim:function(text){
-            return (text||&quot;&quot;).replace(/^\s+/g,&quot;&quot;);
-        }
-    });
-})(jQuery);
-$(function(){
-    var str = &quot;           2222&quot;;
-    alert($.ltrim(str));
-});
-&lt;/script&gt;
-</code></pre><p>在这段代码里,我们定义了一个全局函数的插件,来实现去除字符串左侧空格的功能,通过<code>$.extend()</code>设置后,我们就可以直接通过<code>$.ltrim(xxx)</code>来设置了。</p>
-<h3 id="封装自定义选择器"><a href="#封装自定义选择器" class="headerlink" title="封装自定义选择器"></a>封装自定义选择器</h3><p>首先,我们以自带的选择器例子来做介绍:</p>
-<pre><code>$(&quot;div:gt(1)&quot;)
-</code></pre><p>这个例子中,选择器会首先找到所有div的元素,再遍历这些元素,然后将这些元素和”1″和下标一起传入gt选择器对应的选择器函数中。根据函数里编写的代码,如若返回true,则该元素会保留,反之,该元素就会被忽略。</p>
-<p>而例子中的gt选择器函数转化成自定义的<strong>选择器函数</strong>是这样的:</p>
-<pre><code>function(a,i,m){
-  return i&gt;m[3]-0;
-}
-</code></pre><p>第一个参数a:指的是当前遍历的DOM元素;</p>
-<p>第二个参数i:指的是当前遍历的DOM元素的索引值,从0开始;</p>
-<p>第三个参数m:他是由JQuery解析出来的一个数组.<br><img src="http://it.dyg.cn/wp-content/uploads/2017/09/%E5%BE%AE%E4%BF%A1%E6%88%AA%E5%9B%BE_20170910170144.png" alt=""></p>
-<p>介绍完这些,接下来我们来自己编写一个自定义的选择器:</p>
-<p>创建一个根据你传入的字符串等于DOM元素文本内容的选择器:</p>
-<pre><code>&lt;!DOCTYPE html&gt;
-&lt;html&gt;
-&lt;head&gt;
-  &lt;meta charset=&quot;utf-8&quot;&gt;
-  &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width&quot;&gt;
-  &lt;title&gt;JS Bin&lt;/title&gt;
-&lt;/head&gt;
-&lt;body&gt;
-&lt;script src=&quot;https://code.jquery.com/jquery-2.2.4.js&quot;&gt;&lt;/script&gt;
-  &lt;p&gt;111&lt;/p&gt;
-  &lt;p&gt;222&lt;/p&gt;
-  &lt;p&gt;333&lt;/p&gt;
-  &lt;p&gt;444&lt;/p&gt;
-  &lt;p&gt;555&lt;/p&gt;
-  &lt;p&gt;666&lt;/p&gt;
-  &lt;p&gt;777&lt;/p&gt;
-&lt;/body&gt;
-&lt;/html&gt;
-&lt;script&gt;
-;(function($){
-  $.extend($.expr[&quot;:&quot;],{
-    &quot;equal&quot;: function(a,i,m){
-      return $(a).text()==m[3];
-    }
-  });
-})(jQuery);
-$(function(){
-  $(&apos;p:equal(111)&apos;).css(&apos;color&apos;,&quot;red&quot;);
-});
-&lt;/script&gt;
-</code></pre><p>该选择器会根据传入的字符找到字符相等的元素。</p>
-<p>因为选择器函数是属于调用<strong>十分频繁</strong>的函数,所以在编写的时候,一定要秉承优化再优化的原则,不能草草了事。</p>
-<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>以上就是jQuery的插件系统,利用好插件,可以给我们的开发工作带来十分大的效率提升。</p>
+            <p>今天我们来谈谈影响前端性能的主要元凶:<strong>DOM操作.</strong></p>
+<h2 id="重视DOM操作的原因"><a href="#重视DOM操作的原因" class="headerlink" title="重视DOM操作的原因?"></a>重视DOM操作的原因?</h2><p>在<strong>PC浏览器</strong>的时代,一般的小批量重绘或回流是感觉不出浏览器卡顿的,这主要是因为PC端的浏览器性能强而且网速够快,但到了如今我们的<strong>移动浏览器</strong>时代,轻微的DOM操作,在我们性能稍弱,网速不够快的移动浏览器上,影响性能的表现就会很明显了。</p>
+<h2 id="DOM操作为什么会影响性能"><a href="#DOM操作为什么会影响性能" class="headerlink" title="DOM操作为什么会影响性能"></a>DOM操作为什么会影响性能</h2><p>在浏览器中，<code>DOM</code>的实现和<code>ECMAScript</code>的实现是分离的。所以通过<code>JavaScript</code>代码调用DOM接 口，相当于两个独立模块的交互。相比较在同一模块中的调用，这种跨模块的调用其性能损耗是很高的。但<code>DOM</code>操作对性能影响最大其实还是因为它导致了浏览器 的<strong>重绘</strong>和<strong>回流</strong>。</p>
+<p><strong>重绘</strong>（repaint）:当前元素的颜色样式(背景颜色、字体颜色等)发生改变的时候，我们只需要把改变的元素重新的渲染一下即可，重绘主要改变外观风格（改个颜色，换个皮肤），不改变布局，不影响其他的dom。</p>
+<p><strong>回流</strong>（reflow）:指浏览器为了重新渲染部分或者全部的文档而重新计算文档中元素的位置和几何构造的过程。如<code>DOM</code>元素的增删、位置移动、尺寸大小的改变以及浏览器窗口尺寸改变。每个页面至少会有一次回流,就是在页面初次渲染的时候。</p>
+<p>这其中,重绘对浏览器的性能影响较小,一般不做优化，但是能避免最好.主要是回流需要尽可能避免和优化。</p>
+<h2 id="浏览器的渲染原理"><a href="#浏览器的渲染原理" class="headerlink" title="浏览器的渲染原理"></a>浏览器的渲染原理</h2><p>在渲染页面的过程中，浏览器会通过解析HTML文档来构建DOM树，解析<code>CSS</code>产生<code>CSS</code>规则树。<code>JavaScript</code>代码在解析过程中， 可能会修改生成的<code>DOM树</code>和<code>CSS</code>规则树。之后根据<code>DOM</code>树和<code>CSS</code>规则树构建渲染树，在这个过程中<code>CSS</code>会根据选择器匹配HTML元素。渲染树包括了每 个元素的大小、边距等样式属性，渲染树中不包含隐藏元素及<code>head</code>元素等不可见元素。最后浏览器根据元素的坐标和大小来计算每个元素的位置，并绘制这些元 素到页面上。重绘指的是页面的某些部分要重新绘制，比如颜色或背景色的修改，元素的位置和尺寸并没用改变；回流则是元素的位置或尺寸发生了改变，浏览器需 要重新计算渲染树，导致渲染树的一部分或全部发生变化。渲染树重新建立后，浏览器会重新绘制页面上受影响的元素。<br><img src="http://it.dyg.cn/wp-content/uploads/2017/10/snipaste_20171013_112243.png" alt=""></p>
+<p>这就是DOM树<br><img src="http://it.dyg.cn/wp-content/uploads/2017/10/w_800-750x334.png" alt="DOM树"></p>
+<p><strong>回流</strong>的代价比<strong>重绘</strong>的代价高很多，重绘会影响部分的元素，而回流则有可能影响全部的元素。</p>
+<blockquote>
+<p>注意：回流必将引起重绘，而重绘不一定会引起回流。</p>
+</blockquote>
+<h2 id="那我们怎样优化和避免重绘和回流"><a href="#那我们怎样优化和避免重绘和回流" class="headerlink" title="那我们怎样优化和避免重绘和回流?"></a>那我们怎样优化和避免重绘和回流?</h2><h3 id="1-合并多次的DOM操作为单次的DOM操作"><a href="#1-合并多次的DOM操作为单次的DOM操作" class="headerlink" title="1. 合并多次的DOM操作为单次的DOM操作"></a>1. 合并多次的DOM操作为单次的DOM操作</h3><pre><code>var element = document.getElementById(&apos;content&apos;);
+//多次的DOM操作
+element.style.borderColor = &apos;white&apos;;
+element.style.borderStyle = &apos;solid&apos;;
+element.style.borderWidth = &apos;1px&apos;;
+//优化方案:1.可合并为一次
+element.style.cssText += &apos;border: 1px solid white;background-color:green;&apos;;
+//2.添加className
+element.className += &apos;empty&apos;;
+</code></pre><h3 id="2-把DOM元素隐藏后修改、动画效果应用到position属性为absolute或fixed的元素上"><a href="#2-把DOM元素隐藏后修改、动画效果应用到position属性为absolute或fixed的元素上" class="headerlink" title="2.把DOM元素隐藏后修改、动画效果应用到position属性为absolute或fixed的元素上"></a>2.把DOM元素隐藏后修改、动画效果应用到position属性为absolute或fixed的元素上</h3><p>把DOM元素从页面流中脱离或隐藏，这样处理后，只会在DOM元素脱离和添加时，或者是隐藏和显示时才会造成页面的重绘或回流，对脱离了页面布局流的DOM元素操作就不会导致页面的性能问题。这种方式适合那些需要大批量修改DOM元素的情况。</p>
+<pre><code>var myElement = document.getElementById(&apos;content&apos;);
+myElement.style.display = &apos;none&apos;;
+// 一些基于myElement的大量DOM操作
+...
+myElement.style.display = &apos;block&apos;;
+</code></pre><h3 id="3-克隆DOM元素到内存中"><a href="#3-克隆DOM元素到内存中" class="headerlink" title="3.克隆DOM元素到内存中"></a>3.克隆DOM元素到内存中</h3><p>这种方式是把页面上的DOM元素克隆一份到内存中，然后再在内存中操作克隆的元素，操作完成后使用此克隆元素替换页面中原来的DOM元素。这样一来，<strong>影响性能的操作就只是最后替换元素的这一步操作了，在内存中操作克隆元素不会引起页面上的性能损耗</strong>。</p>
+<pre><code>var old = document.getElementById(&apos;content&apos;);
+var newElement= old.cloneNode(true); //复制DOM元素到内存中
+// 一些基于clone的大量DOM操作
+...
+//替换原来DOM元素
+old.parentNode.replaceChild(newElement, old);
+</code></pre><h3 id="4-使用JS模板引擎"><a href="#4-使用JS模板引擎" class="headerlink" title="4.使用JS模板引擎"></a>4.使用JS模板引擎</h3><p>在大批量的<code>DOM</code>元素操作,其实最方便或最有效的操作,应该是使用JS模板引擎,例如有<code>artTemplate</code>、<code>Mustache</code>等</p>
+<h3 id="5-使用Virtual-DOM"><a href="#5-使用Virtual-DOM" class="headerlink" title="5.使用Virtual DOM."></a>5.使用Virtual DOM.</h3><p>这也是目前主流的前端框架(<code>Reac</code>t、<code>Vue</code>、<code>Angular</code>)所使用的方式,将会在下一节详细讲述。</p>
 
         </div>
     
@@ -620,21 +528,13 @@ $(function(){
             <nav class="material-nav mdl-color-text--grey-50 mdl-cell mdl-cell--12-col">
     <!-- Prev Nav -->
     
-        <a href="/2017/10/24/影响前端性能的元凶-DOM操作/" id="post_nav-newer" class="prev-content">
-            <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
-                <i class="material-icons">arrow_back</i>
-            </button>
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            新篇
-        </a>
-    
 
     <!-- Section Spacer -->
     <div class="section-spacer"></div>
 
     <!-- Next Nav -->
     
-        <a href="/2017/10/24/移动web适配方案简述/" id="post_nav-older" class="next-content">
+        <a href="/2017/10/24/jQuery的插件机制/" id="post_nav-older" class="next-content">
             旧篇
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
