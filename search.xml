@@ -3,6 +3,142 @@
   
     
     <entry>
+      <title><![CDATA[jQuery的插件机制]]></title>
+      <url>/2017/10/24/jQuery%E7%9A%84%E6%8F%92%E4%BB%B6%E6%9C%BA%E5%88%B6/</url>
+      <content type="html"><![CDATA[<h2 id="jQuery框架现况分析和概述"><a href="#jQuery框架现况分析和概述" class="headerlink" title="jQuery框架现况分析和概述"></a>jQuery框架现况分析和概述</h2><p><img src="http://it.dyg.cn/wp-content/uploads/2017/09/151009222057-15-1-300x207.png" alt=""><br>虽然jQuery的市场占有率正逐年下滑,但不可避免的,jQuery仍是目前前端领域里使用率最高的前端框架,仍旧需要深入学习它,利用它更方便的写出优秀的前端代码。</p>
+<p>先来回顾一下,jQuery的优秀之处:</p>
+<ol>
+<li>强大的DOM选择器</li>
+<li>可靠的事件处理器</li>
+<li>完善的Ajax函数</li>
+<li>链式操作</li>
+<li>出色的浏览器兼容性</li>
+<li>强大的插件支持</li>
+</ol>
+<p>而本篇文章主要讲解的就是<code>jQuery</code>框架强大的<strong>插件系统</strong>支持,且听我慢慢道来.</p>
+<h2 id="jQuery的插件系统概述"><a href="#jQuery的插件系统概述" class="headerlink" title="jQuery的插件系统概述"></a>jQuery的插件系统概述</h2><p>首先编写插件的目的很明确,就是为了能够让代码的<strong>复用性更强</strong>,<strong>提高可维护性和开发效率</strong>。</p>
+<p>那首先,<code>jquery</code>的插件主要分为三种类型:</p>
+<h3 id="封装对象方法的插件"><a href="#封装对象方法的插件" class="headerlink" title="封装对象方法的插件"></a>封装对象方法的插件</h3><p>这种是将对象方法封装起来,用于对通过选择器获得JQuery对象进行操作,也是最常用的插件类型。</p>
+<p>简单的举例就是我们在<code>jQuery</code>用的<code>addClass()</code>、<code>parent()</code>此类的方法都是属于这种类型的插件。</p>
+<h3 id="封装全局函数的插件"><a href="#封装全局函数的插件" class="headerlink" title="封装全局函数的插件"></a>封装全局函数的插件</h3><p>可以将独立的函数(方法)加到JQuey命名空间下.例如<code>jQuery</code>中的<code>$.Ajax()</code>和<code>$.trim()</code>这种就属于<code>jquery</code>编写的作为全局函数使用的插件。</p>
+<h3 id="选择器插件"><a href="#选择器插件" class="headerlink" title="选择器插件"></a>选择器插件</h3><p>这个就很好理解了,虽然我们的Jquery的选择器非常的强大且丰富,但仍不是尽善尽美的,仍然有时候需要扩展一些我们自定义的选择器。</p>
+<p><strong>注意事项:</strong><br>为了防止我们内部编写的变量影响到全局空间,我们在编写插件的时候必须通过一段代码来包裹我们的编写的代码体。</p>
+<pre><code>;(function($){
+    /* 放置我们的插件代码,并且可以通过$来作为JQuery的缩写别名*/
+})(jQuery);
+</code></pre><p>这样的话,我们写的插件里的变量不会污染到全局空间,而且我们在代码中还能继续使用过$来作为<code>jQuery</code>的缩写别名.</p>
+<h2 id="JQuery的插件机制"><a href="#JQuery的插件机制" class="headerlink" title="JQuery的插件机制"></a>JQuery的插件机制</h2><p>简单介绍了<code>jQuery</code>插件以及其类型,我们再来讲讲<code>jQuery</code>的插件机制,<code>jQuery</code>是用什么来创建我们的插件的呢？</p>
+<p><code>jQuery</code>提供了两个用于扩展<code>JQuery</code>功能的方法,即<code>jQuery.fn.extend(</code>)和<code>jQuery.extend()</code>方法。</p>
+<p><code>jQuery.fn.extend()</code>用来扩展我们前面提到的第一种类型的插件,</p>
+<p><code>jQuery.extend()</code>用来扩展第二和第三类型的插件。</p>
+<p>这两个方法都接受一个<code>Object</code>类型的参数。</p>
+<h2 id="编写jQuery插件"><a href="#编写jQuery插件" class="headerlink" title="编写jQuery插件"></a>编写jQuery插件</h2><h3 id="封装JQuery对象方法的插件"><a href="#封装JQuery对象方法的插件" class="headerlink" title="封装JQuery对象方法的插件"></a>封装JQuery对象方法的插件</h3><p>在这里我们要编写一个能够设置对象颜色的插件。</p>
+<pre><code>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+  &lt;head&gt;
+    &lt;meta http-equiv=&quot;Content-Type&quot; content=&quot;text/html; charset=UTF-8&quot;&gt;
+    &lt;script class=&quot;jquer&quot; src=&quot;/js/sandbox/jquery/jquery-1.8.2.min.js&quot; type=&quot;text/javascript&quot;&gt;&lt;/script&gt;
+    &lt;title&gt;演示代码&lt;/title&gt;
+  &lt;/head&gt;
+&lt;body&gt;
+    &lt;div class=&apos;content&apos;&gt;hello&lt;/div&gt;
+  &lt;/body&gt;
+&lt;/html&gt;
+&lt;script&gt;
+;(function($){
+  jQuery.fn.extend({
+    &quot;color&quot;:function(value){
+      return this.css(&apos;color&apos;,value);
+    }
+  })
+})(jQuery);
+
+$(function(){
+  $(&apos;.content&apos;).color(&apos;red&apos;);
+});
+&lt;/script&gt;
+</code></pre><p>在这段代码中,我们通过<code>$.fn.extend()</code>就能够封装一个JQ对象的插件函数了。</p>
+<p>通过<code>$(&#39;xxx&#39;).color(&#39;color&#39;)</code>,我们就能直接给DOM元素设置颜色了,极其方便好用。</p>
+<h3 id="封装全局函数的插件-1"><a href="#封装全局函数的插件-1" class="headerlink" title="封装全局函数的插件"></a>封装全局函数的插件</h3><p>同样的我们可以编写一个能够清除去除左侧空格的插件函数。</p>
+<pre><code>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+  &lt;meta charset=&quot;utf-8&quot;&gt;
+  &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width&quot;&gt;
+  &lt;title&gt;JS Bin&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;script src=&quot;https://code.jquery.com/jquery-2.2.4.js&quot;&gt;&lt;/script&gt;
+  &lt;div class=&quot;content1&quot;&gt;
+
+  &lt;/div&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+&lt;script&gt;
+;(function($){
+    $.extend({
+        ltrim:function(text){
+            return (text||&quot;&quot;).replace(/^\s+/g,&quot;&quot;);
+        }
+    });
+})(jQuery);
+$(function(){
+    var str = &quot;           2222&quot;;
+    alert($.ltrim(str));
+});
+&lt;/script&gt;
+</code></pre><p>在这段代码里,我们定义了一个全局函数的插件,来实现去除字符串左侧空格的功能,通过<code>$.extend()</code>设置后,我们就可以直接通过<code>$.ltrim(xxx)</code>来设置了。</p>
+<h3 id="封装自定义选择器"><a href="#封装自定义选择器" class="headerlink" title="封装自定义选择器"></a>封装自定义选择器</h3><p>首先,我们以自带的选择器例子来做介绍:</p>
+<pre><code>$(&quot;div:gt(1)&quot;)
+</code></pre><p>这个例子中,选择器会首先找到所有div的元素,再遍历这些元素,然后将这些元素和”1″和下标一起传入gt选择器对应的选择器函数中。根据函数里编写的代码,如若返回true,则该元素会保留,反之,该元素就会被忽略。</p>
+<p>而例子中的gt选择器函数转化成自定义的<strong>选择器函数</strong>是这样的:</p>
+<pre><code>function(a,i,m){
+  return i&gt;m[3]-0;
+}
+</code></pre><p>第一个参数a:指的是当前遍历的DOM元素;</p>
+<p>第二个参数i:指的是当前遍历的DOM元素的索引值,从0开始;</p>
+<p>第三个参数m:他是由JQuery解析出来的一个数组.<br><img src="http://it.dyg.cn/wp-content/uploads/2017/09/%E5%BE%AE%E4%BF%A1%E6%88%AA%E5%9B%BE_20170910170144.png" alt=""></p>
+<p>介绍完这些,接下来我们来自己编写一个自定义的选择器:</p>
+<p>创建一个根据你传入的字符串等于DOM元素文本内容的选择器:</p>
+<pre><code>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+  &lt;meta charset=&quot;utf-8&quot;&gt;
+  &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width&quot;&gt;
+  &lt;title&gt;JS Bin&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;script src=&quot;https://code.jquery.com/jquery-2.2.4.js&quot;&gt;&lt;/script&gt;
+  &lt;p&gt;111&lt;/p&gt;
+  &lt;p&gt;222&lt;/p&gt;
+  &lt;p&gt;333&lt;/p&gt;
+  &lt;p&gt;444&lt;/p&gt;
+  &lt;p&gt;555&lt;/p&gt;
+  &lt;p&gt;666&lt;/p&gt;
+  &lt;p&gt;777&lt;/p&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+&lt;script&gt;
+;(function($){
+  $.extend($.expr[&quot;:&quot;],{
+    &quot;equal&quot;: function(a,i,m){
+      return $(a).text()==m[3];
+    }
+  });
+})(jQuery);
+$(function(){
+  $(&apos;p:equal(111)&apos;).css(&apos;color&apos;,&quot;red&quot;);
+});
+&lt;/script&gt;
+</code></pre><p>该选择器会根据传入的字符找到字符相等的元素。</p>
+<p>因为选择器函数是属于调用<strong>十分频繁</strong>的函数,所以在编写的时候,一定要秉承优化再优化的原则,不能草草了事。</p>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>以上就是jQuery的插件系统,利用好插件,可以给我们的开发工作带来十分大的效率提升。</p>
+]]></content>
+      
+        
+    </entry>
+    
+    <entry>
       <title><![CDATA[移动web适配方案简述]]></title>
       <url>/2017/10/24/%E7%A7%BB%E5%8A%A8web%E9%80%82%E9%85%8D%E6%96%B9%E6%A1%88%E7%AE%80%E8%BF%B0/</url>
       <content type="html"><![CDATA[<p>众所周知,目前移动设备的访问量早已超越PC端设备,这就意味着用户使用移动设备访问页面的行为越发频繁,这就给web前端开发人员带来了一系列的苦恼,如何才能在不同大小的设备上呈现同样的网页？这是每一个移动web开发者的都会发出的疑问.接下来,本文将讲述自适应网页设计的概念和方法，使网页开发人员维护同一个网页代码，即可使网站在多种设备上具有更好的阅读体验。</p>
