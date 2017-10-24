@@ -70,7 +70,7 @@ var newElement= old.cloneNode(true); //复制DOM元素到内存中
 //替换原来DOM元素
 old.parentNode.replaceChild(newElement, old);
 </code></pre><h3 id="4-使用JS模板引擎"><a href="#4-使用JS模板引擎" class="headerlink" title="4.使用JS模板引擎"></a>4.使用JS模板引擎</h3><p>在大批量的<code>DOM</code>元素操作,其实最方便或最有效的操作,应该是使用JS模板引擎,例如有<code>artTemplate</code>、<code>Mustache</code>等</p>
-<h3 id="5-使用Virtual-DOM"><a href="#5-使用Virtual-DOM" class="headerlink" title="5.使用Virtual DOM."></a>5.使用Virtual DOM.</h3><p>这也是目前主流的前端框架(<code>Reac</code>t、<code>Vue</code>、<code>Angular</code>)所使用的方式,将会在下一节详细讲述。</p>
+<h3 id="5-使用Virtual-DOM"><a href="#5-使用Virtual-DOM" class="headerlink" title="5.使用Virtual DOM."></a>5.使用Virtual DOM.</h3><p>这也是目前主流的前端框架(<code>Reac</code>t、<code>Vue</code>、<code>Angular</code>)所使用的方式,将会在<a href="http://www.xposean.xin/2017/10/24/VirtualDOM%E5%8E%9F%E7%90%86%E6%A6%82%E8%BF%B0/" target="_blank" rel="external">下一节</a>详细讲述。</p>
 ]]></content>
       
         
