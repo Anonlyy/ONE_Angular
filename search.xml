@@ -3,6 +3,47 @@
   
     
     <entry>
+      <title><![CDATA[移动web适配方案简述]]></title>
+      <url>/2017/10/24/%E7%A7%BB%E5%8A%A8web%E9%80%82%E9%85%8D%E6%96%B9%E6%A1%88%E7%AE%80%E8%BF%B0/</url>
+      <content type="html"><![CDATA[<p>众所周知,目前移动设备的访问量早已超越PC端设备,这就意味着用户使用移动设备访问页面的行为越发频繁,这就给web前端开发人员带来了一系列的苦恼,如何才能在不同大小的设备上呈现同样的网页？这是每一个移动web开发者的都会发出的疑问.接下来,本文将讲述自适应网页设计的概念和方法，使网页开发人员维护同一个网页代码，即可使网站在多种设备上具有更好的阅读体验。</p>
+<blockquote>
+<p>本文详细介绍了网页全适配的实现方法，希望能给迷惑的你带来帮助。</p>
+</blockquote>
+<h2 id="先说说方案"><a href="#先说说方案" class="headerlink" title="先说说方案"></a>先说说方案</h2><p>目前主流的方案有两个,<strong>响应式</strong>以及<strong>自适应</strong>的解决方案,除此之外也有其他的方案,但在这主要只讲这两者.<br><img src="http://it.dyg.cn/wp-content/uploads/2017/08/eb206edc273b0ac47a7da1f157010bad_r.png" alt=""><br><strong>自适应</strong>:在移动端设备上浏览，网页与PC端无大的差别，原网页的布局在任何设备上都可以保持一致，不会因为屏幕窄宽大小而会影响视觉效果（不会被遮挡）和响应效果。<br><strong>响应式</strong>:在手机等设备上浏览，网页与PC端内容相似，但布局是自动改变为专为手机等其他设备所准备的。</p>
+<h3 id="自适应方案"><a href="#自适应方案" class="headerlink" title="自适应方案"></a>自适应方案</h3><p><img src="http://it.dyg.cn/wp-content/uploads/2017/08/459873-20151014135809710-1472399325.png" alt=""></p>
+<p><img src="http://it.dyg.cn/wp-content/uploads/2017/08/459873-20151014135813913-563846656.png" alt=""></p>
+<p><img src="http://it.dyg.cn/wp-content/uploads/2017/08/459873-20151014135815319-1600880598.png" alt=""></p>
+<p>拉勾网和简书网的页面就属于是自适应方案,这种页面有以下特别:</p>
+<p>1.文字流式;</p>
+<p>2.控件弹性</p>
+<p>3.图片等比缩放</p>
+<p>4.顶部或底部的的bar无论宽度怎么变,高度和位置不变.</p>
+<p>但自适应布局更多用在页面元素相对没那么复杂的网站,如果是比较复杂的网站,并不推荐使用这个布局,简单的说，图片为主内容的可以用自适应布局,例如花瓣网这种.</p>
+<hr>
+<h3 id="响应式布局"><a href="#响应式布局" class="headerlink" title="响应式布局"></a>响应式布局</h3><p>目前一般常见的实现响应式有两种方法，一种是利用<strong>媒体查询</strong>，另外一种利用<strong>JS计算屏幕宽度做出响应</strong>.</p>
+<p>但从性能和易用程度上,推荐使用媒体查询,媒体查询可以针对不同的屏幕尺寸设置不同的样式,对于响应式布局的页面,非常有用.</p>
+<p>bootstrap的 <strong>栅格布局</strong> 就是根据这种原理实现的。</p>
+<h4 id="当页面宽度大于1200px"><a href="#当页面宽度大于1200px" class="headerlink" title="当页面宽度大于1200px:"></a>当页面宽度大于1200px:</h4><p><img src="http://it.dyg.cn/wp-content/uploads/2017/08/snipaste_20170814_210916-750x425.png" alt=""></p>
+<hr>
+<h4 id="当页面宽度大于900px并且小于1200px"><a href="#当页面宽度大于900px并且小于1200px" class="headerlink" title="当页面宽度大于900px并且小于1200px:"></a>当页面宽度大于900px并且小于1200px:</h4><p><img src="http://it.dyg.cn/wp-content/uploads/2017/08/snipaste_20170814_210928-300x226.png" alt=""></p>
+<hr>
+<h4 id="当页面宽度小于900px"><a href="#当页面宽度小于900px" class="headerlink" title="当页面宽度小于900px:"></a>当页面宽度小于900px:</h4><p><img src="http://it.dyg.cn/wp-content/uploads/2017/08/snipaste_20170814_210940-182x300.png" alt=""></p>
+<hr>
+<p>但这种布局,会存在一个问题,那就是元素字体、间距、宽高等属性的属性值不会随着屏幕的宽度进行放大或缩小,这个时候,就得动态改变我们的css单位了.</p>
+<h4 id="em相对单位"><a href="#em相对单位" class="headerlink" title="em相对单位"></a>em相对单位</h4><p>em的特点 : 1. em的值并不是固定的; 2.em始终会继承父级元素的字体大小。</p>
+<p>但因为em在易用性上不强,且父级元素继承关系容易紊乱,所以又推出了rem单位.</p>
+<h4 id="rem相对单位"><a href="#rem相对单位" class="headerlink" title="rem相对单位"></a>rem相对单位</h4><p>rem也是相对单位,但它是基于根元素(也就是html标签)做相对大小,这个单位可谓集相对大小和绝对大小的优点于一身，通过它既可以做到只修改根元素就成比例地调整所有字体大小，又可以避免字体大小逐层复合的连锁反应.</p>
+<h4 id="Js动态设置rem来实现移动端字体的自适应"><a href="#Js动态设置rem来实现移动端字体的自适应" class="headerlink" title="Js动态设置rem来实现移动端字体的自适应"></a>Js动态设置rem来实现移动端字体的自适应</h4><p>原理就是:利用Js获取设备屏幕的宽度，并根据屏幕的宽度动态改变根元素html的font-size属性的作用。</p>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>如果在不考虑人力成本和时间成本的话,只考虑页面效果,首推PC端和移动端各自两套页面布局,这样方案是最合适;甚至可以移动端自适应布局,pc端响应式布局.</p>
+<p>例如我们<a href="http://www.dyg.cn" target="_blank" rel="external">东阳光商城</a>,就是两套布局方案.</p>
+<p>以及百度、淘宝、知乎,这些大型的网站都是这样,主要还是因为考虑到业务等各方面的原因.</p>
+<p>因为虽然响应式和自适应能够达到我们的效果,但在细节之处总是不够尽如人意,同时在页面布局上是固定几个模板的,不能更加的别出心栽和创意.</p>
+]]></content>
+      
+        
+    </entry>
+    
+    <entry>
       <title><![CDATA[来聊聊localStorage、sessionStorage和cookie]]></title>
       <url>/2017/10/24/%E6%9D%A5%E8%81%8A%E8%81%8AlocalStorage%E3%80%81sessionStorage%E5%92%8Ccookie/</url>
       <content type="html"><![CDATA[<p>首先当然还得是来介绍一下基本概念.</p>
