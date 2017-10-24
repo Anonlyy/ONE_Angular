@@ -12,7 +12,7 @@
     
     <title>
         
-            归档: 2017 | 
+            Gulp入门 | 
         
         Xposean&#39;s Blog
     </title>
@@ -67,15 +67,18 @@
     <!-- The Open Graph protocol -->
     <meta property="og:url" content="http://xposean.xin">
     <meta property="og:type" content="blog">
-    <meta property="og:title" content="归档: 2017 | Xposean&#39;s Blog">
+    <meta property="og:title" content="Gulp入门 | Xposean&#39;s Blog">
     <meta property="og:image" content="/img/favicon.png" />
     <meta property="og:description" content="做一个刚刚好的前端仔">
     
 
     
+        <meta property="article:published_time" content="10月 24, 2017" />
+        <meta property="article:modified_time" content="10月 24, 2017" />
+    
 
     <!-- The Twitter Card protocol -->
-    <meta name="twitter:title" content="归档: 2017 | Xposean&#39;s Blog">
+    <meta name="twitter:title" content="Gulp入门 | Xposean&#39;s Blog">
     <meta name="twitter:description" content="做一个刚刚好的前端仔">
     <meta name="twitter:image" content="/img/favicon.png">
     <meta name="twitter:card" content="summary_large_image" />
@@ -83,13 +86,43 @@
 
     <!-- Add canonical link for SEO -->
     
-        <link rel="canonical" href="http://xposean.xin/archives/2017/index.html" />
+        <link rel="canonical" href="http://xposean.xin/2017/10/24/Gulp入门/index.html" />
     
 
     <!-- Structured-data for SEO -->
     
         
 
+
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "publisher": {
+        "@type": "Organization",
+        "name": "Xposean&#39;s Blog",
+        "logo": "/img/favicon.png"
+    },
+    "author": {
+        "@type": "Person",
+        "name": "Xposean",
+        "image": {
+            "@type": "ImageObject",
+            "url": "/img/favicon.png"
+        },
+        "description": "做一个刚刚好的前端仔,——关于我"
+    },
+    "headline": "Gulp入门",
+    "url": "http://xposean.xin/2017/10/24/Gulp入门/index.html",
+    "datePublished": "10月 24, 2017",
+    "dateModified": "10月 24, 2017",
+    "description": "做一个刚刚好的前端仔",
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "http://xposean.xin"
+    }
+}
+</script>
 
 
     
@@ -308,215 +341,239 @@
                         </button>
                     
 
-                    <!-- Index Module -->
-<div class="material-index mdl-grid">
-    
-    <div class="locate-thumbnail-symbol"></div>
+                    <!-- Post TOC -->
 
-    <!-- Pin on top -->
+    
+    <!-- Back Button -->
+    <!--
+    <div class="material-back" id="backhome-div" tabindex="0">
+        <a class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon"
+           href="#" onclick="window.history.back();return false;"
+           target="_self"
+           role="button"
+           data-upgraded=",MaterialButton,MaterialRipple">
+            <i class="material-icons" role="presentation">arrow_back</i>
+            <span class="mdl-button__ripple-container">
+                <span class="mdl-ripple"></span>
+            </span>
+        </a>
+    </div>
+    -->
+
+    <!-- Left aligned menu below button -->
+    <button id="post-toc-trigger-btn"
+        class="mdl-button mdl-js-button mdl-button--icon">
+        <i class="material-icons">format_list_numbered</i>
+    </button>
+
+    
+    <ul class="post-toc-wrap mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect" for="post-toc-trigger-btn" style="max-height:80vh; overflow-y:scroll;">
+        <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Gulp是啥子东西？"><span class="post-toc-number">1.</span> <span class="post-toc-text">Gulp是啥子东西？</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Gulp有啥好处？"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">Gulp有啥好处？</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Gulp能做什么"><span class="post-toc-number">2.</span> <span class="post-toc-text">Gulp能做什么</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Gulp的运行和安装"><span class="post-toc-number">3.</span> <span class="post-toc-text">Gulp的运行和安装</span></a></li></ol>
+        <!--
+        <li class="mdl-menu__item">
+            Some Action
+        </li>
+        -->
+    </ul>
     
 
-    <!-- Normal Post -->
-    
-        
-            
-                <!-- Paradox Thumbnail -->
-                <div class="post_entry-module mdl-card mdl-shadow--2dp mdl-cell mdl-cell--12-col fade out">
-    <!-- Post Thumbnail -->
+
+
+
+
+<!-- Layouts -->
+
+    <!-- Post Module -->
+    <div class="material-post_container">
+
+        <div class="material-post mdl-grid">
+            <div class="mdl-card mdl-shadow--4dp mdl-cell mdl-cell--12-col">
+
+                <!-- Post Header(Thumbnail & Title) -->
+                
+    <!-- Paradox Post Header -->
     
         
             <!-- Random Thumbnail -->
             <div class="post_thumbnail-random mdl-card__media mdl-color-text--grey-50">
-        
-    
+            <script type="text/ls-javascript" id="post-thumbnail-script">
+    var randomNum = Math.floor(Math.random() * 19 + 1);
 
-        <!-- Post Title -->
-        <p class="article-headline-p"><a href="/2017/10/24/Gulp入门/">Gulp入门</a></p>
-    </div>
-
-    <!-- Post Excerpt -->
-    <div class="mdl-color-text--grey-600 mdl-card__supporting-text post_entry-content">
-        
-            
-        
-        &nbsp;&nbsp;&nbsp;
-        <span>
-            <a href="/2017/10/24/Gulp入门/" target="_self">阅读全文</a>
-        </span>
-    </div>
-    <!-- Post_entry Info-->
-    <div id="post_entry-info">
-        <div id="post_entry-left-info" class="mdl-card__supporting-text meta mdl-color-text--grey-600 ">
-            <!-- Author Avatar -->
-            <div id="author-avatar">
-                <img src="/img/avatar.png" width="44px" height="44px" alt="Xposean's avatar">
-            </div>
-            <div>
-                <strong>Xposean</strong>
-                <span>10月 24, 2017</span>
-            </div>
-        </div>
-        <div id="post_entry-right-info">
-            <!-- Category -->
-            <span class="post_entry-category">
-                
-            </span>
-
-            
-
-            
-
-            <!-- Post Views -->
-            <span class="post_entry-views">
-            </span>
-        </div>
-    </div>
-</div>
-
-            
-            
-        
-    
-        
-            
-                <!-- Paradox Thumbnail -->
-                <div class="post_entry-module mdl-card mdl-shadow--2dp mdl-cell mdl-cell--12-col fade out">
-    <!-- Post Thumbnail -->
-    
-        
-            <!-- Random Thumbnail -->
-            <div class="post_thumbnail-random mdl-card__media mdl-color-text--grey-50">
-        
-    
-
-        <!-- Post Title -->
-        <p class="article-headline-p"><a href="/2017/10/24/Flex布局/">Flex布局</a></p>
-    </div>
-
-    <!-- Post Excerpt -->
-    <div class="mdl-color-text--grey-600 mdl-card__supporting-text post_entry-content">
-        
-            开篇我们先来看看传统的CSS布局格式,布局的传统解决方案：
-基于盒状模型，依赖 display 属性 + 
-        
-        &nbsp;&nbsp;&nbsp;
-        <span>
-            <a href="/2017/10/24/Flex布局/" target="_self">阅读全文</a>
-        </span>
-    </div>
-    <!-- Post_entry Info-->
-    <div id="post_entry-info">
-        <div id="post_entry-left-info" class="mdl-card__supporting-text meta mdl-color-text--grey-600 ">
-            <!-- Author Avatar -->
-            <div id="author-avatar">
-                <img src="/img/avatar.png" width="44px" height="44px" alt="Xposean's avatar">
-            </div>
-            <div>
-                <strong>Xposean</strong>
-                <span>10月 24, 2017</span>
-            </div>
-        </div>
-        <div id="post_entry-right-info">
-            <!-- Category -->
-            <span class="post_entry-category">
-                
-            </span>
-
-            
-
-            
-
-            <!-- Post Views -->
-            <span class="post_entry-views">
-            </span>
-        </div>
-    </div>
-</div>
-
-            
-            
-        
-    
-        
-            
-                <!-- Paradox Thumbnail -->
-                <div class="post_entry-module mdl-card mdl-shadow--2dp mdl-cell mdl-cell--12-col fade out">
-    <!-- Post Thumbnail -->
-    
-        
-            <!-- Random Thumbnail -->
-            <div class="post_thumbnail-random mdl-card__media mdl-color-text--grey-50">
-        
-    
-
-        <!-- Post Title -->
-        <p class="article-headline-p"><a href="/2017/10/24/PostCSS入门/">PostCSS入门</a></p>
-    </div>
-
-    <!-- Post Excerpt -->
-    <div class="mdl-color-text--grey-600 mdl-card__supporting-text post_entry-content">
-        
-            概述我想你应该已经...
-        
-        &nbsp;&nbsp;&nbsp;
-        <span>
-            <a href="/2017/10/24/PostCSS入门/" target="_self">阅读全文</a>
-        </span>
-    </div>
-    <!-- Post_entry Info-->
-    <div id="post_entry-info">
-        <div id="post_entry-left-info" class="mdl-card__supporting-text meta mdl-color-text--grey-600 ">
-            <!-- Author Avatar -->
-            <div id="author-avatar">
-                <img src="/img/avatar.png" width="44px" height="44px" alt="Xposean's avatar">
-            </div>
-            <div>
-                <strong>Xposean</strong>
-                <span>10月 24, 2017</span>
-            </div>
-        </div>
-        <div id="post_entry-right-info">
-            <!-- Category -->
-            <span class="post_entry-category">
-                
-            </span>
-
-            
-
-            
-
-            <!-- Post Views -->
-            <span class="post_entry-views">
-            </span>
-        </div>
-    </div>
-</div>
-
-            
-            
-        
-    
-
-    
-
-    
-        <script type="text/ls-javascript" id="thumbnail-script">
-    var randomNum;
-
-    var locatePost = $('.locate-thumbnail-symbol').next();
-    for(var i = 0; i < 10; i++) {
-        randomNum = Math.floor(Math.random() * 19 + 1);
-
-        locatePost.children('.post_thumbnail-random').attr('id', 'random_thumbnail-'+randomNum);
-        locatePost.children('.post_thumbnail-random').attr('data-original', '/img/random/material-' + randomNum + '.png');
+    $('.post_thumbnail-random').attr('data-original', '/img/random/material-' + randomNum + '.png');
     $('.post_thumbnail-random').addClass('lazy');
-
-        locatePost = locatePost.next();
-    }
 </script>
 
+        
+    
+            <p class="article-headline-p">
+                Gulp入门
+            </p>
+        </div>
+
+
+
+
+
+                
+                    <!-- Paradox Post Info -->
+                    <div class="mdl-color-text--grey-700 mdl-card__supporting-text meta">
+
+    <!-- Author Avatar -->
+    <div id="author-avatar">
+        <img src="/img/avatar.png" width="44px" height="44px" alt="Author Avatar"/>
+    </div>
+    <!-- Author Name & Date -->
+    <div>
+        <strong>Xposean</strong>
+        <span>10月 24, 2017</span>
+    </div>
+
+    <div class="section-spacer"></div>
+
+    <!-- Favorite -->
+    <!--
+        <button id="article-functions-like-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon btn-like">
+            <i class="material-icons" role="presentation">favorite</i>
+            <span class="visuallyhidden">favorites</span>
+        </button>
+    -->
+
+    <!-- Qrcode -->
+    
+        <button id="article-functions-qrcode-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+    <i class="material-icons" role="presentation">devices other</i>
+    <span class="visuallyhidden">devices other</span>
+</button>
+<ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-functions-qrcode-button">
+    <li class="mdl-menu__item">在其它设备中阅读本文章</li>
+    
+        <img src="https://pan.baidu.com/share/qrcode?w=246&h=246&url=http://xposean.xin/2017/10/24/Gulp入门/">
+    
+</ul>
+    
+
+    <!-- Tags (bookmark) -->
+    
+    <button id="article-functions-viewtags-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+        <i class="material-icons" role="presentation">bookmark</i>
+        <span class="visuallyhidden">bookmark</span>
+    </button>
+    <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-functions-viewtags-button">
+        <li class="mdl-menu__item">
+        
+    </ul>
+    
+
+    <!-- Share -->
+    <button id="article-fuctions-share-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+    <i class="material-icons" role="presentation">share</i>
+    <span class="visuallyhidden">share</span>
+</button>
+<ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-fuctions-share-button">
+    
+
+    
+
+    <!-- Share Weibo -->
+    
+        <a class="post_share-link" href="http://service.weibo.com/share/share.php?appkey=&title=Gulp入门&url=http://xposean.xin/2017/10/24/Gulp入门/index.html&pic=&searchPic=false&style=simple" target="_blank">
+            <li class="mdl-menu__item">
+                分享到微博
+            </li>
+        </a>
+    
+
+    <!-- Share Twitter -->
+    
+
+    <!-- Share Facebook -->
+    
+
+    <!-- Share Google+ -->
+    
+
+    <!-- Share LinkedIn -->
+    
+
+    <!-- Share QQ -->
+    
+        <a class="post_share-link" href="http://connect.qq.com/widget/shareqq/index.html?site=Xposean&#39;s Blog&title=Gulp入门&summary=做一个刚刚好的前端仔&pics=http://xposean.xin/img/favicon.png&url=http://xposean.xin/2017/10/24/Gulp入门/index.html" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 QQ
+            </li>
+        </a>
+    
+
+    <!-- Share Telegram -->
+    
+</ul>
+
+</div>
+
+                
+
+                <!-- Post Content -->
+                <div id="post-content" class="mdl-color-text--grey-700 mdl-card__supporting-text fade out">
+    
+        <h2 id="Gulp是啥子东西？"><a href="#Gulp是啥子东西？" class="headerlink" title="Gulp是啥子东西？"></a>Gulp是啥子东西？</h2><p><img src="http://www.d1net.com/uploadfile/2017/0112/20170112092834684.png" alt=""></p>
+<p>一句话简单的概括,就是一个前端项目自动化的构建工具。不理解没关系,容我慢慢道来。</p>
+<p>首先要说说<code>Gulp</code>诞生的原因.</p>
+<p>随着 <code>Web</code> 前端发展，前端项目变得越来越复杂，随之而来的是各种方便的工具：打包工具、转码工具、 <code>JS</code> 与 <code>CSS</code> 的合并压缩工具等等。这些工具极大的提高了我们前端的代码质量，但问题也随之而来：</p>
+<p>这么多工具到底该怎么使用，难道一个个在各个工具中来回切换复制粘贴？或是在 CLI 里一条条地敲命里吗？敲完代码还要敲一堆的构建命令，说不准顺序搞错了还要功亏一篑重来一遍？</p>
+<p>于是我们的构建工具 <code>Gulp</code> 就应运而生啦。</p>
+<h3 id="Gulp有啥好处？"><a href="#Gulp有啥好处？" class="headerlink" title="Gulp有啥好处？"></a>Gulp有啥好处？</h3><p>首先当然是省心省力啦,<strong>一次配置,自动构建</strong>.我把我需要的功能配置出来后,以后直接用<code>Gulp</code>调用就好了,Gulp会帮我整合好我需要的功能。</p>
+<p>第二个就是重复利用啦,因为配置文件的高度统一，这个配置文件几乎可以多个项目之间随便复制粘贴修修改改就可以重复使用！</p>
+<h2 id="Gulp能做什么"><a href="#Gulp能做什么" class="headerlink" title="Gulp能做什么"></a>Gulp能做什么</h2><p>当你按下 <code>ctrl+s</code> 时,你发现你的电脑自动帮你编译、压缩、打包、自动刷新。你会不会觉得很爽呢？</p>
+<p>下面我来说说Gulp的常用功能。</p>
+<ul>
+<li>静态文件的合并与压缩:JS 、css、html的压缩</li>
+<li>图片(包括PNG、JPEG、GIF和SVG图片)的压缩,在不降低画质的情况下,降低图片的大小。</li>
+<li>页面自动刷新,你的代码有任何变动都会刷新。</li>
+<li>还有一些CSS预编译器(sass、less),ES6语法,都可以自动编译成浏览器能够识别的。</li>
+<li>图片路径转base64<br>等等….<br>而这些功能的实现在配置完后你只需要做什么, <code>ctrl+s</code> !!!</li>
+</ul>
+<h2 id="Gulp的运行和安装"><a href="#Gulp的运行和安装" class="headerlink" title="Gulp的运行和安装"></a>Gulp的运行和安装</h2><p>关于Gulp的环境配置和安装,可以直接点击<a href="http://www.ydcss.com/archives/18" target="_blank" rel="external">这里查看教程</a>。</p>
+<p>看完之后,有两个配置文件是我们一定要重视的,一个是<strong>gulpfile.js</strong>,另一个是<strong>package.json</strong>.如果其他人想要复制你的 <code>gulp</code> 功能属性,这两个文件是必须必备的。</p>
+<p><strong>package.json</strong>是基于<code>nodejs</code>项目必不可少的配置文件，它是存放在项目根目录的普通json文件,里面存放是项目的一些基本配置,以及你安装的所有gulp插件.</p>
+<p>当我们已经把所有的配置都安装好了之后，我们需要在gulpfile.js文件里面写我们的任务(task),我们需要在什么时候用什么插件,都要写在这里。</p>
+
+    
+
     
 </div>
+
+
+                
+
+                <!-- Post Comments -->
+                
+                    
+                
+            </div>
+
+            <!-- Post Prev & Next Nav -->
+            <nav class="material-nav mdl-color-text--grey-50 mdl-cell mdl-cell--12-col">
+    <!-- Prev Nav -->
+    
+
+    <!-- Section Spacer -->
+    <div class="section-spacer"></div>
+
+    <!-- Next Nav -->
+    
+        <a href="/2017/10/24/Flex布局/" id="post_nav-older" class="next-content">
+            旧篇
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
+                <i class="material-icons">arrow_forward</i>
+            </button>
+        </a>
+    
+</nav>
+
+        </div>
+    </div>
+
 
 
                     

@@ -3,6 +3,35 @@
   
     
     <entry>
+      <title><![CDATA[Gulp入门]]></title>
+      <url>/2017/10/24/Gulp%E5%85%A5%E9%97%A8/</url>
+      <content type="html"><![CDATA[<h2 id="Gulp是啥子东西？"><a href="#Gulp是啥子东西？" class="headerlink" title="Gulp是啥子东西？"></a>Gulp是啥子东西？</h2><p><img src="http://www.d1net.com/uploadfile/2017/0112/20170112092834684.png" alt=""></p>
+<p>一句话简单的概括,就是一个前端项目自动化的构建工具。不理解没关系,容我慢慢道来。</p>
+<p>首先要说说<code>Gulp</code>诞生的原因.</p>
+<p>随着 <code>Web</code> 前端发展，前端项目变得越来越复杂，随之而来的是各种方便的工具：打包工具、转码工具、 <code>JS</code> 与 <code>CSS</code> 的合并压缩工具等等。这些工具极大的提高了我们前端的代码质量，但问题也随之而来：</p>
+<p>这么多工具到底该怎么使用，难道一个个在各个工具中来回切换复制粘贴？或是在 CLI 里一条条地敲命里吗？敲完代码还要敲一堆的构建命令，说不准顺序搞错了还要功亏一篑重来一遍？</p>
+<p>于是我们的构建工具 <code>Gulp</code> 就应运而生啦。</p>
+<h3 id="Gulp有啥好处？"><a href="#Gulp有啥好处？" class="headerlink" title="Gulp有啥好处？"></a>Gulp有啥好处？</h3><p>首先当然是省心省力啦,<strong>一次配置,自动构建</strong>.我把我需要的功能配置出来后,以后直接用<code>Gulp</code>调用就好了,Gulp会帮我整合好我需要的功能。</p>
+<p>第二个就是重复利用啦,因为配置文件的高度统一，这个配置文件几乎可以多个项目之间随便复制粘贴修修改改就可以重复使用！</p>
+<h2 id="Gulp能做什么"><a href="#Gulp能做什么" class="headerlink" title="Gulp能做什么"></a>Gulp能做什么</h2><p>当你按下 <code>ctrl+s</code> 时,你发现你的电脑自动帮你编译、压缩、打包、自动刷新。你会不会觉得很爽呢？</p>
+<p>下面我来说说Gulp的常用功能。</p>
+<ul>
+<li>静态文件的合并与压缩:JS 、css、html的压缩</li>
+<li>图片(包括PNG、JPEG、GIF和SVG图片)的压缩,在不降低画质的情况下,降低图片的大小。</li>
+<li>页面自动刷新,你的代码有任何变动都会刷新。</li>
+<li>还有一些CSS预编译器(sass、less),ES6语法,都可以自动编译成浏览器能够识别的。</li>
+<li>图片路径转base64<br>等等….<br>而这些功能的实现在配置完后你只需要做什么, <code>ctrl+s</code> !!!</li>
+</ul>
+<h2 id="Gulp的运行和安装"><a href="#Gulp的运行和安装" class="headerlink" title="Gulp的运行和安装"></a>Gulp的运行和安装</h2><p>关于Gulp的环境配置和安装,可以直接点击<a href="http://www.ydcss.com/archives/18" target="_blank" rel="external">这里查看教程</a>。</p>
+<p>看完之后,有两个配置文件是我们一定要重视的,一个是<strong>gulpfile.js</strong>,另一个是<strong>package.json</strong>.如果其他人想要复制你的 <code>gulp</code> 功能属性,这两个文件是必须必备的。</p>
+<p><strong>package.json</strong>是基于<code>nodejs</code>项目必不可少的配置文件，它是存放在项目根目录的普通json文件,里面存放是项目的一些基本配置,以及你安装的所有gulp插件.</p>
+<p>当我们已经把所有的配置都安装好了之后，我们需要在gulpfile.js文件里面写我们的任务(task),我们需要在什么时候用什么插件,都要写在这里。</p>
+]]></content>
+      
+        
+    </entry>
+    
+    <entry>
       <title><![CDATA[Flex布局]]></title>
       <url>/2017/10/24/Flex%E5%B8%83%E5%B1%80/</url>
       <content type="html"><![CDATA[<p>开篇我们先来看看传统的CSS布局格式,布局的传统解决方案：</p>
