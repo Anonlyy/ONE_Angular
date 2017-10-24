@@ -12,7 +12,7 @@
     
     <title>
         
-            归档: 2017/10 | 
+            Flex布局 | 
         
         Xposean&#39;s Blog
     </title>
@@ -67,15 +67,18 @@
     <!-- The Open Graph protocol -->
     <meta property="og:url" content="http://xposean.xin">
     <meta property="og:type" content="blog">
-    <meta property="og:title" content="归档: 2017/10 | Xposean&#39;s Blog">
+    <meta property="og:title" content="Flex布局 | Xposean&#39;s Blog">
     <meta property="og:image" content="/img/favicon.png" />
     <meta property="og:description" content="做一个刚刚好的前端仔">
     
 
     
+        <meta property="article:published_time" content="10月 24, 2017" />
+        <meta property="article:modified_time" content="10月 24, 2017" />
+    
 
     <!-- The Twitter Card protocol -->
-    <meta name="twitter:title" content="归档: 2017/10 | Xposean&#39;s Blog">
+    <meta name="twitter:title" content="Flex布局 | Xposean&#39;s Blog">
     <meta name="twitter:description" content="做一个刚刚好的前端仔">
     <meta name="twitter:image" content="/img/favicon.png">
     <meta name="twitter:card" content="summary_large_image" />
@@ -83,13 +86,43 @@
 
     <!-- Add canonical link for SEO -->
     
-        <link rel="canonical" href="http://xposean.xin/archives/2017/10/index.html" />
+        <link rel="canonical" href="http://xposean.xin/2017/10/24/Flex布局/index.html" />
     
 
     <!-- Structured-data for SEO -->
     
         
 
+
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "publisher": {
+        "@type": "Organization",
+        "name": "Xposean&#39;s Blog",
+        "logo": "/img/favicon.png"
+    },
+    "author": {
+        "@type": "Person",
+        "name": "Xposean",
+        "image": {
+            "@type": "ImageObject",
+            "url": "/img/favicon.png"
+        },
+        "description": "做一个刚刚好的前端仔,——关于我"
+    },
+    "headline": "Flex布局",
+    "url": "http://xposean.xin/2017/10/24/Flex布局/index.html",
+    "datePublished": "10月 24, 2017",
+    "dateModified": "10月 24, 2017",
+    "description": "做一个刚刚好的前端仔",
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "http://xposean.xin"
+    }
+}
+</script>
 
 
     
@@ -308,156 +341,248 @@
                         </button>
                     
 
-                    <!-- Index Module -->
-<div class="material-index mdl-grid">
-    
-    <div class="locate-thumbnail-symbol"></div>
+                    <!-- Post TOC -->
 
-    <!-- Pin on top -->
+    
+    <!-- Back Button -->
+    <!--
+    <div class="material-back" id="backhome-div" tabindex="0">
+        <a class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon"
+           href="#" onclick="window.history.back();return false;"
+           target="_self"
+           role="button"
+           data-upgraded=",MaterialButton,MaterialRipple">
+            <i class="material-icons" role="presentation">arrow_back</i>
+            <span class="mdl-button__ripple-container">
+                <span class="mdl-ripple"></span>
+            </span>
+        </a>
+    </div>
+    -->
+
+    <!-- Left aligned menu below button -->
+    <button id="post-toc-trigger-btn"
+        class="mdl-button mdl-js-button mdl-button--icon">
+        <i class="material-icons">format_list_numbered</i>
+    </button>
+
+    
+    <ul class="post-toc-wrap mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect" for="post-toc-trigger-btn" style="max-height:80vh; overflow-y:scroll;">
+        <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Flex是什么鬼"><span class="post-toc-number">1.</span> <span class="post-toc-text">Flex是什么鬼?</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#基本概念"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">基本概念</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#容器的属性"><span class="post-toc-number">1.2.</span> <span class="post-toc-text">容器的属性</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#项目的属性"><span class="post-toc-number">1.3.</span> <span class="post-toc-text">项目的属性</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#兼容性与各浏览器差异性解决方案"><span class="post-toc-number">2.</span> <span class="post-toc-text">兼容性与各浏览器差异性解决方案</span></a></li></ol>
+        <!--
+        <li class="mdl-menu__item">
+            Some Action
+        </li>
+        -->
+    </ul>
     
 
-    <!-- Normal Post -->
-    
-        
-            
-                <!-- Paradox Thumbnail -->
-                <div class="post_entry-module mdl-card mdl-shadow--2dp mdl-cell mdl-cell--12-col fade out">
-    <!-- Post Thumbnail -->
+
+
+
+
+<!-- Layouts -->
+
+    <!-- Post Module -->
+    <div class="material-post_container">
+
+        <div class="material-post mdl-grid">
+            <div class="mdl-card mdl-shadow--4dp mdl-cell mdl-cell--12-col">
+
+                <!-- Post Header(Thumbnail & Title) -->
+                
+    <!-- Paradox Post Header -->
     
         
             <!-- Random Thumbnail -->
             <div class="post_thumbnail-random mdl-card__media mdl-color-text--grey-50">
-        
-    
+            <script type="text/ls-javascript" id="post-thumbnail-script">
+    var randomNum = Math.floor(Math.random() * 19 + 1);
 
-        <!-- Post Title -->
-        <p class="article-headline-p"><a href="/2017/10/24/Flex布局/">Flex布局</a></p>
-    </div>
-
-    <!-- Post Excerpt -->
-    <div class="mdl-color-text--grey-600 mdl-card__supporting-text post_entry-content">
-        
-            开篇我们先来看看传统的CSS布局格式,布局的传统解决方案：
-基于盒状模型，依赖 display 属性 + 
-        
-        &nbsp;&nbsp;&nbsp;
-        <span>
-            <a href="/2017/10/24/Flex布局/" target="_self">阅读全文</a>
-        </span>
-    </div>
-    <!-- Post_entry Info-->
-    <div id="post_entry-info">
-        <div id="post_entry-left-info" class="mdl-card__supporting-text meta mdl-color-text--grey-600 ">
-            <!-- Author Avatar -->
-            <div id="author-avatar">
-                <img src="/img/avatar.png" width="44px" height="44px" alt="Xposean's avatar">
-            </div>
-            <div>
-                <strong>Xposean</strong>
-                <span>10月 24, 2017</span>
-            </div>
-        </div>
-        <div id="post_entry-right-info">
-            <!-- Category -->
-            <span class="post_entry-category">
-                
-            </span>
-
-            
-
-            
-
-            <!-- Post Views -->
-            <span class="post_entry-views">
-            </span>
-        </div>
-    </div>
-</div>
-
-            
-            
-        
-    
-        
-            
-                <!-- Paradox Thumbnail -->
-                <div class="post_entry-module mdl-card mdl-shadow--2dp mdl-cell mdl-cell--12-col fade out">
-    <!-- Post Thumbnail -->
-    
-        
-            <!-- Random Thumbnail -->
-            <div class="post_thumbnail-random mdl-card__media mdl-color-text--grey-50">
-        
-    
-
-        <!-- Post Title -->
-        <p class="article-headline-p"><a href="/2017/10/24/PostCSS入门/">PostCSS入门</a></p>
-    </div>
-
-    <!-- Post Excerpt -->
-    <div class="mdl-color-text--grey-600 mdl-card__supporting-text post_entry-content">
-        
-            概述我想你应该已经...
-        
-        &nbsp;&nbsp;&nbsp;
-        <span>
-            <a href="/2017/10/24/PostCSS入门/" target="_self">阅读全文</a>
-        </span>
-    </div>
-    <!-- Post_entry Info-->
-    <div id="post_entry-info">
-        <div id="post_entry-left-info" class="mdl-card__supporting-text meta mdl-color-text--grey-600 ">
-            <!-- Author Avatar -->
-            <div id="author-avatar">
-                <img src="/img/avatar.png" width="44px" height="44px" alt="Xposean's avatar">
-            </div>
-            <div>
-                <strong>Xposean</strong>
-                <span>10月 24, 2017</span>
-            </div>
-        </div>
-        <div id="post_entry-right-info">
-            <!-- Category -->
-            <span class="post_entry-category">
-                
-            </span>
-
-            
-
-            
-
-            <!-- Post Views -->
-            <span class="post_entry-views">
-            </span>
-        </div>
-    </div>
-</div>
-
-            
-            
-        
-    
-
-    
-
-    
-        <script type="text/ls-javascript" id="thumbnail-script">
-    var randomNum;
-
-    var locatePost = $('.locate-thumbnail-symbol').next();
-    for(var i = 0; i < 10; i++) {
-        randomNum = Math.floor(Math.random() * 19 + 1);
-
-        locatePost.children('.post_thumbnail-random').attr('id', 'random_thumbnail-'+randomNum);
-        locatePost.children('.post_thumbnail-random').attr('data-original', '/img/random/material-' + randomNum + '.png');
+    $('.post_thumbnail-random').attr('data-original', '/img/random/material-' + randomNum + '.png');
     $('.post_thumbnail-random').addClass('lazy');
-
-        locatePost = locatePost.next();
-    }
 </script>
 
+        
+    
+            <p class="article-headline-p">
+                Flex布局
+            </p>
+        </div>
+
+
+
+
+
+                
+                    <!-- Paradox Post Info -->
+                    <div class="mdl-color-text--grey-700 mdl-card__supporting-text meta">
+
+    <!-- Author Avatar -->
+    <div id="author-avatar">
+        <img src="/img/avatar.png" width="44px" height="44px" alt="Author Avatar"/>
+    </div>
+    <!-- Author Name & Date -->
+    <div>
+        <strong>Xposean</strong>
+        <span>10月 24, 2017</span>
+    </div>
+
+    <div class="section-spacer"></div>
+
+    <!-- Favorite -->
+    <!--
+        <button id="article-functions-like-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon btn-like">
+            <i class="material-icons" role="presentation">favorite</i>
+            <span class="visuallyhidden">favorites</span>
+        </button>
+    -->
+
+    <!-- Qrcode -->
+    
+        <button id="article-functions-qrcode-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+    <i class="material-icons" role="presentation">devices other</i>
+    <span class="visuallyhidden">devices other</span>
+</button>
+<ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-functions-qrcode-button">
+    <li class="mdl-menu__item">在其它设备中阅读本文章</li>
+    
+        <img src="https://pan.baidu.com/share/qrcode?w=246&h=246&url=http://xposean.xin/2017/10/24/Flex布局/">
+    
+</ul>
+    
+
+    <!-- Tags (bookmark) -->
+    
+    <button id="article-functions-viewtags-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+        <i class="material-icons" role="presentation">bookmark</i>
+        <span class="visuallyhidden">bookmark</span>
+    </button>
+    <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-functions-viewtags-button">
+        <li class="mdl-menu__item">
+        
+    </ul>
+    
+
+    <!-- Share -->
+    <button id="article-fuctions-share-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+    <i class="material-icons" role="presentation">share</i>
+    <span class="visuallyhidden">share</span>
+</button>
+<ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-fuctions-share-button">
+    
+
+    
+
+    <!-- Share Weibo -->
+    
+        <a class="post_share-link" href="http://service.weibo.com/share/share.php?appkey=&title=Flex布局&url=http://xposean.xin/2017/10/24/Flex布局/index.html&pic=&searchPic=false&style=simple" target="_blank">
+            <li class="mdl-menu__item">
+                分享到微博
+            </li>
+        </a>
+    
+
+    <!-- Share Twitter -->
+    
+
+    <!-- Share Facebook -->
+    
+
+    <!-- Share Google+ -->
+    
+
+    <!-- Share LinkedIn -->
+    
+
+    <!-- Share QQ -->
+    
+        <a class="post_share-link" href="http://connect.qq.com/widget/shareqq/index.html?site=Xposean&#39;s Blog&title=Flex布局&summary=做一个刚刚好的前端仔&pics=http://xposean.xin/img/favicon.png&url=http://xposean.xin/2017/10/24/Flex布局/index.html" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 QQ
+            </li>
+        </a>
+    
+
+    <!-- Share Telegram -->
+    
+</ul>
+
+</div>
+
+                
+
+                <!-- Post Content -->
+                <div id="post-content" class="mdl-color-text--grey-700 mdl-card__supporting-text fade out">
+    
+        <p>开篇我们先来看看传统的CSS布局格式,布局的传统解决方案：</p>
+<p>基于盒状模型，依赖 <code>display</code> 属性 + <code>position</code>属性 + <code>float</code>属性。它对于那些特殊布局非常不方便，比如，垂直居中和绝对居中就很不容易实现。况且 <code>float</code> 用多了还得清除浮动.</p>
+<h2 id="Flex是什么鬼"><a href="#Flex是什么鬼" class="headerlink" title="Flex是什么鬼?"></a>Flex是什么鬼?</h2><p><img src="http://www.ruanyifeng.com/blogimg/asset/2015/bg2015071002.png" alt=""></p>
+<p><code>Flex</code> 是 <code>Flexible Box</code> 的缩写，意为”弹性布局”，用来为盒状模型提供最大的灵活性。</p>
+<p>任何一个容器都可以指定为 <code>Flex</code> 布局,只要加个 <code>display</code> 属性。<br>在这里先不考虑各浏览器的适配问题.在文末会提供解决方案。</p>
+<p>注意，设为 <code>Flex</code> 布局以后，子元素的 <code>float</code>、<code>clear</code> 和 <code>vertical-align</code> 属性将失效。</p>
+<h3 id="基本概念"><a href="#基本概念" class="headerlink" title="基本概念"></a>基本概念</h3><p>采用 <code>Flex</code> 布局的元素，称为 <code>Flex</code> 容器（flex container），简称”<strong>容器</strong>“。它的所有子元素自动成为容器成员，称为 <code>Flex</code> 项目（flex item），简称”<strong>项目</strong>“。</p>
+<p>通俗的说,就是<strong>容器</strong>是父元素,<strong>项目</strong>是子元素。<br><img src="http://www.ruanyifeng.com/blogimg/asset/2015/bg2015071004.png" alt=""></p>
+<p>容器默认存在两根轴：水平的<strong>主轴</strong>（main axis）和垂直的<strong>交叉轴</strong>（cross axis）。其实就是<strong>横轴</strong>和<strong>纵轴</strong>。</p>
+<h3 id="容器的属性"><a href="#容器的属性" class="headerlink" title="容器的属性"></a>容器的属性</h3><ul>
+<li><code>flex-direction</code>(属性决定主轴的方向（即项目的排列方向))</li>
+<li><code>flex-wrap</code>(<code>flex-wrap</code>属性定义，如果一条轴线排不下，如何换行。)</li>
+<li><code>flex-flow</code>(<code>flex-flow</code>属性是<code>flex-direction</code>属性和<code>flex-wrap</code>属性的简写形式)</li>
+<li><code>justify-content</code>(定义了项目在主轴上的对齐方式)</li>
+<li><code>align-items</code>(定义项目在交叉轴上如何对齐)</li>
+<li><code>align-content</code>(<code>align-content</code>属性定义了多根轴线的对齐方式。如果项目只有一根轴线，该属性不起作用。)</li>
+</ul>
+<h3 id="项目的属性"><a href="#项目的属性" class="headerlink" title="项目的属性"></a>项目的属性</h3><ul>
+<li><code>order</code>(性定义项目的排列顺序。数值越小，排列越靠前，默认为0。)</li>
+<li><code>flex-grow</code>(属性定义项目的放大比例，默认为0，即如果存在剩余空间，也不放大。)</li>
+<li><code>flex-shrink</code>(属性定义了项目的缩小比例，默认为1，即如果空间不足，该项目将缩小。)</li>
+<li><code>flex-basis</code>(属性定义了在分配多余空间之前，项目占据的主轴空间（main size）。)</li>
+<li><code>flex</code>(是<code>flex-grow</code>, <code>flex-shrink</code> 和 <code>flex-basis</code>的简写，默认值为0 1 auto)</li>
+<li><code>align-self</code>(属性允许单个项目有与其他项目不一样的对齐方式，可覆盖<code>align-items</code>属性)</li>
+</ul>
+<p>关于 Flex 布局的语法基础就讲到这里，相信能看到这里你一定会有收获。</p>
+<p>如果你看完还是一头雾水的话，没关系，可以看<a href="http://www.ruanyifeng.com/blog/2015/07/flex-grammar.html" target="_blank" rel="external">这篇文章</a>。</p>
+<h2 id="兼容性与各浏览器差异性解决方案"><a href="#兼容性与各浏览器差异性解决方案" class="headerlink" title="兼容性与各浏览器差异性解决方案"></a>兼容性与各浏览器差异性解决方案</h2><p>通过<code>PostCSS</code>的<code>autoprefixer</code>插件,即能自动添加浏览器私有前缀,防止出现各大浏览器中展示效果不同的情况。</p>
+<p>访问这篇文章<a href="http://www.xposean.xin/2017/10/24/PostCSS%E5%85%A5%E9%97%A8/" target="_blank" rel="external">《PostCSS入门》</a>。</p>
+<p>如果不想麻烦使用<code>PostCSS</code>,也可以通过<code>gulp</code>安装<a href="http://www.ydcss.com/archives/94" target="_blank" rel="external">gulp-autoprefixer</a>插件,一样可以达到效果。</p>
+
+    
+
     
 </div>
+
+
+                
+
+                <!-- Post Comments -->
+                
+                    
+                
+            </div>
+
+            <!-- Post Prev & Next Nav -->
+            <nav class="material-nav mdl-color-text--grey-50 mdl-cell mdl-cell--12-col">
+    <!-- Prev Nav -->
+    
+
+    <!-- Section Spacer -->
+    <div class="section-spacer"></div>
+
+    <!-- Next Nav -->
+    
+        <a href="/2017/10/24/PostCSS入门/" id="post_nav-older" class="next-content">
+            旧篇
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
+                <i class="material-icons">arrow_forward</i>
+            </button>
+        </a>
+    
+</nav>
+
+        </div>
+    </div>
+
 
 
                     
