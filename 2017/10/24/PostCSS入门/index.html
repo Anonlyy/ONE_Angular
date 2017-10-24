@@ -368,7 +368,7 @@
 
     
     <ul class="post-toc-wrap mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect" for="post-toc-trigger-btn" style="max-height:80vh; overflow-y:scroll;">
-        
+        <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#概述"><span class="post-toc-number">1.</span> <span class="post-toc-text">概述</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#现状"><span class="post-toc-number">2.</span> <span class="post-toc-text">现状</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#运行PostCSS"><span class="post-toc-number">3.</span> <span class="post-toc-text">运行PostCSS</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#开始配置"><span class="post-toc-number">3.1.</span> <span class="post-toc-text">开始配置</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#添加PostCSS插件"><span class="post-toc-number">3.2.</span> <span class="post-toc-text">添加PostCSS插件</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#测试编译"><span class="post-toc-number">3.3.</span> <span class="post-toc-text">测试编译</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#设置插件选项"><span class="post-toc-number">3.3.1.</span> <span class="post-toc-text">设置插件选项</span></a></li></ol></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#总结"><span class="post-toc-number">4.</span> <span class="post-toc-text">总结</span></a></li></ol>
         <!--
         <li class="mdl-menu__item">
             Some Action
@@ -515,15 +515,15 @@
                 <!-- Post Content -->
                 <div id="post-content" class="mdl-color-text--grey-700 mdl-card__supporting-text fade out">
     
-        <p>##概述##<br>我想你应该已经听说过<a href="http://postcss.com/" target="_blank" rel="external">PostCSS</a>,它比<a href="https://github.com/postcss/benchmark#preprocessors" target="_blank" rel="external">libsass</a>快了几乎两倍(并且比Ruby Sass快了28倍)； 或者听说过它支持<a href="http://cssnext.io/" target="_blank" rel="external">cssnext</a>和自动添加私有前缀而且可扩展功能,难道你一点都不好奇吗？</p>
+        <h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><p>我想你应该已经听说过<a href="http://postcss.com/" target="_blank" rel="external">PostCSS</a>,它比<a href="https://github.com/postcss/benchmark#preprocessors" target="_blank" rel="external">libsass</a>快了几乎两倍(并且比Ruby Sass快了28倍)； 或者听说过它支持<a href="http://cssnext.io/" target="_blank" rel="external">cssnext</a>和自动添加私有前缀而且可扩展功能,难道你一点都不好奇吗？</p>
 <p>PostCSS最强大之处在于它是模块化并且基于插件的架构，不过这也是个缺点。如果你之前在项目中使用Sass(比如大多数的设计师和前端开发者)，你从不需要配置任何东西——Sass内置了全部实用功能，开箱即用。 然而，PostCSS需要你做一些配置。你不得不从一眼看不到底的<a href="https://github.com/postcss/postcss/blob/master/docs/plugins.md" target="_blank" rel="external">插件列表</a>选择插件并且自己把全部插件一起配置。但这同时意味着它的自定义程度高,足够实现你想要的。</p>
-<p>##现状##<br>PostCSS在以惊人的速度发展，而且越来越受人欢迎。越来越多的人开始在了解它，使用它。因为他们意识到，在项目中使用PostCSS让他们意识到了眼前一亮。</p>
+<h2 id="现状"><a href="#现状" class="headerlink" title="现状"></a>现状</h2><p>PostCSS在以惊人的速度发展，而且越来越受人欢迎。越来越多的人开始在了解它，使用它。因为他们意识到，在项目中使用PostCSS让他们意识到了眼前一亮。</p>
 <p><img src="http://www.w3cplus.com/sites/default/files/blogs/2015/1510/postcssdownloads.png" alt=""></p>
 <p>2014年总共不到140万的下载量，但从2015年1月份到6月份已经超过380万个下载。</p>
 <p><strong><a href="https://github.com/postcss/autoprefixer" target="_blank" rel="external">Autoprefixer</a></strong>是PostCSS中最流行的插件，其中Google、Shopify、Twitter、Bootstrap和Codepen都在使用这个插件。Wordpress也使用Autoprefixer插件，而且还使用RTLCSS插件。Alibaba使用了几个PostCSS插件，以及也参加PostCSS的开发。</p>
-<p>##运行PostCSS##<br>运行PostCSS的方法有很多种。你可以很容易地将它添加到Gulp、webpack的构建过程中；<br>或者是通过最简单的方式,即postcss-cli来构建都是OK的,但因为我是习惯使用gulp,所以接下来介绍的是通过gulp配置,如果想使用其他方式构建，请自行度娘或google。</p>
+<h2 id="运行PostCSS"><a href="#运行PostCSS" class="headerlink" title="运行PostCSS"></a>运行PostCSS</h2><p>运行PostCSS的方法有很多种。你可以很容易地将它添加到Gulp、webpack的构建过程中；<br>或者是通过最简单的方式,即postcss-cli来构建都是OK的,但因为我是习惯使用gulp,所以接下来介绍的是通过gulp配置,如果想使用其他方式构建，请自行度娘或google。</p>
 <p>在已经安装了gulp的配置环境下,我们直接开始进行postCSS的配置.</p>
-<p>###开始配置###<br>首先在你的项目中创建两个文件夹，一个命名为src，另一个命名为dest。src文件夹用来放置未处理的CSS文件，而dest用来放置PostCSS插件处理后的文件。</p>
+<h3 id="开始配置"><a href="#开始配置" class="headerlink" title="开始配置"></a>开始配置</h3><p>首先在你的项目中创建两个文件夹，一个命名为src，另一个命名为dest。src文件夹用来放置未处理的CSS文件，而dest用来放置PostCSS插件处理后的文件。</p>
 <p>接下来需要做的就是在你的项目中安装gulp-postcss插件，安装好之后就可以使用PostCSS处理器。</p>
 <p>打开你的命令终端(CMD)，并且进入到你的项目根目录下，然后在命令终端输入下面的命令：</p>
 <pre><code>npm install --save-dev gulp-postcss
@@ -540,15 +540,14 @@ var postcss = require(&apos;gulp-postcss&apos;);
 </code></pre><p>我们一起来看一下上面的代码。在第一行，设置了一个任务名叫css。这个任务将会执行一个函数，同时在这个函数中创建了一个名为processors的数组。现在这个数组为空，这里将插入我们想使用的PostCSS插件。<br>在processors数组后面，我们指定了需要处理的目标文件，即src目录中的任何CSS文件。</p>
 <p>这里面使用了两个.pipe()函数，设置postcss()执行PostCSS，并且给postcss()传递processors参数，后面会告诉PostCSS要使用哪个插件。</p>
 <p>接下来的第二个.pipe()函数，指定结过PostCSS处理后的CSS放置在dest文件夹中。</p>
-<p>###添加PostCSS插件###<br>假设,现在我们添加需要的PostCSS插件：<strong>Autoprefixer</strong>(处理浏览器私有前缀)著作权归作者所有。<br>运行下面的命令，将插件安装到你的项目:</p>
+<h3 id="添加PostCSS插件"><a href="#添加PostCSS插件" class="headerlink" title="添加PostCSS插件"></a>添加PostCSS插件</h3><p>假设,现在我们添加需要的PostCSS插件：<strong>Autoprefixer</strong>(处理浏览器私有前缀)著作权归作者所有。<br>运行下面的命令，将插件安装到你的项目:</p>
 <pre><code>npm install autoprefixer --save-dev
 </code></pre><p>接下来，在我们的项目中定义变量，将这些插件加载到我们的项目中。和前面的方式一样，在<strong>gulpfile.js</strong>文件中添加下面的代码：</p>
 <pre><code>var autoprefixer = require(&apos;autoprefixer&apos;);
 </code></pre><p>然后将这个插件添加到processors数组中，更新后的数组如下：</p>
 <pre><code>var processors = [ autoprefixer];
 </code></pre><p>插件已经添加到了<code>processors</code>数组中了，这个时候<code>PostCSS</code>会知道将这些插件功能应用到我们的CSS源文件中。</p>
-<p>###测试编译###</p>
-<p>在src目录中创建一个测试文件style.css，并在这个文件中添加一些CSS的测试代码：</p>
+<h3 id="测试编译"><a href="#测试编译" class="headerlink" title="测试编译"></a>测试编译</h3><p>在src目录中创建一个测试文件style.css，并在这个文件中添加一些CSS的测试代码：</p>
 <pre><code> /* Testing autoprefixer */ 
 .autoprefixer { display: flex; }
 </code></pre><p>在命令终端执行<code>gulp css</code>命令。在dest目录生成的文件会有下面的代码：</p>
@@ -560,13 +559,11 @@ var postcss = require(&apos;gulp-postcss&apos;);
     display: flex; 
 }
 </code></pre><p>如上面编译出来的代码你应该看到了Autoprefixer给需要的属性添加了浏览器的私有前缀，编译符合需求的代码。</p>
-<p>####设置插件选项####</p>
-<p>注：每一个插件都有对应的配置参数选项，如果你想为一个插件配置选项参数，你可以在gulpfile.js文件中,在插件后面添加一对括号，并在里面传递选项的参数。例如，Autoprefixer需要指定对应的浏览器列表参数，你可以像这样设置：</p>
+<h4 id="设置插件选项"><a href="#设置插件选项" class="headerlink" title="设置插件选项"></a>设置插件选项</h4><p>注：每一个插件都有对应的配置参数选项，如果你想为一个插件配置选项参数，你可以在gulpfile.js文件中,在插件后面添加一对括号，并在里面传递选项的参数。例如，Autoprefixer需要指定对应的浏览器列表参数，你可以像这样设置：</p>
 <pre><code>var processors = [ 
     autoprefixer({browsers: [&apos;last 1 version&apos;]})
 ];
-</code></pre><p>##总结##</p>
-<ol>
+</code></pre><h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><ol>
 <li>通过<code>npm</code>(或<code>cnpm</code>)创建项目，并且将<code>gulp</code>安装到<code>gulpfile</code>文件</li>
 <li>安装<code>gulp-postcss</code>插件</li>
 <li>设置你的<code>gulpfile.js</code>文件，将<code>gulp</code>和<code>gulp-postcss</code>加载到项目中</li>
