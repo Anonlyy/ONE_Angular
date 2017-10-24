@@ -3,6 +3,42 @@
   
     
     <entry>
+      <title><![CDATA[来聊聊localStorage、sessionStorage和cookie]]></title>
+      <url>/2017/10/24/%E6%9D%A5%E8%81%8A%E8%81%8AlocalStorage%E3%80%81sessionStorage%E5%92%8Ccookie/</url>
+      <content type="html"><![CDATA[<p>首先当然还得是来介绍一下基本概念.</p>
+<h2 id="基本概念"><a href="#基本概念" class="headerlink" title="基本概念"></a>基本概念</h2><h3 id="Cookie"><a href="#Cookie" class="headerlink" title="Cookie"></a>Cookie</h3><p>对于<code>Cookie</code>,不用介绍的太多,想必大家也都很熟悉了.<code>Cookie</code>实际上是一小段的文本信息,每个Cookie的大小限制为4KB.</p>
+<p>它的主要用途有保存登录信息，比如你登录某个网站市场可以看到浏览器提醒你需要“记住密码”，这通常就是通过在 <code>Cookie</code> 中存入一段辨别用户身份的数据来实现的。</p>
+<h3 id="web-Storage"><a href="#web-Storage" class="headerlink" title="web Storage"></a>web Storage</h3><p><code>sessionStorage</code> 和 <code>localStorage</code> 是<strong>HTML5 Web Storage API</strong> 提供的，可以方便的在<code>web</code>请求之间保存数据。有了本地数据，就可以避免数据在浏览器和服务器间不必要地来回传递。</p>
+<p>在这之前,客户端存储数据都是使用cookie,但是大家都知道,每一次HTTP请求,都会带着cookie给后端,即使是不需要传输的情况下,这在无形之中就增加带宽的浪费,而<code>sessionStorage</code>和<code>localStorage</code>不会自动把数据发给服务器，仅在本地保存。</p>
+<h3 id="三者的异同"><a href="#三者的异同" class="headerlink" title="三者的异同"></a>三者的异同</h3><p><img src="http://it.dyg.cn/wp-content/uploads/2017/08/Snipaste_2017-08-05_21-13-28.png" alt=""></p>
+<p><strong>通过上图的表,大概总结一下webstorage API的好处:</strong><br>1.<strong> 减少网络流量</strong>：一旦数据保存在本地后，就可以避免再向服务器请求数据，因此减少不必要的数据请求，减少数据在浏览器和服务器间不必要地来回传递。</p>
+<ol>
+<li><strong>快速显示数据</strong>：性能好，从本地读数据比通过网络从服务器获得数据快得多，本地数据可以即时获得。再加上网页本身也可以有缓存，因此整个页面和数据都在本地的话，可以立即显示。<br>3.<strong> 临时存储</strong>：很多时候数据只需要在用户浏览一组页面期间使用，关闭窗口后数据就可以丢弃了，这种情况使用<code>sessionStorage</code>非常方便。</li>
+<li><strong>更多丰富易用的接口</strong>：<code>Web Storage</code>提供了一套更为丰富的接口，使得数据操作更为简便。</li>
+</ol>
+<h2 id="Webstorage-API的简单使用"><a href="#Webstorage-API的简单使用" class="headerlink" title="Webstorage API的简单使用"></a>Webstorage API的简单使用</h2><pre><code>//创建localStorage对象
+var localstroage = window.localStorage;  
+//存储值
+localstroage.setItem(&apos;name&apos;,&apos;Jack&apos;);  
+localstroage.setItem(&apos;uid&apos;,&apos;10001&apos;);  
+//获取值
+var openid = localstroage.getItem(&apos;openid&apos;);  
+console.log(openid);
+//删除值
+localstroage.removeItem(&apos;openid&apos;);  
+//清空值
+localstroage.clear(); 
+</code></pre><p>而<code>sessionStorage</code>的使用则与<code>localStorage</code>完全一致.</p>
+<p>此外,HTML5在提供了<code>storage</code>事件,当键值改变或者clear的时候，就可以触发<code>storage</code>事件,相当于加了个监听事件,这也是<code>cookie</code>原生没有的.</p>
+<p>##应用场景和总结</p>
+<p>我们的Storage API,可以用在<strong>IM聊天记录</strong>,<strong>购物车</strong>,<strong>HTML5的游戏数据存储</strong>,<strong>内容多的表单</strong>.<br>并非说有了<code>localStorage</code>、<code>sessionStorage</code>,<code>cookie</code>就会被淘汰了,就目前的客户端(浏览器)使用而言,<code>cookie</code>的使用率仍然是非常高的,只是在某种特定的情况下呢,使用我们的webStorageAPI会更加方便好用,更快的解决问题.</p>
+<p>此外,我们的<code>webStorageAPI</code>也仍存在一些局限,一个是兼容性问题,是不支持IE8以下的,还有一个是如果用户使用的是浏览器的隐身模式的话,是无法访问用<code>localStorage</code>存储下来的值的。</p>
+]]></content>
+      
+        
+    </entry>
+    
+    <entry>
       <title><![CDATA[Gulp入门]]></title>
       <url>/2017/10/24/Gulp%E5%85%A5%E9%97%A8/</url>
       <content type="html"><![CDATA[<h2 id="Gulp是啥子东西？"><a href="#Gulp是啥子东西？" class="headerlink" title="Gulp是啥子东西？"></a>Gulp是啥子东西？</h2><p><img src="http://www.d1net.com/uploadfile/2017/0112/20170112092834684.png" alt=""></p>
