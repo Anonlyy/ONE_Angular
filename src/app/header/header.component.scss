@@ -1,0 +1,20 @@
+@charset "utf-8";
+.global-header{
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  z-index: 1000;
+  background-color: white;
+  height:3.4rem;
+  font-size: 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid #eeeeee;
+  box-shadow: 0 0 5px rgba(0,0,0,.15);
+  padding:0 .8rem;
+  .header-center{
+    font-size: 1.2rem;
+  }
+}

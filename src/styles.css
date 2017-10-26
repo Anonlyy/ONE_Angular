@@ -1,1 +1,45 @@
 /* You can add global styles to this file, and also import other style files */
+@import "~element-theme-default";
+@import "assets/caomei-font/style.css";
+@import "../node_modules/freeng/resources/freeng.min.css";
+@import "../node_modules/freeng/resources/themes/blue.css";
+*{
+  font-weight: 300;
+  box-sizing: border-box;
+}
+html,body{
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  margin:0;
+  font-family: -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif!important;
+}
+*::selection,*::-moz-selection{
+  background-color: #35C17B;
+  color: white;
+  outline: none;
+}
+li:focus,a:focus,img:focus{
+  outline:none;
+  border:none;
+}
+.text-truncate {
+  word-wrap: normal; /* for IE */
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+.clearfix::before,.clearfix::after{
+  content: '';
+  display: block;
+  height:0;
+  visibility: hidden;
+  clear: both;
+}
+input{
+  outline:none;
+  background: none;
+  border:none;
+  box-shadow: none;
+}
+@media only screen { html { font-size: 30px; } }@media only screen and (max-width: 479px) and (min-width: 321px) { html { font-size: 15px; } }@media only screen and (max-width: 320px) { html { font-size: 13px; } }
