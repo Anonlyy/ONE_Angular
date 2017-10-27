@@ -3,6 +3,34 @@
   
     
     <entry>
+      <title><![CDATA[前端性能优化之图片]]></title>
+      <url>/2017/10/27/%E5%89%8D%E7%AB%AF%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96%E4%B9%8B%E5%9B%BE%E7%89%87/</url>
+      <content type="html"><![CDATA[<h2 id="图片优化的必要性"><a href="#图片优化的必要性" class="headerlink" title="图片优化的必要性"></a>图片优化的必要性</h2><p>在我们前端优化的种种方案中,包括js、html、css文件的打包压缩合并到极致,我们节省的空间至多也就是几十K的大小,但是在图片领域能够优化的空间,往往能够达到几百k到几M的范畴,这对于一个页面而言,优化力度可是极大的.所以在前端优化中,图片的优化是至关重要的.</p>
+<h2 id="图片格式认知"><a href="#图片格式认知" class="headerlink" title="图片格式认知"></a>图片格式认知</h2><p>目前在项目开发中常见的图片格式,包括有:</p>
+<ul>
+<li>jpg</li>
+<li>png</li>
+<li>gif</li>
+<li>svg</li>
+<li>WebP</li>
+</ul>
+<h3 id="jpg格式"><a href="#jpg格式" class="headerlink" title="jpg格式"></a>jpg格式</h3><p><code>jpg</code> 全称叫做<code>jpeg</code>,<code>.jpg</code>和<code>.jpeg</code>这两种扩展名的实质是相同的，但因为DOS时代的8.3文件名命名原则是:拓展名不能超过三位,所以直接用作<code>.jpg</code>,虽然现在windows也可以支持任意长度的扩展名了，但大家已经习惯了.jpg的叫法，因此也就没有强制修正.</p>
+<h4 id="baseline-jpeg"><a href="#baseline-jpeg" class="headerlink" title="baseline-jpeg"></a>baseline-jpeg</h4><h4 id="preogressive-jpeg"><a href="#preogressive-jpeg" class="headerlink" title="preogressive-jpeg"></a>preogressive-jpeg</h4><p><img src="http://7tszky.com1.z0.glb.clouddn.com/Fo8q3huYFyQma_rsSvo28dUyd7mN" alt=""><br>jpeg优势： 非常通用，图片更小<br>jpeg劣势： 图片色彩不够丰富,且不支持透明.</p>
+<h3 id="PNG格式"><a href="#PNG格式" class="headerlink" title="PNG格式"></a>PNG格式</h3><p><code>PNG</code>,可移植网络图形格式,这种类型的图片可以展示 256 种颜色，而且每一种颜色都可以做成透明,所以这类图片我们常用来做透明和半透明的素材,缺点则是体积较大.</p>
+<h3 id="GIF格式"><a href="#GIF格式" class="headerlink" title="GIF格式"></a>GIF格式</h3><p><code>GIF</code>,一般都理解为gif动画,其实<code>GIF</code>也可以存储图片,同时也支持透明,但作为图片,<code>GIF</code>只支持透明和不透明,不支持半透明,而且相对于<code>png</code>的图片,<code>GIF</code>的占用空间更大,它的唯一优势在于它是支持动画,而其他格式都不支持,所以一般我们图片是不使用<code>GIF</code>格式,只有在用动画的情况才使用。</p>
+<h3 id="svg格式"><a href="#svg格式" class="headerlink" title="svg格式"></a>svg格式</h3><p>可缩放矢量图形，属于 XML 格式，百度地图就是使用 svg 绘制的，位图当你放大时单位面积内可视的像素点会变少，所以会失真，也就是我们常说的图片模糊，首先 svg 它是一个可以进行计算矢量图，放大和缩小的时每一个像素会根据向量重新计算，不会失真，并且 svg 的体积很小。</p>
+<h3 id="WebP"><a href="#WebP" class="headerlink" title="WebP"></a>WebP</h3><p>是 Google 于2010年提出了一种新的图片压缩格式，<code>WebP</code> 为网络图片提供了无损和有损压缩能力，同时在有损条件下支持透明通道；无损 <code>WebP</code> 相比 <code>PNG</code> 减少26%大小，有损 <code>WebP</code> 在相同的结构相似性下相比 <code>JPEG</code> 减少 25%~34% 的大小，所以它也同时具备 <code>jpg</code> 和 <code>png</code> 的优点。<br>简单来说就是,体积比<code>jpeg</code>更小,而且还支持透明和半透明,渲染速度更快。<br>但在兼容性上只支持Chrome(29+)、Opera、和Android Brower,firefox和safari都不支持.<br><img src="http://static.zybuluo.com/jasminecjc/z1ik03y2es81x990qq35hutz/1.png" alt=""></p>
+<h3 id="图片使用"><a href="#图片使用" class="headerlink" title="图片使用"></a>图片使用</h3><p>说着这么多的图片类型，我们在项目开发中，如何基于性能和用户体验的权衡来选择合适的图片类型呢？</p>
+<p>如果是颜色丰富的图片，jpg 是通用的选择。<br>如果是较通用的动画，gif 是唯一可用的选择。<br>如果需要清晰的显示颜色丰富和透明的图片，png 是比较好的选择。<br>如果是企业级应用（不考虑兼容性），可以选择 WebP。</p>
+<h3 id="目前比较流行的做法"><a href="#目前比较流行的做法" class="headerlink" title="目前比较流行的做法"></a>目前比较流行的做法</h3><h4 id="压缩图片"><a href="#压缩图片" class="headerlink" title="压缩图片"></a>压缩图片</h4><p><img src="http://zhitu.tencent.com/" alt="">、<img src="https://kraken.io/" alt=""></p>
+<h4 id="CSS-Sprites-雪碧图"><a href="#CSS-Sprites-雪碧图" class="headerlink" title="CSS Sprites(雪碧图)"></a>CSS Sprites(雪碧图)</h4><h4 id="使用base64编码代替图片"><a href="#使用base64编码代替图片" class="headerlink" title="使用base64编码代替图片"></a>使用base64编码代替图片</h4><h4 id="iconfont、CSS3"><a href="#iconfont、CSS3" class="headerlink" title="iconfont、CSS3"></a>iconfont、CSS3</h4><h4 id="响应式动态图片加载"><a href="#响应式动态图片加载" class="headerlink" title="响应式动态图片加载"></a>响应式动态图片加载</h4><p><strong>场景</strong>：不同终端对同一个图片需求不一样，可以根据终端加载不同的图片来节省没必要的流量<br><strong>原理</strong>：通过picture元素，picturefill或平台判断来为不同终端平台输出不同的图片<br><strong>优势</strong>：减少没必要的图片加载，灵活控制，慢速用户加载小图片不至于加载失败，移动端没必要加载大尺寸图片等，可以通过不同方式兼容所有浏览器<br><strong>劣势</strong>：无法避免图片的加载过程，图片本身没优化</p>
+<p><a href="http://imweb.io/topic/568b20194c44bcc56092e415" target="_blank" rel="external">http://imweb.io/topic/568b20194c44bcc56092e415</a></p>
+]]></content>
+      
+        
+    </entry>
+    
+    <entry>
       <title><![CDATA[Virtual DOM原理概述]]></title>
       <url>/2017/10/24/VirtualDOM%E5%8E%9F%E7%90%86%E6%A6%82%E8%BF%B0/</url>
       <content type="html"><![CDATA[<p><img src="http://it.dyg.cn/wp-content/uploads/2017/10/timg-2.jpg" alt="Virtual DOM"></p>
