@@ -8,7 +8,7 @@ import {ListComponent} from "./list/list.component";
 const routes:Routes = [
   {
     path:'',
-    redirectTo:'list',
+    redirectTo:'index',
     pathMatch:'full'
   },
   {
@@ -16,7 +16,7 @@ const routes:Routes = [
     component:IndexComponent
   },
   {
-    path:'list',
+    path:'list/:type',
     component:ListComponent
   },
 ];

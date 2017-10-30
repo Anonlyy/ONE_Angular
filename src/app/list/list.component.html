@@ -1,5 +1,6 @@
 <div class="global-list"  (scroll)="scrollBottom($event)">
   <div class="content-list" >
+    <free-loading type="lineBounce" *ngIf="isLoading"></free-loading>
     <div class="content" *ngFor="let item of contentList">
       <p class="content-tag">- {{item.category}} -</p>
         <div class="content-title">
@@ -14,7 +15,7 @@
     </div>
   </div>
   <div class="footer-bar">
-    <span class="btn-backtop">
+    <span class="btn-backtop" (click)="backTop()">
       <i class="czs-arrow-up-l"></i>
     </span>
   </div>

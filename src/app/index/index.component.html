@@ -14,7 +14,7 @@
     <ul class="content-list">
       <li class="content-item">
         <div class="item-heading">
-          <a href="#">{{reading.category}} | </a>
+          <a [routerLink]="['/list',1]"> 「 {{reading.category}} 」 </a>
         </div>
         <div class="item-body">
           <h3 class="title">{{reading.title}}</h3>
@@ -25,7 +25,7 @@
       </li>
       <li class="content-item">
         <div class="item-heading">
-          <a href="#">{{music.category}} | </a>
+          <a  [routerLink]="['/list',4]"> 「 {{music.category}} 」 </a>
         </div>
         <div class="item-body">
           <h3 class="title">{{music.title}}</h3>
@@ -36,7 +36,7 @@
       </li>
       <li class="content-item">
         <div class="item-heading">
-          <a href="#">{{movie.category}} | </a>
+          <a  [routerLink]="['/list',5]"> 「{{movie.category}}」 </a>
         </div>
         <div class="item-body">
           <h3 class="title">{{movie.title}}</h3>

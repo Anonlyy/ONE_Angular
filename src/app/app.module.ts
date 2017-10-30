@@ -14,6 +14,7 @@ import {GetDataService} from "./serve/get-data.service";
 import { DayPipePipe } from './pipe/day-pipe.pipe';
 import { DatePipePipe } from './pipe/date-pipe.pipe';
 import { ListComponent } from './list/list.component';
+import {LoadingModule} from 'freeng/freeng';
 @NgModule({
   declarations: [
     AppComponent,
@@ -31,6 +32,7 @@ import { ListComponent } from './list/list.component';
     AppRoutingModule,
 
     IconModule,
+    LoadingModule
   ],
   providers: [GetDataService],
   bootstrap: [AppComponent]
