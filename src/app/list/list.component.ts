@@ -14,6 +14,7 @@ export class ListComponent implements OnInit,OnDestroy {
   constructor(private getDataService:GetDataService,private routerInfo:ActivatedRoute) { }
 
   isLoading:boolean = true;
+  listType:number=-1;
   contentList = [];
   reading:IndexCategory = new IndexCategory('0','2017-10-26 06:00:00','xxx','VOL.1846','xxx','xxx');
   lastId:string;//存储最后一组ID,用作获取下一组数据
@@ -26,7 +27,8 @@ export class ListComponent implements OnInit,OnDestroy {
     _this.routerInfo.params.subscribe(
       data=>{
         let result:any = data;
-        switch (parseInt(result.type)){
+        _this.listType = parseInt(result.type);
+        switch (_this.listType){
           case 1:
             _this.getReadingList();
             break;
@@ -49,13 +51,12 @@ export class ListComponent implements OnInit,OnDestroy {
       result=>{
         let data = result.data;
         for(let item of data){
-          _this.reading = new IndexCategory(item.id,'阅读',item.img_url,item.author.user_name,item.title,item.forward,item.post_date.slice(0,10));
+          _this.reading = new IndexCategory(item.content_id,'阅读',item.img_url,item.author.user_name,item.title,item.forward,item.post_date.slice(0,10));
           _this.contentList.push(_this.reading);
         }
         _this.isLoading = false;
         _this.lastId = '-1';
         _this.lastId = _this.contentList[_this.contentList.length-1].id;
-        console.log(_this.contentList[_this.contentList.length-1].id);
       })
   }
   getMusicList(id:string='0'){
@@ -64,13 +65,12 @@ export class ListComponent implements OnInit,OnDestroy {
       result=>{
         let data = result.data;
         for(let item of data){
-          _this.music = new IndexCategory(item.id,'阅读',item.img_url,item.author.user_name,item.title,item.forward,item.post_date.slice(0,10));
+          _this.music = new IndexCategory(item.content_id,'阅读',item.img_url,item.author.user_name,item.title,item.forward,item.post_date.slice(0,10));
           _this.contentList.push(_this.music);
         }
         _this.isLoading = false;
         _this.lastId = '-1';
         _this.lastId = _this.contentList[_this.contentList.length-1].id;
-        console.log(_this.contentList[_this.contentList.length-1].id);
       })
   }
   getMovieList(id:string='0'){
@@ -79,7 +79,7 @@ export class ListComponent implements OnInit,OnDestroy {
       result=>{
         let data = result.data;
         for(let item of data){
-          _this.movie = new IndexCategory(item.id,'影视',item.img_url,item.author.user_name,item.title,item.forward,item.post_date.slice(0,10));
+          _this.movie = new IndexCategory(item.content_id,'影视',item.img_url,item.author.user_name,item.title,item.forward,item.post_date.slice(0,10));
           _this.contentList.push(_this.movie);
         }
         _this.isLoading = false;
@@ -90,7 +90,7 @@ export class ListComponent implements OnInit,OnDestroy {
 
   //回到顶部
   backTop(){
-    window.scroll(0,0);
+    document.getElementById('app-list').scrollTop = 0;
   }
   //触底事件
   scrollBottom(e){

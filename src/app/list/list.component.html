@@ -1,13 +1,16 @@
-<div class="global-list"  (scroll)="scrollBottom($event)">
+<div class="global-list" id="app-list" (scroll)="scrollBottom($event)">
   <div class="content-list" >
     <free-loading type="lineBounce" *ngIf="isLoading"></free-loading>
     <div class="content" *ngFor="let item of contentList">
       <p class="content-tag">- {{item.category}} -</p>
         <div class="content-title">
-          <a class="title-link" href="http://m.wufazhuce.com/article/2696">{{item.title}}</a>
+          <a class="title-link" [routerLink]="['/details',item.id]">{{item.title}}</a>
           <p class="text-author">文／{{item.authorName}}</p>
         </div>
-        <img class="cover-img" [src]="item.picUrl">
+      <div [class.text-music-cover]="listType==4">
+        <img class="cover-img"  [routerLink]="['/details',item.id]" [src]="item.picUrl">
+      </div>
+
         <p class="text-content-short">{{item.content}}</p>
         <p class="date">
           <i class="czs-time-l"></i>

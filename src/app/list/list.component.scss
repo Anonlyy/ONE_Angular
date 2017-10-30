@@ -52,6 +52,7 @@
       }
       .cover-img{
         width: 100%;
+        border-radius: .2rem;
         max-width: 100%;
       }
       .date{
@@ -63,17 +64,41 @@
       &:last-child{
         margin-bottom: 0;
       }
+
+      //音乐
+      .text-music-cover{
+        position: relative;
+        text-align: center;
+        height: 15.125em;
+        line-height: 15.125em;
+        &::before{
+          content: '';
+          position: absolute;
+          left:-1.5rem;
+          top: 0;
+          width: 20em;
+          height: 15.125em;
+          border-radius: 0 9.9em 10em 0;
+          box-shadow: 0 0 0.625em 0.125em rgba(230, 230, 230, 0.5);
+        }
+        .cover-img{
+          width: 60%;
+          height: 90%;
+          vertical-align: middle;
+          border-radius: 50%;
+          border:1px solid #ccc;
+        }
+      }
     }
   }
   .footer-bar{
     position: fixed;
-    right: 0;
-    bottom: 0;
+    right: 1.5rem;
+    bottom: 2rem;
     z-index: 1000;
     .btn-backtop{
       background-color: white;
       display: inline-block;
-      margin:0 1.5rem 2rem 0 ;
       width: 3.5rem;
       text-align: center;
       line-height: 3.5rem;

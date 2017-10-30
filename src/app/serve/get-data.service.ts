@@ -62,6 +62,13 @@ export class GetDataService {
       .catch(this.handleError)
   }
 
+
+  public getReadingDetails(id:string):Observable<any>{
+    return this.http.get(`http://v3.wufazhuce.com:8000/api/essay/${id}`)
+      .map(this.handleSuccess)
+      .catch(this.handleError)
+  }
+
   public handleSuccess(res){
     return res.json();
   }

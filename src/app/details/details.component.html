@@ -1,0 +1,25 @@
+<div class="global-content">
+  <div class="content-body">
+    <h3 class="content-title" [innerHTML]="storyDetail.title">
+    </h3>
+    <p class="text-author">文／{{storyDetail.authorName}}</p>
+    <div class="text-content"  [innerHTML]="storyDetail.content"></div>
+
+    <div class="text-tip">
+      <i class="text-editor" [innerHTML]="storyDetail.author_introduce"></i>
+      <i class="text-editor">本文经作者授权转载。</i>
+    </div>
+
+    <div class="content-author">
+      <h4 class="author-title">作者</h4>
+      <div class="author-content">
+        <img [src]="storyDetail.authorImgurl" alt="">
+        <div class="author">
+          <p class="author-name">{{storyDetail.authorName}}</p>
+          <p class="page-summary">{{storyDetail.authorDesc}}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="content-comment"></div>
+</div>

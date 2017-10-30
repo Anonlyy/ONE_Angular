@@ -15,6 +15,7 @@ import { DayPipePipe } from './pipe/day-pipe.pipe';
 import { DatePipePipe } from './pipe/date-pipe.pipe';
 import { ListComponent } from './list/list.component';
 import {LoadingModule} from 'freeng/freeng';
+import { DetailsComponent } from './details/details.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -23,7 +24,8 @@ import {LoadingModule} from 'freeng/freeng';
     MenuComponent,
     DayPipePipe,
     DatePipePipe,
-    ListComponent
+    ListComponent,
+    DetailsComponent
   ],
   imports: [
     BrowserModule,
