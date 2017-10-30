@@ -4,15 +4,20 @@
 import {RouterModule, Routes} from "@angular/router";
 import {NgModule} from "@angular/core";
 import {IndexComponent} from "./index/index.component";
+import {ListComponent} from "./list/list.component";
 const routes:Routes = [
   {
     path:'',
-    redirectTo:'index',
+    redirectTo:'list',
     pathMatch:'full'
   },
   {
     path:'index',
     component:IndexComponent
+  },
+  {
+    path:'list',
+    component:ListComponent
   },
 ];
 

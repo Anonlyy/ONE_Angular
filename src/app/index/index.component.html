@@ -2,15 +2,50 @@
   <div class="app-banner" [style.height]="windowHeight+'px'">
     <img class="banner" [src]="indexImageText.picUrl" alt="">
     <div class="banner-inner">
-      <h3>26</h3>
-      <p>VOL.1846 | Oct. 2017 </p>
-      <p>珍惜现有的生活，因为生活总有变得更烂的可能。</p>
-    </div>
-    <span class="icon">
+      <h3 class="inner-day">{{indexImageText.date | dayPipe}}</h3>
+      <p class="inner-date">{{indexImageText.volume}} | {{indexImageText.date | datePipe}}</p>
+      <p class="inner-title">{{indexImageText.title}}</p>
+      <span class="icon">
         <i class="czs-angle-down-l"></i>
       </span>
+    </div>
   </div>
   <div class="app-body">
-    11
+    <ul class="content-list">
+      <li class="content-item">
+        <div class="item-heading">
+          <a href="#">{{reading.category}} | </a>
+        </div>
+        <div class="item-body">
+          <h3 class="title">{{reading.title}}</h3>
+          <p class="artist">作者／{{reading.authorName}}</p>
+          <div class="text-content">{{reading.content}}</div>
+          <a href="#" class="more-link">阅读全文 ></a>
+        </div>
+      </li>
+      <li class="content-item">
+        <div class="item-heading">
+          <a href="#">{{music.category}} | </a>
+        </div>
+        <div class="item-body">
+          <h3 class="title">{{music.title}}</h3>
+          <p class="artist">作者／{{music.authorName}}</p>
+          <div class="text-content">{{music.content}}</div>
+          <a href="#" class="more-link">阅读全文 ></a>
+        </div>
+      </li>
+      <li class="content-item">
+        <div class="item-heading">
+          <a href="#">{{movie.category}} | </a>
+        </div>
+        <div class="item-body">
+          <h3 class="title">{{movie.title}}</h3>
+          <p class="artist">作者／{{movie.authorName}}</p>
+          <div class="text-content">{{movie.content}}</div>
+          <a href="#" class="more-link">阅读全文 ></a>
+        </div>
+      </li>
+    </ul>
+    <p class="tip">END</p>
   </div>
 </div>

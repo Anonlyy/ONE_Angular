@@ -11,12 +11,18 @@ import {IconModule} from 'freeng/freeng';
 import { HeaderComponent } from './header/header.component';
 import { MenuComponent } from './menu/menu.component';
 import {GetDataService} from "./serve/get-data.service";
+import { DayPipePipe } from './pipe/day-pipe.pipe';
+import { DatePipePipe } from './pipe/date-pipe.pipe';
+import { ListComponent } from './list/list.component';
 @NgModule({
   declarations: [
     AppComponent,
     IndexComponent,
     HeaderComponent,
-    MenuComponent
+    MenuComponent,
+    DayPipePipe,
+    DatePipePipe,
+    ListComponent
   ],
   imports: [
     BrowserModule,
