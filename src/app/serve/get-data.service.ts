@@ -62,12 +62,23 @@ export class GetDataService {
       .catch(this.handleError)
   }
 
-
+  /**
+   * 获取阅读的详细信息
+   * @param id
+   * @returns {Observable<R|T>}
+   */
   public getReadingDetails(id:string):Observable<any>{
     return this.http.get(`http://v3.wufazhuce.com:8000/api/essay/${id}`)
       .map(this.handleSuccess)
       .catch(this.handleError)
   }
+
+  public getMusicDetails(id:string):Observable<any>{
+    return this.http.get(`http://v3.wufazhuce.com:8000/api/music/detail/${id}`)
+      .map(this.handleSuccess)
+      .catch(this.handleError)
+  }
+
 
   public handleSuccess(res){
     return res.json();

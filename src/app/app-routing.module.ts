@@ -6,6 +6,7 @@ import {NgModule} from "@angular/core";
 import {IndexComponent} from "./index/index.component";
 import {ListComponent} from "./list/list.component";
 import {DetailsComponent} from "./details/details.component";
+import {MusicDetailsComponent} from "./music-details/music-details.component";
 const routes:Routes = [
   {
     path:'',
@@ -24,6 +25,10 @@ const routes:Routes = [
     path:'details/:id',
     component:DetailsComponent
   },
+  {
+    path:'musicDetails/:id',
+    component:MusicDetailsComponent
+  }
 ];
 
 

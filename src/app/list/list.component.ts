@@ -15,12 +15,13 @@ export class ListComponent implements OnInit,OnDestroy {
 
   isLoading:boolean = true;
   listType:number=-1;
+  linkUrl:string;
   contentList = [];
-  reading:IndexCategory = new IndexCategory('0','2017-10-26 06:00:00','xxx','VOL.1846','xxx','xxx');
+  reading:IndexCategory = new IndexCategory('0','0','2017-10-26 06:00:00','xxx','VOL.1846','xxx','xxx');
   lastId:string;//存储最后一组ID,用作获取下一组数据
 
-  music:IndexCategory = new IndexCategory('0','2017-10-26 06:00:00','xxx','VOL.1846','xxx','xxx');
-  movie:IndexCategory = new IndexCategory('0','2017-10-26 06:00:00','xxx','VOL.1846','xxx','xxx');
+  music:IndexCategory = new IndexCategory('0','0','2017-10-26 06:00:00','xxx','VOL.1846','xxx','xxx');
+  movie:IndexCategory = new IndexCategory('0','0','2017-10-26 06:00:00','xxx','VOL.1846','xxx','xxx');
   ngOnInit() {
     const _this = this;
     _this.contentList = [];
@@ -31,12 +32,15 @@ export class ListComponent implements OnInit,OnDestroy {
         switch (_this.listType){
           case 1:
             _this.getReadingList();
+            _this.linkUrl = '/details';
             break;
           case 4:
             _this.getMusicList();
+            _this.linkUrl = '/musicDetails';
             break;
           case 5:
             _this.getMovieList();
+            // _this.linkUrl = '/musicDetails';
             break;
         }
       }
@@ -51,7 +55,7 @@ export class ListComponent implements OnInit,OnDestroy {
       result=>{
         let data = result.data;
         for(let item of data){
-          _this.reading = new IndexCategory(item.content_id,'阅读',item.img_url,item.author.user_name,item.title,item.forward,item.post_date.slice(0,10));
+          _this.reading = new IndexCategory(item.id,item.content_id,'阅读',item.img_url,item.author.user_name,item.title,item.forward,item.post_date.slice(0,10));
           _this.contentList.push(_this.reading);
         }
         _this.isLoading = false;
@@ -65,11 +69,11 @@ export class ListComponent implements OnInit,OnDestroy {
       result=>{
         let data = result.data;
         for(let item of data){
-          _this.music = new IndexCategory(item.content_id,'阅读',item.img_url,item.author.user_name,item.title,item.forward,item.post_date.slice(0,10));
+          _this.music = new IndexCategory(item.id,item.content_id,'音乐',item.img_url,item.author.user_name,item.title,item.forward,item.post_date.slice(0,10));
           _this.contentList.push(_this.music);
         }
         _this.isLoading = false;
-        _this.lastId = '-1';
+        // console.log(this.contentList);
         _this.lastId = _this.contentList[_this.contentList.length-1].id;
       })
   }
@@ -79,7 +83,7 @@ export class ListComponent implements OnInit,OnDestroy {
       result=>{
         let data = result.data;
         for(let item of data){
-          _this.movie = new IndexCategory(item.content_id,'影视',item.img_url,item.author.user_name,item.title,item.forward,item.post_date.slice(0,10));
+          _this.movie = new IndexCategory(item.id,item.content_id,'影视',item.img_url,item.author.user_name,item.title,item.forward,item.post_date.slice(0,10));
           _this.contentList.push(_this.movie);
         }
         _this.isLoading = false;
@@ -102,7 +106,17 @@ export class ListComponent implements OnInit,OnDestroy {
       let timer = null;
       clearTimeout(timer);
       timer = setTimeout(function() {
-        _this.getReadingList(_this.lastId);
+        switch (_this.listType){
+          case 1:
+            _this.getReadingList(_this.lastId);
+            break;
+          case 4:
+            _this.getMusicList(_this.lastId);
+            break;
+          case 5:
+            _this.getMovieList(_this.lastId);
+            break;
+        }
         console.log('到底了')
       }, 300);
     }

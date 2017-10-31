@@ -4,13 +4,12 @@
     <div class="content" *ngFor="let item of contentList">
       <p class="content-tag">- {{item.category}} -</p>
         <div class="content-title">
-          <a class="title-link" [routerLink]="['/details',item.id]">{{item.title}}</a>
-          <p class="text-author">文／{{item.authorName}}</p>
+          <a class="title-link" [routerLink]="[linkUrl,item.content_id]">{{item.title}}</a>
+          <p class="text-author">著/ {{item.authorName}}</p>
         </div>
       <div [class.text-music-cover]="listType==4">
-        <img class="cover-img"  [routerLink]="['/details',item.id]" [src]="item.picUrl">
+        <img class="cover-img"  [routerLink]="[linkUrl,item.content_id]" [src]="item.picUrl">
       </div>
-
         <p class="text-content-short">{{item.content}}</p>
         <p class="date">
           <i class="czs-time-l"></i>
