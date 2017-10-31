@@ -9,10 +9,10 @@ import {GetDataService} from "../serve/get-data.service";
 export class IndexComponent implements OnInit {
   currentId:string; //今日Id
   windowHeight:number = 0;
-  indexImageText:IndexImageText = new IndexImageText('0','2017-10-26 06:00:00','xxx','VOL.1846','xxx');
-  reading:IndexCategory = new IndexCategory('0','0','2017-10-26 06:00:00','xxx','VOL.1846','xxx','xxx');
-  music:IndexCategory = new IndexCategory('0','0','2017-10-26 06:00:00','xxx','VOL.1846','xxx','xxx');
-  movie:IndexCategory = new IndexCategory('0','0','2017-10-26 06:00:00','xxx','VOL.1846','xxx','xxx');
+  indexImageText:IndexImageText = new IndexImageText('0','0','2017-10-26 06:00:00','/assets/image/default.jpg','VOL.1846','xxx');
+  reading:IndexCategory = new IndexCategory('0','0','2017-10-26 06:00:00','/assets/image/default.jpg','VOL.1846','xxx','xxx');
+  music:IndexCategory = new IndexCategory('0','0','2017-10-26 06:00:00','/assets/image/default.jpg','VOL.1846','xxx','xxx');
+  movie:IndexCategory = new IndexCategory('0','0','2017-10-26 06:00:00','/assets/image/default.jpg','VOL.1846','xxx','xxx');
   constructor(private getDataService:GetDataService) { }
 
   ngOnInit() {
@@ -39,7 +39,7 @@ export class IndexComponent implements OnInit {
         for(let item of result.data.content_list){
           switch (item.category){
             case "0":
-              _this.indexImageText = new IndexImageText(item.id,data.date,item.img_url,item.volume,item.forward);
+              _this.indexImageText = new IndexImageText(item.id,item.content_id,data.date,item.img_url,item.volume,item.forward);
               break;
             case "1":
               _this.reading = new IndexCategory(item.id,item.content_id,'阅读',item.img_url,item.author.user_name,item.title,item.forward);
@@ -62,6 +62,7 @@ export class IndexComponent implements OnInit {
 class IndexImageText{
   constructor(
     public id:string,
+    private content_id:string, //详情页传值id
     public date:string,  //时间
     public picUrl:string,
     public volume:string, //编号

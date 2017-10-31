@@ -7,6 +7,7 @@ import {IndexComponent} from "./index/index.component";
 import {ListComponent} from "./list/list.component";
 import {DetailsComponent} from "./details/details.component";
 import {MusicDetailsComponent} from "./music-details/music-details.component";
+import {MovieDetailsComponent} from "./movie-details/movie-details.component";
 const routes:Routes = [
   {
     path:'',
@@ -28,6 +29,10 @@ const routes:Routes = [
   {
     path:'musicDetails/:id',
     component:MusicDetailsComponent
+  },
+  {
+    path:'movieDetails/:id',
+    component:MovieDetailsComponent
   }
 ];
 

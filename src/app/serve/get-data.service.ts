@@ -73,12 +73,33 @@ export class GetDataService {
       .catch(this.handleError)
   }
 
+  /**
+   *获取音乐的详细信息
+   * @param id
+   * @returns {Observable<R|T>}
+   */
   public getMusicDetails(id:string):Observable<any>{
     return this.http.get(`http://v3.wufazhuce.com:8000/api/music/detail/${id}`)
       .map(this.handleSuccess)
       .catch(this.handleError)
   }
 
+  /**
+   * 获取影视的详细信息
+   * @param id
+   * @returns {Observable<R|T>}
+   */
+  public getMovieDetails(id:string):Observable<any>{
+    return this.http.get(`http://v3.wufazhuce.com:8000/api/movie/${id}/story/1/0`)
+      .map(this.handleSuccess)
+      .catch(this.handleError)
+  }
+
+  public getMovieDetailsByPhoto(id):Observable<any>{
+    return this.http.get(`http://v3.wufazhuce.com:8000/api/movie/detail/${id}`)
+      .map(this.handleSuccess)
+      .catch(this.handleError)
+  }
 
   public handleSuccess(res){
     return res.json();

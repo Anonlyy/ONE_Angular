@@ -17,11 +17,11 @@ export class ListComponent implements OnInit,OnDestroy {
   listType:number=-1;
   linkUrl:string;
   contentList = [];
-  reading:IndexCategory = new IndexCategory('0','0','2017-10-26 06:00:00','xxx','VOL.1846','xxx','xxx');
+  reading:IndexCategory = new IndexCategory('0','0','2017-10-26 06:00:00','/assets/image/default.jpg','VOL.1846','xxx','xxx');
   lastId:string;//存储最后一组ID,用作获取下一组数据
 
-  music:IndexCategory = new IndexCategory('0','0','2017-10-26 06:00:00','xxx','VOL.1846','xxx','xxx');
-  movie:IndexCategory = new IndexCategory('0','0','2017-10-26 06:00:00','xxx','VOL.1846','xxx','xxx');
+  music:IndexCategory = new IndexCategory('0','0','2017-10-26 06:00:00','/assets/image/default.jpg','VOL.1846','xxx','xxx');
+  movie:IndexCategory = new IndexCategory('0','0','2017-10-26 06:00:00','/assets/image/default.jpg','VOL.1846','xxx','xxx');
   ngOnInit() {
     const _this = this;
     _this.contentList = [];
@@ -40,7 +40,7 @@ export class ListComponent implements OnInit,OnDestroy {
             break;
           case 5:
             _this.getMovieList();
-            // _this.linkUrl = '/musicDetails';
+            _this.linkUrl = '/movieDetails';
             break;
         }
       }

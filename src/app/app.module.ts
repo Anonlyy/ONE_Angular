@@ -17,6 +17,7 @@ import { ListComponent } from './list/list.component';
 import {LoadingModule} from 'freeng/freeng';
 import { DetailsComponent } from './details/details.component';
 import { MusicDetailsComponent } from './music-details/music-details.component';
+import { MovieDetailsComponent } from './movie-details/movie-details.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -27,7 +28,8 @@ import { MusicDetailsComponent } from './music-details/music-details.component';
     DatePipePipe,
     ListComponent,
     DetailsComponent,
-    MusicDetailsComponent
+    MusicDetailsComponent,
+    MovieDetailsComponent
   ],
   imports: [
     BrowserModule,

@@ -27,7 +27,7 @@ export class DetailsComponent implements OnInit {
         let data = result.data;
         let artList = [];
         for(let i of data.author){artList.push(i.user_name);}
-        _this.storyDetail = new ReadDetail(data.content_id,artList.join('/'),data.author[0].summary,data.hp_title,data.hp_content,data.hp_author_introduce);
+        _this.storyDetail = new ReadDetail(data.content_id,artList.join('/'),data.author[0].summary,data.author[0].web_url,data.hp_title,data.hp_content,data.hp_author_introduce);
         // console.log(_this.storyDetail);
       },
       error=>{

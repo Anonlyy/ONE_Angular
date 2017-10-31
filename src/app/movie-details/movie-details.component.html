@@ -1,0 +1,31 @@
+<div class="global-content">
+  <div class="content-banner">
+    <img class="img" [src]="photoList.bannerUrl">
+  </div>
+  <div class="content-body">
+    <h3 class="content-title">
+      {{movieDetail.title}}
+    </h3>
+    <p class="text-subtitle">
+      ——{{photoList.subTitle}}
+    </p>
+    <p class="text-author">
+      文／{{movieDetail.authorName}}
+    </p>
+    <div class="text-content" [innerHTML]="movieDetail.content" >
+    </div>
+    <div class="text-tip">
+      <i class="text-editor">{{movieDetail.author_introduce}}</i>
+      <i class="text-editor">{{movieDetail.copyright}}</i>
+    </div>
+  </div>
+  <div class="content-comment"></div>
+  <div class="footer-bar">
+        <span class="btn-backtop" (click)="backTop()">
+          <i class="czs-arrow-up-l"></i>
+        </span>
+  </div>
+  <div class="end-tip">
+    - END -
+  </div>
+</div>
