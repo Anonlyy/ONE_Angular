@@ -9,7 +9,6 @@ import {AppRoutingModule} from "./app-routing.module";
 
 import {IconModule} from 'freeng/freeng';
 import { HeaderComponent } from './header/header.component';
-import { MenuComponent } from './menu/menu.component';
 import {GetDataService} from "./serve/get-data.service";
 import { DayPipePipe } from './pipe/day-pipe.pipe';
 import { DatePipePipe } from './pipe/date-pipe.pipe';
@@ -18,12 +17,13 @@ import {LoadingModule} from 'freeng/freeng';
 import { DetailsComponent } from './details/details.component';
 import { MusicDetailsComponent } from './music-details/music-details.component';
 import { MovieDetailsComponent } from './movie-details/movie-details.component';
+import {SidenavModule} from "freeng/component/sidenav/sidenav.component";
+import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 @NgModule({
   declarations: [
     AppComponent,
     IndexComponent,
     HeaderComponent,
-    MenuComponent,
     DayPipePipe,
     DatePipePipe,
     ListComponent,
@@ -36,9 +36,10 @@ import { MovieDetailsComponent } from './movie-details/movie-details.component';
     FormsModule,
     HttpModule,
     AppRoutingModule,
-
+    BrowserAnimationsModule,
     IconModule,
-    LoadingModule
+    LoadingModule,
+    SidenavModule
   ],
   providers: [GetDataService],
   bootstrap: [AppComponent]

@@ -16,31 +16,39 @@ html,body{
   font-family: -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif!important;
 }
 *::selection,*::-moz-selection{
-  background-color: #35C17B;
-  color: white;
-  outline: none;
+background-color: #35C17B;
+color: white;
+outline: none;
 }
 li:focus,a:focus,img:focus{
-  outline:none;
-  border:none;
+outline:none;
+border:none;
 }
 .text-truncate {
-  word-wrap: normal; /* for IE */
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  overflow: hidden;
+word-wrap: normal; /* for IE */
+text-overflow: ellipsis;
+white-space: nowrap;
+overflow: hidden;
 }
 .clearfix::before,.clearfix::after{
-  content: '';
-  display: block;
-  height:0;
-  visibility: hidden;
-  clear: both;
+content: '';
+display: block;
+height:0;
+visibility: hidden;
+clear: both;
 }
 input{
-  outline:none;
-  background: none;
-  border:none;
-  box-shadow: none;
+outline:none;
+background: none;
+border:none;
+box-shadow: none;
 }
+.free-sidenav .free-sidenav-wrapper{
+  box-shadow: 8px 0 12px rgba(0,0,0,.3);
+}
+.free-sidenav .free-sidenav-overlay{
+  background-color: rgba(0,0,0,0);
+}
+
+
 @media only screen { html { font-size: 30px; } }@media only screen and (max-width: 479px) and (min-width: 321px) { html { font-size: 15px; } }@media only screen and (max-width: 320px) { html { font-size: 13px; } }

@@ -1,11 +1,26 @@
 <div class="global-header">
   <div class="header-left">
-    <span class="button-menu">
+    <span class="button-menu clearfix" (click)="showMenu()">
       <i class="czs-menu-l"></i>
     </span>
+    <free-sidenav [visible]="isShow" [overlay]="true" direction="left">
+      <ul class="list">
+        <li class="list-item" *ngFor="let item of menuList;let i = index;" (click)="toList(i)">
+          <span class="list-text"><i class="{{item.icon}}"></i> {{item.name}}</span>
+        </li>
+
+        <li class="list-item">
+          <span class="list-text">关于我</span>
+        </li>
+      </ul>
+
+    </free-sidenav>
   </div>
   <div class="header-center">一个</div>
   <div class="header-right">
     <i class="czs-search-l"></i>
   </div>
+
+
+
 </div>

@@ -29,19 +29,21 @@ export class ListComponent implements OnInit,OnDestroy {
       data=>{
         let result:any = data;
         _this.listType = parseInt(result.type);
+        _this.isLoading = true;
+        _this.contentList = [];
         switch (_this.listType){
-          case 1:
-            _this.getReadingList();
-            _this.linkUrl = '/details';
-            break;
-          case 4:
-            _this.getMusicList();
-            _this.linkUrl = '/musicDetails';
-            break;
-          case 5:
-            _this.getMovieList();
-            _this.linkUrl = '/movieDetails';
-            break;
+            case 1:
+              _this.getReadingList();
+              _this.linkUrl = '/details';
+              break;
+            case 4:
+              _this.getMusicList();
+              _this.linkUrl = '/musicDetails';
+              break;
+            case 5:
+              _this.getMovieList();
+              _this.linkUrl = '/movieDetails';
+              break;
         }
       }
     )
