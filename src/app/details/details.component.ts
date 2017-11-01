@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {GetDataService} from "../serve/get-data.service";
 import {ActivatedRoute} from "@angular/router";
 
+const defaultSrc = 'https://ws1.sinaimg.cn/large/a0b131e2gy1fl2nio8ajhj20960920sj.jpg';
 @Component({
   selector: 'app-details',
   templateUrl: './details.component.html',
@@ -10,7 +11,7 @@ import {ActivatedRoute} from "@angular/router";
 export class DetailsComponent implements OnInit {
 
   constructor(private getDataService:GetDataService,private routerInfo:ActivatedRoute) { }
-  storyDetail:ReadDetail = new ReadDetail('0','xxxx','xxx','/assets/image/default.jpg','xxx','xxx');
+  storyDetail:ReadDetail = new ReadDetail('0','xxxx','xxx',defaultSrc,'xxx','xxx');
   ngOnInit() {
     this.routerInfo.params.subscribe(
       result=>{
@@ -42,11 +43,11 @@ export class ReadDetail{
     private id:string,
     public authorName:string,
     public authorDesc:string,
-    public authorImgurl:string = '/assets/image/default.jpg', //作者头像
+    public authorImgurl:string = defaultSrc, //作者头像
     public title:string,
     public content:string,
     public author_introduce?:string, //编辑作者
     public copyright?:string,   //转载声明
-    public picUrl:string = '/assets/image/default.jpg', //专辑封面图片
+    public picUrl:string = defaultSrc, //专辑封面图片
   ){}
 }

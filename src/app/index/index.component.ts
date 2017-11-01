@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {GetDataService} from "../serve/get-data.service";
 
+const defaultSrc = 'https://ws1.sinaimg.cn/large/a0b131e2gy1fl2nio8ajhj20960920sj.jpg';
 @Component({
   selector: 'app-index',
   templateUrl: './index.component.html',
@@ -9,10 +10,10 @@ import {GetDataService} from "../serve/get-data.service";
 export class IndexComponent implements OnInit {
   currentId:string; //今日Id
   windowHeight:number = 0;
-  indexImageText:IndexImageText = new IndexImageText('0','0','2017-10-26 06:00:00','/assets/image/default.jpg','VOL.1846','xxx');
-  reading:IndexCategory = new IndexCategory('0','0','2017-10-26 06:00:00','/assets/image/default.jpg','VOL.1846','xxx','xxx');
-  music:IndexCategory = new IndexCategory('0','0','2017-10-26 06:00:00','/assets/image/default.jpg','VOL.1846','xxx','xxx');
-  movie:IndexCategory = new IndexCategory('0','0','2017-10-26 06:00:00','/assets/image/default.jpg','VOL.1846','xxx','xxx');
+  indexImageText:IndexImageText = new IndexImageText('0','0','2017-10-26 06:00:00',defaultSrc,'VOL.1846','xxx');
+  reading:IndexCategory = new IndexCategory('0','0','2017-10-26 06:00:00',defaultSrc,'VOL.1846','xxx','xxx');
+  music:IndexCategory = new IndexCategory('0','0','2017-10-26 06:00:00',defaultSrc,'VOL.1846','xxx','xxx');
+  movie:IndexCategory = new IndexCategory('0','0','2017-10-26 06:00:00',defaultSrc,'VOL.1846','xxx','xxx');
   constructor(private getDataService:GetDataService) { }
 
   ngOnInit() {

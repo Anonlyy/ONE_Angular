@@ -3,6 +3,7 @@ import {GetDataService} from "../serve/get-data.service";
 import {ActivatedRoute} from "@angular/router";
 import {ReadDetail} from "../details/details.component";
 
+const defaultSrc = 'https://ws1.sinaimg.cn/large/a0b131e2gy1fl2nio8ajhj20960920sj.jpg';
 @Component({
   selector: 'app-music-details',
   templateUrl: './music-details.component.html',
@@ -15,7 +16,7 @@ export class MusicDetailsComponent implements OnInit {
     album:'',
     story_author:''
   }
-  musicDetail:ReadDetail = new ReadDetail('0','xxxx','xxx','/assets/image/default.jpg','xxx','xxx');
+  musicDetail:ReadDetail = new ReadDetail('0','xxxx','xxx',defaultSrc,'xxx','xxx');
   currentId:string = '0';
   constructor(private getDateService:GetDataService,private routerInfo:ActivatedRoute) { }
 

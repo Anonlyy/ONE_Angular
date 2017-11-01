@@ -41,6 +41,5 @@ export class HeaderComponent implements OnInit {
   }
   showMenu(){
     this.isShow = true;
-
   }
 }

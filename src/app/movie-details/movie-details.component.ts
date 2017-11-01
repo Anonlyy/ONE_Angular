@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {ActivatedRoute} from "@angular/router";
 import {GetDataService} from "../serve/get-data.service";
 
+const defaultSrc = 'https://ws1.sinaimg.cn/large/a0b131e2gy1fl2nio8ajhj20960920sj.jpg';
 @Component({
   selector: 'app-movie-details',
   templateUrl: './movie-details.component.html',
@@ -14,7 +15,7 @@ export class MovieDetailsComponent implements OnInit {
   currentId:string = '0';
   photoList = {
     subTitle:'',
-    bannerUrl:'/assets/image/default.jpg',
+    bannerUrl:defaultSrc,
   }
   constructor(private getDateService:GetDataService,private routerInfo:ActivatedRoute) { }
 

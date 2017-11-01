@@ -72,6 +72,13 @@
           margin-top: 1.2rem;
         }
       }
+      .button-overlay{
+        position: absolute;
+        right:-10rem;
+        width: 10rem;
+        top: 0;
+        bottom: 0;
+      }
     }
   }
   .header-right{
