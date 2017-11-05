@@ -41,6 +41,7 @@ tags:
 在我们日常的CSS开发中,默认浏览器渲染的时候都是 W3C 标准盒模型.
 在这种盒模型下,我们的日常开发会遇到什么问题呢？
 假设我们设定了一个div元素
+
 	.box{
         width:200px;
         height:200px;
@@ -49,6 +50,7 @@ tags:
 
 这个时候我们检查`.box`元素,没有意外,高宽都是200px.
 那接着我们继续添加CSS元素,
+
 	.box{
         width:200px;
         height:200px;
@@ -67,5 +69,6 @@ tags:
 因为在这种模型下,我们盒子的宽高度是包括`padding`和`border`的,即便我们给某个元素设置了padding或border值,也不会变动元素的宽高度,也不会撑大撑高元素。
 
 所以在日常CSS开发过程中,在设置全局css中(如bootstrap),我们都会给所有元素添加一个属性就是:
+
 	box-sizing:border-box;
 
