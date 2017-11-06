@@ -12,7 +12,7 @@ import {ImageTextDetailsComponent} from "./image-text-details/image-text-details
 const routes:Routes = [
   {
     path:'',
-    redirectTo:'imageTextDetails',
+    redirectTo:'index',
     pathMatch:'full'
   },
   {
@@ -36,7 +36,7 @@ const routes:Routes = [
     component:MovieDetailsComponent
   },
   {
-    path:'imageTextDetails',
+    path:'imageTextDetails/:id',
     component:ImageTextDetailsComponent
   }
 ];

@@ -21,7 +21,7 @@ export class ListComponent implements OnInit,OnDestroy {
   contentList = [];
   reading:IndexCategory = new IndexCategory('0','0','2017-10-26 06:00:00',defaultSrc,'VOL.1846','xxx','xxx');
   lastId:string;//存储最后一组ID,用作获取下一组数据
-  ImageTextIdList = []; //10天的ID集合
+  ImageTextIdList:any; //10天的ID集合
   indexImageText:IndexImageText = new IndexImageText('0','0','2017-10-26 06:00:00',defaultSrc,'VOL.1846','xxx');
   music:IndexCategory = new IndexCategory('0','0','2017-10-26 06:00:00',defaultSrc,'VOL.1846','xxx','xxx');
   movie:IndexCategory = new IndexCategory('0','0','2017-10-26 06:00:00',defaultSrc,'VOL.1846','xxx','xxx');
@@ -36,16 +36,16 @@ export class ListComponent implements OnInit,OnDestroy {
         _this.contentList = [];
         switch (_this.listType){
             case 0:
-
-              if(!window.sessionStorage.hasOwnProperty('ImageTextList')){
+              if(!window.sessionStorage.hasOwnProperty('ImageTextList')&&!_this.cookieService.getObject('ImageTextIdList')){
                 _this.getImageTextList();
               }
               else {
                 //noinspection TypeScriptUnresolvedVariable
                 _this.contentList = JSON.parse(window.sessionStorage.ImageTextList);
+                _this.ImageTextIdList = _this.cookieService.getObject('ImageTextIdList');
                 _this.isLoading = false;
               }
-
+              _this.linkUrl = '/imageTextDetails';
               break;
             case 1:
               _this.getReadingList();
@@ -72,7 +72,7 @@ export class ListComponent implements OnInit,OnDestroy {
       result=>{
         _this.ImageTextIdList = [];
         _this.ImageTextIdList = result.data;
-        // console.log(_this.ImageTextIdList);
+        console.log(_this.ImageTextIdList);
         if(_this.ImageTextIdList.length>0){
           _this.contentList = [];
           for(let item of _this.ImageTextIdList){
@@ -88,6 +88,7 @@ export class ListComponent implements OnInit,OnDestroy {
           }
           setTimeout(()=>{
             window.sessionStorage.setItem('ImageTextList',JSON.stringify(_this.contentList));
+            _this.cookieService.putObject('ImageTextIdList',_this.ImageTextIdList,option);
           },300);
 
         }
