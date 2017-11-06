@@ -65,7 +65,27 @@ calc()使用通用的数学运算规则，但是也提供更智能的功能：
 
 此外我们的居中方式也多了一种,通过calc()的话:
 
-![](http://images0.cnblogs.com/blog2015/731575/201507/091654487836029.png)
+	<!DOCTYPE html>
+	<html>
+	<head>
+	  <meta charset="utf-8">
+	  <meta name="viewport" content="width=device-width">
+	  <title>JS Bin</title>
+	</head>
+	  <style>
+	    #box{
+	      width: 200px;
+	      height: 200px;
+	      background-color:#eee;
+	      position:absolute;
+	      top:calc(50% - 100px);
+	      left: calc(50% - 100px);
+	    }
+	  </style>
+	<body>
+	  <div id="box"></div>
+	</body>
+	</html>
 
 
 
