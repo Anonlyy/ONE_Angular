@@ -8,10 +8,11 @@ import {ListComponent} from "./list/list.component";
 import {DetailsComponent} from "./details/details.component";
 import {MusicDetailsComponent} from "./music-details/music-details.component";
 import {MovieDetailsComponent} from "./movie-details/movie-details.component";
+import {ImageTextDetailsComponent} from "./image-text-details/image-text-details.component";
 const routes:Routes = [
   {
     path:'',
-    redirectTo:'index',
+    redirectTo:'imageTextDetails',
     pathMatch:'full'
   },
   {
@@ -33,6 +34,10 @@ const routes:Routes = [
   {
     path:'movieDetails/:id',
     component:MovieDetailsComponent
+  },
+  {
+    path:'imageTextDetails',
+    component:ImageTextDetailsComponent
   }
 ];
 

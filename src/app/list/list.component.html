@@ -1,21 +1,40 @@
 <div class="global-list" id="app-list" (scroll)="scrollBottom($event)">
   <div class="content-list" >
     <free-loading type="lineBounce" *ngIf="isLoading"></free-loading>
+
+
     <div class="content" *ngFor="let item of contentList">
-      <p class="content-tag">- {{item.category}} -</p>
+      <div class="content-body" *ngIf="listType!=0">
+        <p class="content-tag">- {{item.category}} -</p>
         <div class="content-title">
           <a class="title-link" [routerLink]="[linkUrl,item.content_id]">{{item.title}}</a>
           <p class="text-author">著/ {{item.authorName}}</p>
         </div>
-      <div [class.text-music-cover]="listType==4">
-        <img class="cover-img"  [routerLink]="[linkUrl,item.content_id]" [src]="item.picUrl">
-      </div>
+        <div [class.text-music-cover]="listType==4">
+          <img class="cover-img"  [routerLink]="[linkUrl,item.content_id]" [src]="item.picUrl">
+        </div>
         <p class="text-content-short">{{item.content}}</p>
         <p class="date">
           <i class="czs-time-l"></i>
           {{item.date}}</p>
+      </div>
+      <div class="image-content-body " *ngIf="listType==0">
+        <div class="content-header">
+          <p class="date"> {{item.date.slice(0,4)}} / {{item.date.slice(5,7)}} / {{item.date.slice(8,10)}} </p>
+          <span>{{item.volume}}</span>
+        </div>
+        <img class="cover-img"  [routerLink]="[linkUrl,item.content_id]" [src]="item.picUrl">
+        <div class="content-text">
+          <span>{{item.pic_info}}</span>
+          <p class="text-content-short">{{item.title}}</p>
+        </div>
+        <p class="content-footer">
+          —— {{item.words_info}}
+        </p>
+      </div>
     </div>
   </div>
+  <div class="tip" *ngIf="listType==0">- END -</div>
   <div class="footer-bar">
     <span class="btn-backtop" (click)="backTop()">
       <i class="czs-arrow-up-l"></i>

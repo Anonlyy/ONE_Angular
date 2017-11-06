@@ -1,7 +1,8 @@
 import {Component, OnInit, OnDestroy} from '@angular/core';
-import {IndexCategory} from "../index/index.component";
+import {IndexCategory, IndexImageText} from "../index/index.component";
 import {GetDataService} from "../serve/get-data.service";
 import {ActivatedRoute} from "@angular/router";
+import {CookieService} from "angular2-cookie/services/cookies.service";
 
 const defaultSrc = 'https://ws1.sinaimg.cn/large/a0b131e2gy1fl2nio8ajhj20960920sj.jpg';
 @Component({
@@ -12,7 +13,7 @@ const defaultSrc = 'https://ws1.sinaimg.cn/large/a0b131e2gy1fl2nio8ajhj20960920s
 export class ListComponent implements OnInit,OnDestroy {
 
 
-  constructor(private getDataService:GetDataService,private routerInfo:ActivatedRoute) { }
+  constructor(private getDataService:GetDataService,private routerInfo:ActivatedRoute,private cookieService:CookieService) { }
 
   isLoading:boolean = true;
   listType:number=-1;
@@ -20,7 +21,8 @@ export class ListComponent implements OnInit,OnDestroy {
   contentList = [];
   reading:IndexCategory = new IndexCategory('0','0','2017-10-26 06:00:00',defaultSrc,'VOL.1846','xxx','xxx');
   lastId:string;//存储最后一组ID,用作获取下一组数据
-
+  ImageTextIdList = []; //10天的ID集合
+  indexImageText:IndexImageText = new IndexImageText('0','0','2017-10-26 06:00:00',defaultSrc,'VOL.1846','xxx');
   music:IndexCategory = new IndexCategory('0','0','2017-10-26 06:00:00',defaultSrc,'VOL.1846','xxx','xxx');
   movie:IndexCategory = new IndexCategory('0','0','2017-10-26 06:00:00',defaultSrc,'VOL.1846','xxx','xxx');
   ngOnInit() {
@@ -33,6 +35,18 @@ export class ListComponent implements OnInit,OnDestroy {
         _this.isLoading = true;
         _this.contentList = [];
         switch (_this.listType){
+            case 0:
+
+              if(!window.sessionStorage.hasOwnProperty('ImageTextList')){
+                _this.getImageTextList();
+              }
+              else {
+                //noinspection TypeScriptUnresolvedVariable
+                _this.contentList = JSON.parse(window.sessionStorage.ImageTextList);
+                _this.isLoading = false;
+              }
+
+              break;
             case 1:
               _this.getReadingList();
               _this.linkUrl = '/details';
@@ -51,6 +65,39 @@ export class ListComponent implements OnInit,OnDestroy {
   }
   ngOnDestroy(): void {
     this.contentList = [];
+  }
+  getImageTextList(){
+    const _this = this;
+    _this.getDataService.getIdList().subscribe(
+      result=>{
+        _this.ImageTextIdList = [];
+        _this.ImageTextIdList = result.data;
+        // console.log(_this.ImageTextIdList);
+        if(_this.ImageTextIdList.length>0){
+          _this.contentList = [];
+          for(let item of _this.ImageTextIdList){
+            _this.getDataService.getImageTextDetail(item).subscribe(
+              result=>{
+                let data = result.data.content_list[0];
+                _this.indexImageText = new IndexImageText(data.id,data.content_id,data.post_date,data.img_url,data.volume,data.forward,data.words_info,data.title+" | "+data.pic_info);
+                _this.contentList.push(_this.indexImageText);
+              });
+          }
+          let option = {
+            expires:_this.getDataService.setCookie(24) //设置缓存有效期,小时为单位
+          }
+          setTimeout(()=>{
+            window.sessionStorage.setItem('ImageTextList',JSON.stringify(_this.contentList));
+          },300);
+
+        }
+        _this.isLoading = false;
+      },
+      error=>{
+        console.log('获取idList出错'+error);
+      });
+
+
   }
   getReadingList(id:string='0'){
     const _this = this;
@@ -110,6 +157,8 @@ export class ListComponent implements OnInit,OnDestroy {
       clearTimeout(timer);
       timer = setTimeout(function() {
         switch (_this.listType){
+          case 0:
+            return;
           case 1:
             _this.getReadingList(_this.lastId);
             break;

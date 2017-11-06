@@ -60,14 +60,16 @@ export class IndexComponent implements OnInit {
 
 }
 
-class IndexImageText{
+export class IndexImageText{
   constructor(
     public id:string,
     private content_id:string, //详情页传值id
     public date:string,  //时间
     public picUrl:string,
     public volume:string, //编号
-    public title:string  //标题语
+    public title:string,  //标题语
+    public words_info?:string, //出处
+    public pic_info?:string //图片出处
   ){}
 }
 

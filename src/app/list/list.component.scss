@@ -15,94 +15,150 @@
       text-align: center;
     }
     .content{
-      padding:.8rem 1.2rem .5rem;
       box-shadow: 0 5px 5px rgba(0,0,0,.03);
       margin-bottom: .6rem;
       background-color: white;
-      .content-tag{
-        color: rgba(0, 0, 0, 0.6);
-        line-height: 1.85em;
-        font-size: 0.875rem;
+      >.content-body{
+        padding:.8rem 1.2rem .5rem;
+        .content-tag{
+          color: rgba(0, 0, 0, 0.6);
+          line-height: 1.85em;
+          font-size: 0.875rem;
+          text-align: center;
+          margin:0;
+        }
+        .content-title{
+          margin:1rem 0;
+          .title-link{
+            color: #000;
+            font-weight: normal;
+            font-size:1.5rem;
+          }
+          .text-author{
+            font-size: 1rem;
+            padding-left: .5rem;
+            margin:.8rem 0 1rem;
+          }
+        }
+        .text-content-short{
+          margin:.8rem 0 0;
+          line-height:1.5rem;
+          font-size: .95rem;
+          color: rgba(0, 0, 0, 0.6);
+          overflow : hidden;
+          text-overflow: ellipsis;
+          display: -webkit-box;
+          -webkit-line-clamp:2;
+          -webkit-box-orient: vertical;
+        }
+        .cover-img{
+          width: 100%;
+          border-radius: .2rem;
+          max-width: 100%;
+        }
+        .date{
+          font-size: 0.75rem;
+          line-height: 1.4rem;
+          color: #808080;
+          text-align: left;
+        }
+        &:last-child{
+          margin-bottom: 0;
+        }
+        //音乐
+        .text-music-cover{
+          position: relative;
+          text-align: center;
+          height: 15.125em;
+          line-height: 15.125em;
+          z-index: 10;
+
+          &::before{
+            content: '';
+            position: absolute;
+            left:-1.5rem;
+            top: 0;
+            width: 20em;
+            height: 15.125em;
+            border-radius: 0 9.9em 10em 0;
+            z-index: -1;
+            box-shadow: 0 0 0.625em 0.125em rgba(230, 230, 230, 0.5);
+          }
+          &::after{
+            content: '';
+            position: absolute;
+            right:0;
+            width: 2rem;
+            top: 0;
+            bottom: 0;
+            background: url(http://image.wufazhuce.com/music-list-right.png) no-repeat center right 100%;
+          }
+          .cover-img{
+            width: 13.5rem;
+            height: 13.5rem;
+            z-index: 100;
+            vertical-align: middle;
+            border-radius: 50%;
+            border:1px solid #ccc;
+          }
+        }
+      }
+      >.image-content-body{
         text-align: center;
-        margin:0;
-      }
-      .content-title{
-        margin:1rem 0;
-        .title-link{
-          color: #000;
-          font-weight: normal;
-          font-size:1.5rem;
+        overflow: hidden;
+        .content-header{
+          margin-top: 1rem;
+          .date{
+            font-family: 'Courier New';
+            font-size: 1.2rem;
+            letter-spacing: .1rem;
+            color: black;
+            opacity: 0.6;
+            margin:0;
+          }
+          >span{
+            color: #555;
+            font-size: .85rem;
+            margin:.4rem 0;
+            display: block;
+          }
         }
-        .text-author{
-          font-size: 1rem;
-          padding-left: .5rem;
-          margin:.8rem 0 1rem;
+        .content-text{
+          >span{
+            display: block;
+            margin:.8rem 0 0;
+            font-size: .85rem;
+            color: #666;
+          }
+          .text-content-short{
+            text-align: left;
+            padding:1rem 2rem 0 2rem;
+            font-size: .95rem;
+            color: #999;
+            margin: 0;
+          }
         }
-      }
-      .text-content-short{
-        margin:.8rem 0 0;
-        line-height:1.5rem;
-        font-size: .95rem;
-        color: rgba(0, 0, 0, 0.6);
-        overflow : hidden;
-        text-overflow: ellipsis;
-        display: -webkit-box;
-        -webkit-line-clamp:2;
-        -webkit-box-orient: vertical;
-      }
-      .cover-img{
-        width: 100%;
-        border-radius: .2rem;
-        max-width: 100%;
-      }
-      .date{
-        font-size: 0.75rem;
-        line-height: 1.4rem;
-        color: #808080;
-        text-align: left;
+        .cover-img{
+          max-width: 100%;
+        }
+        .content-footer{
+          font-size: .8rem;
+          color: rgba(0,0,0,.7);
+        }
       }
       &:last-child{
         margin-bottom: 0;
       }
 
-      //音乐
-      .text-music-cover{
-        position: relative;
-        text-align: center;
-        height: 15.125em;
-        line-height: 15.125em;
-        z-index: 10;
-
-        &::before{
-          content: '';
-          position: absolute;
-          left:-1.5rem;
-          top: 0;
-          width: 20em;
-          height: 15.125em;
-          border-radius: 0 9.9em 10em 0;
-          z-index: -1;
-          box-shadow: 0 0 0.625em 0.125em rgba(230, 230, 230, 0.5);
-        }
-        &::after{
-          content: '';
-          position: absolute;
-          right:0;
-          width: 2rem;
-          top: 0;
-          bottom: 0;
-          background: url(http://image.wufazhuce.com/music-list-right.png) no-repeat center right 100%;
-        }
-        .cover-img{
-          width: 13.5rem;
-          height: 13.5rem;
-          z-index: 100;
-          vertical-align: middle;
-          border-radius: 50%;
-          border:1px solid #ccc;
-        }
-      }
     }
+  }
+  .tip{
+    text-align: center;
+    font-size: 1rem;
+    height: 2.5rem;
+    line-height:2.5rem;
+    color: #888;
+    background: linear-gradient(rgba(243,243,243,.1),rgba(243,243,243,1));
   }
   .footer-bar{
     position: fixed;

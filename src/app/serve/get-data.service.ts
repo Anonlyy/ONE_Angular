@@ -101,6 +101,18 @@ export class GetDataService {
       .catch(this.handleError)
   }
 
+
+  /**
+   * 设置cookie时长(小时单位)
+   * @param time
+   * @returns {Date}
+   */
+  public setCookie(time:number):Date{
+    let date = new Date();
+    date.setHours(date.getHours()+time);
+    return date;
+  }
+
   public handleSuccess(res){
     return res.json();
   }

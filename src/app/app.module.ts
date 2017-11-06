@@ -19,6 +19,8 @@ import { MusicDetailsComponent } from './music-details/music-details.component';
 import { MovieDetailsComponent } from './movie-details/movie-details.component';
 import {SidenavModule} from "freeng/component/sidenav/sidenav.component";
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
+import {CookieService} from "angular2-cookie/services/cookies.service";
+import { ImageTextDetailsComponent } from './image-text-details/image-text-details.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -29,7 +31,8 @@ import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
     ListComponent,
     DetailsComponent,
     MusicDetailsComponent,
-    MovieDetailsComponent
+    MovieDetailsComponent,
+    ImageTextDetailsComponent
   ],
   imports: [
     BrowserModule,
@@ -41,7 +44,7 @@ import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
     LoadingModule,
     SidenavModule
   ],
-  providers: [GetDataService],
+  providers: [GetDataService,CookieService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
