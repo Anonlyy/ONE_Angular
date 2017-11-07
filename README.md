@@ -29,5 +29,5 @@
 	
 	npm start
 
-
-![](https://i.imgur.com/KvKwKj8.gif)
+### 预览GIF
+![](https://ws1.sinaimg.cn/large/a0b131e2gy1fl9wpg0is1g20af0il4qu.jpg)
