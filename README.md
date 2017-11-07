@@ -1,5 +1,8 @@
 # :heart:ONE:heart: #
 :smile:基于Angular4框架的「ONE一个」应用。
+
+![](https://i.imgur.com/B5MnHm9.png)
+
 预览地址:[http://www.xposean.xin/ONE](http://www.xposean.xin/ONE "http://www.xposean.xin/ONE")
 
 ## 概述 ##
@@ -25,3 +28,6 @@
 ###	2.启动项目:running: ###
 	
 	npm start
+
+
+![](https://i.imgur.com/KvKwKj8.gif)
