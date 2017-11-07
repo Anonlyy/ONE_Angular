@@ -1,4 +1,4 @@
-:heart:# ONE #:heart:
+# :heart:ONE:heart: #
 :smile:基于Angular4框架的「ONE一个」应用。
 预览地址:[http://www.xposean.xin/ONE](http://www.xposean.xin/ONE "http://www.xposean.xin/ONE")
 
@@ -22,6 +22,6 @@
 	git clone https://github.com/Anonlyy/ONE_Angular.git
 	npm install(推荐cnpm)
 
-###	2.启动项目 ###
+###	2.启动项目:running: ###
 	
 	npm start
