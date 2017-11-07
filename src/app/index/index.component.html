@@ -1,5 +1,5 @@
 <div class="app-container">
-  <div class="app-banner" [routerLink]="['',indexImageText.content_id]" [style.height]="windowHeight+'px'">
+  <div class="app-banner" [routerLink]="['/imageTextDetails',currentId]" [style.height]="windowHeight+'px'">
     <img class="banner" [src]="indexImageText.picUrl" alt="">
     <div class="banner-inner">
       <h3 class="inner-day">{{indexImageText.date | dayPipe}}</h3>

@@ -9,7 +9,6 @@ const defaultSrc = 'https://ws1.sinaimg.cn/large/a0b131e2gy1fl2nio8ajhj20960920s
   styleUrls: ['./image-text-details.component.scss']
 })
 export class ImageTextDetailsComponent implements OnInit {
-
   constructor(private routerInfo:ActivatedRoute,private getDataService:GetDataService) { }
   indexImageText:IndexImageText = new IndexImageText('0','0','2017-10-26 06:00:00',defaultSrc,'VOL.1846','xxx');
   ngOnInit() {

@@ -1,28 +1,27 @@
-# ONE
+# ONE #
+:smile:基于Angular4框架的「ONE一个」应用。
+预览地址:[http://www.xposean.xin/ONE](http://www.xposean.xin/ONE "http://www.xposean.xin/ONE")
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.0.1.
+## 概述 ##
+本项目是[基于韩寒「ONE · 一个」4.0版本API](https://github.com/gongph/one-api)制作.
 
-## Development server
+## 功能开发 ##
+- [ ] **功能开发现状**
+    - [x] **主页**(已完成),默认显示当天的图文内容、最新的音乐、阅读、影视内容.
+    - [x] **列表页**(已完成),包括图文列表、阅读短文列表、影视列表、音乐列表。
+    - [x] **详情页**(已完成),包括图文、阅读、影视等各内容详情页.
+    - [ ] **搜索功能**(尚未完成),可根据时间或标题搜索文章.
+    - [ ] **返回功能**(尚未完成),详情页可直接点击返回按钮返回。
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+## 下载安装 ##
 
-## Code scaffolding
+> PS：请在预览安装好npm和node环境。
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|module`.
+### 1.克隆项目 ###
 
-## Build
+	git clone https://github.com/Anonlyy/ONE_Angular.git
+	npm install(推荐cnpm)
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `-prod` flag for a production build.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-Before running the tests make sure you are serving the app via `ng serve`.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+###	2.启动项目 ###
+	
+	npm start
