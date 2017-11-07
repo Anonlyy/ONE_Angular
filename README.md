@@ -30,4 +30,4 @@
 	npm start
 
 ### 预览GIF
-![](https://ws1.sinaimg.cn/large/a0b131e2gy1fl9wpg0is1g20af0il4qu.jpg)
+![](https://raw.githubusercontent.com/Anonlyy/ONE_Angular/master/src/assets/demo.gif)
