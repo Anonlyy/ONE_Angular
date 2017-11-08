@@ -4,7 +4,7 @@ import {GetDataService} from "../serve/get-data.service";
 import {ActivatedRoute} from "@angular/router";
 import {CookieService} from "angular2-cookie/services/cookies.service";
 
-const defaultSrc = 'https://ws1.sinaimg.cn/large/a0b131e2gy1fl2nio8ajhj20960920sj.jpg';
+const defaultSrc = 'https://raw.githubusercontent.com/Anonlyy/ONE_Angular/master/src/assets/image/default.jpg';
 @Component({
   selector: 'app-list',
   templateUrl: './list.component.html',
