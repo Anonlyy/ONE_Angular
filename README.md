@@ -3,7 +3,11 @@
 
 ![](https://i.imgur.com/B5MnHm9.png)
 
-预览地址:[http://www.xposean.xin/ONE](http://www.xposean.xin/ONE "http://www.xposean.xin/ONE")
+> 预览地址:
+[http://www.xposean.xin/ONE](http://www.xposean.xin/ONE "http://www.xposean.xin/ONE")
+或
+[http://Xposean.coding.me/ONE_Angular](http://Xposean.coding.me/ONE_Angular "http://Xposean.coding.me/ONE_Angular")
+
 
 ## 概述 ##
 本项目是[基于韩寒「ONE · 一个」4.0版本API](https://github.com/gongph/one-api)制作.
