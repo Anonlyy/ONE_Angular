@@ -1,5 +1,5 @@
-<div id="app">
+<div id="app" [@routerTransition]="getState(o)">
   <app-header></app-header>
-  <router-outlet></router-outlet>
+  <router-outlet #o="outlet"></router-outlet>
 </div>
 

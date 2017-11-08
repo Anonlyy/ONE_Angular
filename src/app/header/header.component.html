@@ -5,7 +5,7 @@
     </span>
     <free-sidenav [visible]="isShow" [overlay]="false" direction="left">
       <ul class="list">
-        <li class="list-item" *ngFor="let item of menuList;let i = index;" (click)="toList(i)">
+        <li class="list-item" routerLinkActive="active" [routerLink]="['/list',menuList[i].link]" *ngFor="let item of menuList;let i = index;" (click)="toList(i)">
           <span class="list-text"><i class="{{item.icon}}"></i> {{item.name}}</span>
         </li>
         <li class="list-item">

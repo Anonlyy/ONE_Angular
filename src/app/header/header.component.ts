@@ -36,7 +36,7 @@ export class HeaderComponent implements OnInit {
   }
 
   toList(i:number){
-    this.router.navigate(['/list',this.menuList[i].link]);
+    // this.router.navigate(['/list',this.menuList[i].link]);
     this.isShow = false;
   }
   showMenu(){

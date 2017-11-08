@@ -21,23 +21,28 @@ const routes:Routes = [
   },
   {
     path:'list/:type',
-    component:ListComponent
+    component:ListComponent,
+    data: { state: 'list' }
   },
   {
     path:'details/:id',
-    component:DetailsComponent
+    component:DetailsComponent,
+    data: { state: 'details' }
   },
   {
     path:'musicDetails/:id',
-    component:MusicDetailsComponent
+    component:MusicDetailsComponent,
+    data: { state: 'musicDetails' }
   },
   {
     path:'movieDetails/:id',
-    component:MovieDetailsComponent
+    component:MovieDetailsComponent,
+    data: { state: 'movieDetails' }
   },
   {
     path:'imageTextDetails/:id',
-    component:ImageTextDetailsComponent
+    component:ImageTextDetailsComponent,
+    data: { state: 'imageTextDetails' }
   }
 ];
 

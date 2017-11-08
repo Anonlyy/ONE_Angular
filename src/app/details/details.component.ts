@@ -35,6 +35,11 @@ export class DetailsComponent implements OnInit {
         console.log('获取内容出错'+error);
       })
   }
+
+  //回到顶部
+  backTop() {
+    window.scrollTo(0,0);
+  }
 }
 
 
