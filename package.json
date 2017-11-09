@@ -4,8 +4,8 @@
   "license": "MIT",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve --port 4000",
-    "build": "ng build --aot --base-href ./",
+    "start": "ng serve --port 4400",
+    "build": "ng build --aot --build-optimizer --environment=prod --base-href ./",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e"
