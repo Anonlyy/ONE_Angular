@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {GetDataService} from "../serve/get-data.service";
 
-const defaultSrc = 'https://ws1.sinaimg.cn/large/a0b131e2gy1fl2nio8ajhj20960920sj.jpg';
+const defaultSrc = 'https://raw.githubusercontent.com/Anonlyy/ONE_Angular/master/src/assets/image/default.jpg';
 @Component({
   selector: 'app-index',
   templateUrl: './index.component.html',
@@ -77,7 +77,7 @@ export class IndexImageText{
 // 主页分类数据对象
 export class IndexCategory{
   constructor(
-    private id:string,
+    public id:string,
     public content_id:string, //详情页传值id
     public category:string, //类型(阅读:1 音乐:4 影视:5)
     public picUrl:string,
