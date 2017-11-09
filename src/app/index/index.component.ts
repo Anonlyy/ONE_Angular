@@ -63,7 +63,7 @@ export class IndexComponent implements OnInit {
 export class IndexImageText{
   constructor(
     public id:string,
-    private content_id:string, //详情页传值id
+    public content_id:string, //详情页传值id
     public date:string,  //时间
     public picUrl:string,
     public volume:string, //编号
@@ -78,7 +78,7 @@ export class IndexImageText{
 export class IndexCategory{
   constructor(
     private id:string,
-    private content_id:string, //详情页传值id
+    public content_id:string, //详情页传值id
     public category:string, //类型(阅读:1 音乐:4 影视:5)
     public picUrl:string,
     public authorName:string,
