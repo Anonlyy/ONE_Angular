@@ -3,6 +3,7 @@ import {GetDataService} from "../serve/get-data.service";
 import {ActivatedRoute} from "@angular/router";
 
 const defaultSrc = 'https://raw.githubusercontent.com/Anonlyy/ONE_Angular/master/src/assets/image/default.jpg';
+
 @Component({
   selector: 'app-details',
   templateUrl: './details.component.html',

@@ -77,8 +77,8 @@ export class IndexImageText{
 // 主页分类数据对象
 export class IndexCategory{
   constructor(
-    private id:string,
-    private content_id:string, //详情页传值id
+    public id:string,
+    public content_id:string, //详情页传值id
     public category:string, //类型(阅读:1 音乐:4 影视:5)
     public picUrl:string,
     public authorName:string,
