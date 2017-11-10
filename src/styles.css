@@ -1,5 +1,4 @@
 /* You can add global styles to this file, and also import other style files */
-@import "~element-theme-default";
 @import "assets/caomei-font/style.css";
 @import "../node_modules/freeng/resources/freeng.min.css";
 @import "../node_modules/freeng/resources/themes/blue.css";
@@ -42,12 +41,6 @@ outline:none;
 background: none;
 border:none;
 box-shadow: none;
-}
-.free-sidenav .free-sidenav-wrapper{
-  box-shadow: 8px 0 12px rgba(0,0,0,.3);
-}
-.free-sidenav .free-sidenav-overlay{
-  background-color: rgba(0,0,0,0);
 }
 
 

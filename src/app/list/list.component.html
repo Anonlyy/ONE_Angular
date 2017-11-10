@@ -1,5 +1,5 @@
 <div class="global-list" id="app-list" (scroll)="scrollBottom($event)">
-  <div class="content-list" >
+  <div class="content-list">
     <free-loading type="lineBounce" *ngIf="isLoading"></free-loading>
     <div class="content" *ngFor="let item of contentList;let i = index;">
       <div class="content-body" *ngIf="listType!=0">

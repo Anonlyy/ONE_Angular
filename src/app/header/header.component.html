@@ -3,17 +3,23 @@
     <span class="button-menu clearfix" (click)="showMenu()">
       <i class="czs-menu-l"></i>
     </span>
-    <free-sidenav [visible]="isShow" [overlay]="false" direction="left">
-      <ul class="list">
-        <li class="list-item" routerLinkActive="active" [routerLink]="['/list',menuList[i].link]" *ngFor="let item of menuList;let i = index;" (click)="toList(i)">
-          <span class="list-text"><i class="{{item.icon}}"></i> {{item.name}}</span>
-        </li>
-        <li class="list-item">
-          <span class="list-text">关于我</span>
-        </li>
-      </ul>
-      <div class="button-overlay" (click)="isShow = false;"></div>
-    </free-sidenav>
+    <!--<free-sidenav [visible]="isShow" [overlay]="false" direction="left">-->
+
+    <!--</free-sidenav>-->
+  </div>
+  <div class="header-sidenav" [class.nav-show]="isShow">
+    <ul class="list">
+      <li class="list-item" [routerLink]="['/index']" (click)="toList()">
+        <span class="list-text"><i class="czs-home-l"></i> 主页</span>
+      </li>
+      <li class="list-item" routerLinkActive="active" [routerLink]="['/list',menuList[i].link]" *ngFor="let item of menuList;let i = index;" (click)="toList()">
+        <span class="list-text"><i class="{{item.icon}}"></i> {{item.name}}</span>
+      </li>
+      <li class="list-item" (click)="toAbout()" >
+        <span class="list-text">关于我</span>
+      </li>
+    </ul>
+    <div class="button-overlay" (click)="toList()"></div>
   </div>
   <div class="header-center">一个</div>
   <div class="header-right">
