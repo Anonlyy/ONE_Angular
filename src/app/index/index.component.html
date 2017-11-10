@@ -1,0 +1,51 @@
+<div class="app-container">
+  <div class="app-banner" [routerLink]="['/imageTextDetails',currentId]" [style.height]="windowHeight+'px'">
+    <img class="banner" [src]="indexImageText.picUrl" alt="">
+    <div class="banner-inner">
+      <h3 class="inner-day">{{indexImageText.date | dayPipe}}</h3>
+      <p class="inner-date">{{indexImageText.volume}} | {{indexImageText.date | datePipe}}</p>
+      <p class="inner-title">{{indexImageText.title}}</p>
+      <span class="icon">
+        <i class="czs-angle-down-l"></i>
+      </span>
+    </div>
+  </div>
+  <div class="app-body">
+    <ul class="content-list">
+      <li class="content-item">
+        <div class="item-heading">
+          <a [routerLink]="['/list',1]"> 「 {{reading.category}} 」 </a>
+        </div>
+        <div class="item-body">
+          <h3 class="title" [routerLink]="['/details',reading.content_id]">{{reading.title}}</h3>
+          <p class="artist">作者／{{reading.authorName}}</p>
+          <div class="text-content">{{reading.content}}</div>
+          <a [routerLink]="['/details',reading.content_id]" class="more-link">阅读全文 ></a>
+        </div>
+      </li>
+      <li class="content-item">
+        <div class="item-heading">
+          <a [routerLink]="['/list',4]" > 「 {{music.category}} 」 </a>
+        </div>
+        <div class="item-body">
+          <h3 class="title" [routerLink]="['/musicDetails',music.content_id]" >{{music.title}}</h3>
+          <p class="artist">作者／{{music.authorName}}</p>
+          <div class="text-content">{{music.content}}</div>
+          <a [routerLink]="['/musicDetails',music.content_id]" class="more-link">阅读全文 ></a>
+        </div>
+      </li>
+      <li class="content-item">
+        <div class="item-heading">
+          <a  [routerLink]="['/list',5]"> 「{{movie.category}}」 </a>
+        </div>
+        <div class="item-body">
+          <h3 class="title" [routerLink]="['/movieDetails',movie.content_id]">{{movie.title}}</h3>
+          <p class="artist">作者／{{movie.authorName}}</p>
+          <div class="text-content">{{movie.content}}</div>
+          <a [routerLink]="['/movieDetails',movie.content_id]" class="more-link">阅读全文 ></a>
+        </div>
+      </li>
+    </ul>
+    <p class="tip">END</p>
+  </div>
+</div>

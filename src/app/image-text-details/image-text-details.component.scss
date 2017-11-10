@@ -1,0 +1,44 @@
+@charset "utf-8";
+.content-detail{
+  padding-top:3.4rem;
+  padding-bottom: 2rem;
+  min-height: 100%;
+  .item-picture-img{
+    max-width: 100%;
+  }
+  .text-author{
+    margin:.8rem 0;
+    color: #000;
+    text-align: right;
+    font-size: .85rem;
+    padding:0 1rem;
+    >span{
+      float: left;
+    }
+  }
+  .day{
+    text-align: center;
+    margin-top:1rem;
+    margin-bottom: 0;
+    font-size: 3rem;
+    font-family: Serif;
+  }
+  .month{
+    text-align: center;
+    margin:.5rem 0 1.5rem;
+    font-size: 1rem;
+    color: #000;
+  }
+  .separate-line{
+    margin: 0 auto;
+    width: 30%;
+    border-bottom: 1px solid #eeeeee;
+  }
+  .text-content{
+    margin-top: 1rem;
+    font-size: 1.05rem;
+    color: #333;
+    line-height: 1.5rem;
+    padding:.5rem 2.5rem;
+  }
+}

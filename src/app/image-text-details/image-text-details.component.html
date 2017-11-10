@@ -1,0 +1,11 @@
+<div class="content-detail block">
+  <img class="item-picture-img" [src]="indexImageText.picUrl" alt="首页图">
+  <p class="text-author">
+    <span>{{indexImageText.volume}}</span>{{indexImageText.pic_info}}
+  </p>
+  <p class="day">{{indexImageText.date | dayPipe}}</p>
+  <p class="month">{{indexImageText.date | datePipe}}</p>
+  <div class="separate-line"></div>
+
+  <p class="text-content">{{indexImageText.title}}</p>
+</div>

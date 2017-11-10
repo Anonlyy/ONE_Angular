@@ -1,0 +1,120 @@
+.app-container{
+
+  width: 100%;
+  overflow-x: hidden;
+  .app-banner{
+    height: 100%;
+    width: 100%;
+    position: relative;
+    &::before{
+      content: '';
+      position: absolute;
+      top:3.4rem;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      z-index: 100;
+      background:linear-gradient(rgba(0,0,0,.1),rgba(0,0,0,.6));
+    }
+    .banner{
+      padding-top:3.4rem;
+      //max-width: 100%;
+      height: 100%;
+      width: 160%;
+      position: absolute;
+      z-index: -1;
+      transform: translateX(-15%);
+    }
+    .banner-inner{
+      z-index: 1001;
+      color: white;
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      padding:0 1rem;
+      .inner-day{
+        margin:0 0 .5rem 0;
+        font-weight: normal;
+        font-size: 3rem;
+        font-family: Serif;
+      }
+      .inner-date{
+        margin:0 0 .5rem 0;
+        font-size: 1.2rem;
+      }
+      .inner-title{
+        margin:0 0 1rem 0;
+        font-size: 1.1rem;
+
+        overflow : hidden;
+        text-overflow: ellipsis;
+        display: -webkit-box;
+        -webkit-line-clamp: 3;
+        -webkit-box-orient: vertical;
+      }
+      .icon{
+        display: block;
+        height:2.5rem;
+        line-height:2.5rem;
+        color: white;
+        font-size: 2rem;
+        text-align: center;
+      }
+    }
+
+  }
+  .app-body{
+    padding:1.2rem .8rem 0;
+    .content-list{
+      margin: 0;
+      width: 100%;
+      display: block;
+      padding: 0;
+      .content-item{
+        list-style:none;
+        margin-bottom:1rem;
+        padding-bottom:1rem;
+        border-bottom: 1px solid #eeeeee;
+        .item-heading{
+          a{
+            color: #29a7e2;
+            font-size: .8rem;
+          }
+        }
+        .item-body{
+          .title{
+            font-size: 1.8rem;
+            color: #000;
+            font-weight: bold;
+            margin:.8rem 0 1rem;
+            overflow : hidden;
+            text-overflow: ellipsis;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+          }
+          .artist{
+            padding-left:1rem;
+            color: #555;
+          }
+          .text-content{
+            font-size: 1rem;
+            color: #333;
+            line-height: 1.5rem;
+            margin-bottom: .8rem;
+            overflow : hidden;
+            text-overflow: ellipsis;
+            display: -webkit-box;
+            -webkit-line-clamp: 3;
+            -webkit-box-orient: vertical;
+          }
+        }
+      }
+    }
+    .tip{
+      text-align: right;
+      color: #999;
+    }
+  }
+}
