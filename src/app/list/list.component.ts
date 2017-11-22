@@ -96,9 +96,6 @@ export class ListComponent implements OnInit,OnDestroy {
           _this.indexImageText = new IndexImageText(data.id, data.content_id, data.post_date, data.img_url, data.volume, data.forward, data.words_info, data.title + " | " + data.pic_info);
           _this.contentList.push(_this.indexImageText);
         });
-
-
-
     }
     let option = {
       expires: _this.getDataService.setCookie(24) //设置缓存有效期,小时为单位
@@ -154,7 +151,6 @@ export class ListComponent implements OnInit,OnDestroy {
         _this.lastId = _this.contentList[_this.contentList.length - 1].id;
       })
   }
-
   //回到顶部
   backTop() {
     document.getElementById('app-list').scrollTop = 0;

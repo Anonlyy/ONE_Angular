@@ -13,6 +13,10 @@
 ## 概述 ##
 本项目是[基于韩寒「ONE · 一个」4.0版本API](https://github.com/gongph/one-api)制作.
 
+> 技术栈: Angular4+angular-cli+FreeNg+ElementUI-Angular+ngrx
+
+本项目还有[vue2.0版本](https://github.com/Anonlyy/ONE_Vue)
+
 ## 功能开发 ##
 - [ ] **功能开发现状**
     - [x] **主页**(已完成),默认显示当天的图文内容、最新的音乐、阅读、影视内容.
