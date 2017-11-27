@@ -93,7 +93,7 @@ export class ListComponent implements OnInit,OnDestroy {
       _this.getDataService.getImageTextDetail(item).subscribe(
         result=> {
           let data = result.data.content_list[0];
-          _this.indexImageText = new IndexImageText(data.id, data.content_id, data.post_date, data.img_url, data.volume, data.forward, data.words_info, data.title + " | " + data.pic_info);
+          _this.indexImageText = new IndexImageText(data.id,item, data.post_date, data.img_url, data.volume, data.forward, data.words_info, data.title + " | " + data.pic_info);
           _this.contentList.push(_this.indexImageText);
         });
     }

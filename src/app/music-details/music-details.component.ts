@@ -15,6 +15,10 @@ export class MusicDetailsComponent implements OnInit {
     title:'',
     album:'',
     story_author:''
+  };
+  commentType = {
+    type:'music',
+    id:0
   }
   musicDetail:ReadDetail = new ReadDetail('0','xxxx','xxx',defaultSrc,'xxx','xxx');
   currentId:string = '0';
@@ -26,6 +30,7 @@ export class MusicDetailsComponent implements OnInit {
       result=>{
         let data:any = result;
         _this.currentId = data.id;
+        _this.commentType.id = data.id;
         _this.getMusicDetails(_this.currentId);
       }
     )

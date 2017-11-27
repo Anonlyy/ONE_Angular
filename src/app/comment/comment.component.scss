@@ -1,0 +1,61 @@
+@charset "utf-8";
+.comment{
+  padding:0 1rem;
+  margin: 0 0 .8rem 0;
+  position: relative;
+  .comment-title{
+    font-size: 1rem;
+    .page-sparate-title{
+      height: 3rem;
+      line-height: 3rem;
+      position: relative;
+      &::before{
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        height: 3px;
+        width: 100px;
+        background-color: black;
+      }
+    }
+  }
+  .comment-content-list{
+    .comment-list{
+      list-style:none;
+      padding:0;
+      margin: 0;
+      .comment-item{
+        margin:.7rem 0 0;
+        .comment-content{
+          border-bottom: 1px solid #eeeeee;
+        }
+        .comment-header{
+          height:2.2rem;
+          line-height:2.2rem;
+          position: relative;
+          .avatar{
+            width:1.2rem;
+            height:1.2rem;
+            vertical-align: middle;
+            margin-right: .2rem;
+          }
+          .user-name{
+            font-size: .85rem;
+            font-weight:normal;
+          }
+          .date{
+            margin: 0;
+            float: right;
+            font-size: .8rem;
+          }
+        }
+        .comment-text{
+          margin:1rem;
+          font-size: 1rem;
+          font-weight:normal;
+        }
+      }
+    }
+  }
+}

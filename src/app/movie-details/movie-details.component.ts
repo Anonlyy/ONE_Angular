@@ -9,13 +9,15 @@ const defaultSrc = 'https://raw.githubusercontent.com/Anonlyy/ONE_Angular/master
   styleUrls: ['./movie-details.component.scss']
 })
 export class MovieDetailsComponent implements OnInit {
-
-
   movieDetail:MovieDetail = new MovieDetail('0','xxxx','xxx','xxx','xxx','xxx');
   currentId:string = '0';
   photoList = {
     subTitle:'',
     bannerUrl:defaultSrc,
+  };
+  commentType = {
+    type:'movie',
+    id:0
   }
   constructor(private getDateService:GetDataService,private routerInfo:ActivatedRoute) { }
 
@@ -25,6 +27,7 @@ export class MovieDetailsComponent implements OnInit {
       result=>{
         let data:any = result;
         _this.currentId = data.id;
+        _this.commentType.id = data.id;
         _this.getMovieDetails(_this.currentId);
         _this.getPhotoList(_this.currentId);
       }

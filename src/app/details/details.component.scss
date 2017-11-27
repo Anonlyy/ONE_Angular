@@ -52,6 +52,10 @@
         line-height: 2.5rem;
         margin:0 0 .8rem 0;
         position: relative;
+        >i{
+          display: inline-block;
+          margin-right:.3rem;
+        }
         &::after{
           content: '';
           position: absolute;

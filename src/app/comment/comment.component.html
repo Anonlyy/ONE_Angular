@@ -1,0 +1,26 @@
+<div class="comment">
+  <div class="comment-title">
+    <p class="page-sparate-title">
+      <i class="czs-comment-l"></i>
+      评论内容
+    </p>
+  </div>
+  <div class="comment-content-list">
+    <ul class="comment-list">
+      <li class="comment-item" *ngFor="let item of commentList;let i = index;">
+        <div class="comment-content" *ngIf="isAll ? i<5 : true">
+          <div class="comment-header">
+            <img [src]="item.avatar" alt="" class="avatar">
+            <span class="user-name">{{item.user_name}}</span>
+            <p class="date">{{item.date}}</p>
+          </div>
+          <div class="comment-text">
+            {{item.content}}
+          </div>
+        </div>
+
+      </li>
+    </ul>
+    <button fButton block theme="success"  size="big" (click)="isAll = false;" *ngIf="isAll&&commentList.length>5">加载更多</button>
+  </div>
+</div>

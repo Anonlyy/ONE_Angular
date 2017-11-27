@@ -13,12 +13,17 @@ export class DetailsComponent implements OnInit {
 
   constructor(private getDataService:GetDataService,private routerInfo:ActivatedRoute) { }
   storyDetail:ReadDetail = new ReadDetail('0','xxxx','xxx',defaultSrc,'xxx','xxx');
+  commentType = {
+    type:'essay',
+    id:0
+  }
   ngOnInit() {
-    this.routerInfo.params.subscribe(
+    const _this = this;
+    _this.routerInfo.params.subscribe(
       result=>{
         let data:any = result;
-        console.log(data.id);
-        this.getReadingDetails(data.id);
+        _this.commentType.id = data.id;
+        _this.getReadingDetails(data.id);
       }
     )
   }

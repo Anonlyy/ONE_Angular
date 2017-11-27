@@ -11,7 +11,7 @@
     </div>
 
     <div class="content-author">
-      <h4 class="author-title">作者</h4>
+      <h4 class="author-title"><i class="czs-user-l"></i>作者</h4>
       <div class="author-content">
         <img [src]="storyDetail.authorImgurl" alt="">
         <div class="author">
@@ -21,7 +21,7 @@
       </div>
     </div>
   </div>
-  <div class="content-comment"></div>
+  <comment [commentType]="commentType"></comment>
   <div class="footer-bar">
     <span class="btn-backtop" (click)="backTop()">
       <i class="czs-arrow-up-l"></i>

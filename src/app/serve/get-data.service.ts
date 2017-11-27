@@ -95,13 +95,24 @@ export class GetDataService {
       .catch(this.handleError)
   }
 
+
   public getMovieDetailsByPhoto(id):Observable<any>{
     return this.http.get(`http://v3.wufazhuce.com:8000/api/movie/detail/${id}`)
       .map(this.handleSuccess)
       .catch(this.handleError)
   }
 
-
+  /**
+   * 获取评论详情
+   * @param type
+   * @param id
+   * @returns {*}
+   */
+  public getCommentDetails(type:string,id:string):Observable<any>{
+    return this.http.get(`http://v3.wufazhuce.com:8000/api/comment/praiseandtime/${type}/${id}/0`)
+      .map(this.handleSuccess)
+      .catch(this.handleError)
+  }
   /**
    * 设置cookie时长(小时单位)
    * @param time
@@ -112,6 +123,7 @@ export class GetDataService {
     date.setHours(date.getHours()+time);
     return date;
   }
+
 
   public handleSuccess(res){
     return res.json();
